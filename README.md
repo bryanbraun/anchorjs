@@ -5,7 +5,7 @@ AnchorJS
 
 A tiny javscript utility for adding anchor links to page content.
 
-The default anchor looks like a link icon, appended to the an element, and made visible on hover. [See the demo for an example.](http://bryanbraun.github.io/anchorjs/).
+The default anchor looks like a link icon appended to an element and made visible on hover. [See the demo for an example.](http://bryanbraun.github.io/anchorjs/). This pattern is found most often in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
 
 Including AnchorJS
 ------------------
@@ -44,7 +44,7 @@ AnchorJS provides the `addAnchors()` method for adding anchors to the page. This
 
 Compatibility
 -------------
-Currently Supports: IE9+
+Currently Supports: IE9+ and modern browsers
 
 
 License
