@@ -29,7 +29,7 @@ a.anchor-link {
   opacity: 0;
   text-decoration: none;
 }
-*:hover > a.anchor-link {
+*:hover > a.anchor-link, a.anchor-link:focus {
   opacity: 1;
   -webkit-transition: all .16s ease-in;
   -moz-transition: all .16s ease-in;
