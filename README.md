@@ -3,9 +3,15 @@ AnchorJS
 
 <img alt="AnchorJS logo" src="http://bryanbraun.com/sites/default/files/anchorjs_logo.png" />
 
-A tiny javscript utility for adding anchor links to page content.
+A tiny javscript utility for adding anchoring links to existing page content. What's an [anchoring link](http://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)? Here are some examples from around the web:
 
-The default anchor looks like a link icon appended to an element and made visible on hover. [See the demo for an example](http://bryanbraun.github.io/anchorjs/). This pattern is found most often in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
+<img alt="Anchoring links" src="http://bryanbraun.com/sites/default/files/anchoring-links_0.png" />
+
+By default, AnchorJS displays a link icon appended to an element which is made visible on hover.
+
+**[See the demo for an example](http://bryanbraun.github.io/anchorjs/).**
+
+Anchoring links are useful for linking to specific places in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
 
 Including AnchorJS
 ------------------
