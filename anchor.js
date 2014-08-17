@@ -1,3 +1,8 @@
+/*!
+ * AnchorJS - v0.1.0 - 2014-08-17
+ * https://github.com/bryanbraun/anchorjs
+ * Copyright (c) 2014 Bryan Braun; Licensed MIT
+ */
 function addAnchors(selector) {
   // Sensible default selector, if none is provided.
   selector = selector || 'h1, h2, h3, h4, h5, h6';

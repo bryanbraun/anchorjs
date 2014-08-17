@@ -3,7 +3,7 @@ AnchorJS
 
 <img alt="AnchorJS logo" src="http://bryanbraun.com/sites/default/files/anchorjs_logo.png" />
 
-A tiny javscript utility for adding anchoring links to existing page content. What's an [anchoring link](http://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)? Here are some examples from around the web:
+A tiny javscript utility for adding deep anchor links ([like these](http://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)) to existing page content.
 
 <img alt="Anchoring links" src="http://bryanbraun.com/sites/default/files/anchoring-links_0.png" />
 
@@ -11,7 +11,7 @@ By default, AnchorJS displays a link icon appended to an element which is made v
 
 **[See the demo for an example](http://bryanbraun.github.io/anchorjs/).**
 
-Anchoring links are useful for linking to specific places in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
+Deep links are useful for linking to specific places in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
 
 Including AnchorJS
 ------------------
@@ -31,10 +31,10 @@ AnchorJS provides the `addAnchors()` method for adding anchors to the page. This
 
     /**
      * Example 1
-     * Add anchors to all h1's on the page 
+     * Add anchors to all h1's on the page
      */
     addAnchors('h1');
-    
+
     /**
      * Example 2
      * Adds anchors to elements containing the class '.anchored'

@@ -29,12 +29,13 @@ a.anchor-link {
   opacity: 0;
   text-decoration: none;
 }
-*:hover > a.anchor-link, a.anchor-link:focus {
+*:hover > a.anchor-link, .anchor-link:focus  {
+  /* To fade links as they appear, change transition-property from "color" to "all" */
   opacity: 1;
-  -webkit-transition: all .16s ease-in;
-  -moz-transition: all .16s ease-in;
-  -o-transition: all .16s ease-in;
-  transition: all .16s ease-in;
+  -webkit-transition: color .16s linear;
+  -moz-transition: color .16s linear;
+  -o-transition: color .16s linear;
+  transition: color .16s linear;
 }
 .icon-link:before {
   content: "\e600";
