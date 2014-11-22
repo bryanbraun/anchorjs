@@ -27,7 +27,7 @@ Alternatively, you can provide your own styling.
 
 Using AnchorJS
 ------------------
-AnchorJS provides the `addAnchors()` method for adding anchors to the page. This method accepts a selector as a parameter in the form of a string. The selector can be used to target specific elements that you want to add anchors to.Here's an example.
+AnchorJS provides the `addAnchors()` method for adding anchors to the page. This method accepts a selector as a parameter in the form of a string. The selector can be used to target specific elements that you want to add anchors to. Here's an example.
 
     /**
      * Example 1
@@ -47,6 +47,19 @@ AnchorJS provides the `addAnchors()` method for adding anchors to the page. This
      * which adds anchors to all headings.
      */
     addAnchors();
+
+You can now specify a parent element and only the child elements of this will be effected.
+
+This may be handy in restricting AnchorJS to only altering a part of your site - For example, you may only want 'h1' and 'h2' in your main content to be effected. For example:
+
+    /**
+      * Example 4
+      * If you only wanted to target 'h1' & 'h2' elements inside the element with id '#post'
+      * /
+      addAnchors('h1,h2','#post')
+
+      * Or as before, if you want to target the defaults...
+      addAnchors('','#post')
 
 Compatibility
 -------------
