@@ -1,14 +1,17 @@
 /*!
- * AnchorJS - v0.1.0 - 2014-08-17
- * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2014 Bryan Braun; Licensed MIT
- */
-function addAnchors(selector) {
+* AnchorJS - v0.1.0 - 2014-08-17
+* https://github.com/bryanbraun/anchorjs
+* Copyright (c) 2014 Bryan Braun; Licensed MIT
+*/
+function addAnchors(selector, containername) {
   // Sensible default selector, if none is provided.
   selector = selector || 'h1, h2, h3, h4, h5, h6';
-  
+
+  // If containername option passed, then we find this element and only effect the child elements, apply to all elements in document.
+  containerelement = document.querySelector(containername) || document
+
   // Select any elements that match the provided selector.
-  var elements = document.querySelectorAll(selector);
+  var elements = containerelement.querySelectorAll(selector);
 
   // Loop through the selected elements.
   for (var i = 0; i < elements.length; i++) {
