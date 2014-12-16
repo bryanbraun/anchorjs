@@ -3,7 +3,7 @@ AnchorJS
 
 <img alt="AnchorJS logo" src="http://bryanbraun.com/sites/default/files/anchorjs_logo.png" />
 
-A tiny javscript utility for adding deep anchor links ([like these](http://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)) to existing page content.
+A tiny javascript utility for adding deep anchor links ([like these](http://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)) to existing page content.
 
 <img alt="Anchoring links" src="http://bryanbraun.com/sites/default/files/anchoring-links_0.png" />
 
@@ -37,12 +37,18 @@ AnchorJS provides the `addAnchors()` method for adding anchors to the page. This
 
     /**
      * Example 2
-     * Adds anchors to elements containing the class '.anchored'
+     * Adds anchors to elements that have been assigned the class '.anchored'
      */
     addAnchors('.anchored');
 
     /**
      * Example 3
+     * Adds anchors to all h1, h2, & h3's inside a container with an ID of '#post'
+     */
+    addAnchors('#post h1, #post h2, #post h3');
+
+    /**
+     * Example 4
      * If no selector is provided, it falls back to a default selector of 'h1, h2, h3, h4, h5, h6'
      * which adds anchors to all headings.
      */
