@@ -1,4 +1,4 @@
-# AnchorJS
+# AnchorJS [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
 
 ![AnchorJS logo](http://bryanbraun.com/sites/default/files/anchorjs_logo.png)
 
