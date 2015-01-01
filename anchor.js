@@ -24,7 +24,7 @@ function addAnchors(selector) {
     if (elements[i].hasAttribute('id')) {
       elementID = elements[i].getAttribute('id');
     } else {
-      // We need to create an id on our element. First, we find which text selection method is available to the browser.
+      // We need to create an ID on our element. First, we find which text selection method is available to the browser.
       var textMethod = document.body.textContent ? 'textContent' : 'innerText';
 
       // Get the text inside our element
@@ -43,6 +43,6 @@ function addAnchors(selector) {
     }
     var anchor = '<a class="anchor-link" href="#' + elementID + '"><span class="icon-link"></span></a>';
 
-    elements[i].innerHTML = elements[i].innerHTML + anchor;
+    elements[i].innerHTML += anchor;
   }
 }
