@@ -41,7 +41,7 @@ function addAnchors(selector) {
       // Grab it for use in our anchor.
       elementID = tidyText;
     }
-    var anchor = '<a class="anchor-link" href="#' + elementID + '"><span class="icon-link"></span></a>';
+    var anchor = '<a class="anchorjs-link" href="#' + elementID + '"><span class="anchorjs-icon"></span></a>';
 
     elements[i].innerHTML += anchor;
   }
