@@ -28,7 +28,7 @@ For the default anchor link styling (demonstrated in the [demo](http://bryanbrau
 Alternatively, you can provide your own styling.
 
 ## Using AnchorJS
-AnchorJS provides the `addAnchors()` method for adding anchors to the page. This method accepts a selector as a parameter in the form of a string. The selector can be used to target specific elements that you want to add anchors to.Here's an example.
+AnchorJS provides the `addAnchors()` method for adding anchors to the page. This method accepts a selector as a parameter in the form of a string. The selector can be used to target specific elements that you want to add anchors to. Here's an example.
 
 ```js
 /**
