@@ -38,9 +38,6 @@
   -o-transition: color .16s linear;
   transition: color .16s linear;
 }
-.anchorjs-icon:before {
-  content: '\e600';
-}
 
 /**
  * Reasonable default styles.
@@ -54,4 +51,15 @@
 .anchorjs-icon {
   font-size: 90%;
   padding-left: 6px;
+}
+
+.anchorjs-icon:before {
+  content: '\e600';
+  /* alternative icons -- uncomment to use */
+  /*
+  content: '#';
+  content: '¶';
+  content: '❡';
+  content: '§';
+  */
 }
