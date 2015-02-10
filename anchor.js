@@ -30,9 +30,13 @@ function addAnchors(selector) {
       // Get the text inside our element
       var roughText = elements[i][textMethod];
 
-      // Refine it so it makes a good ID. Makes all lowercase and hyphen separated.
-      // Ex. Hello World > hello-world
-      var tidyText = roughText.replace(/\s+/g, '-').toLowerCase();
+      // Refine it so it makes a good ID. Strip out non-safe characters, replace
+      // spaces with hyphens, make lowercase, and truncate to 32 characters.
+      // Ex. Hello World --> hello-world
+      var tidyText = roughText.replace(/[^\w\s-]/gi, '')
+                              .replace(/\s+/g, '-')
+                              .toLowerCase()
+                              .substring(0, 32);
 
       // Assign it to our element.
       // Currently the setAttribute element is only supported in IE9 and above.
