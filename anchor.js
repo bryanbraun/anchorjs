@@ -1,7 +1,7 @@
 /*!
- * AnchorJS - v0.1.0 - 2014-08-17
+ * AnchorJS - v0.3.0 - 2015-02-10
  * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2014 Bryan Braun; Licensed MIT
+ * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
 
 function addAnchors(selector) {
