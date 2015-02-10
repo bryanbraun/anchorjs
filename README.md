@@ -12,6 +12,16 @@ By default, AnchorJS displays a link icon appended to an element which is made v
 
 Deep links are useful for linking to specific places in online books and documentation (like, for example, this README file when rendered on the Github project page--hover over headings to see what I mean).
 
+## Installation
+
+Download AnchorJS via npm:
+
+    npm install anchor-js
+
+or alternatively via bower:
+
+    bower install anchor-js --save-dev
+
 ## Including AnchorJS
 Include the anchor.js file (or alternatively anchor.min.js) in your webpage.
 
