@@ -1,13 +1,14 @@
 {
-  "name": "anchor-js",
+  "name": "ikwinto/anchor-js",
   "version": "0.3.1",
   "authors": [
-    "Bryan Braun"
+    "Bryan Braun",
+    "Alexander Vasilyev"
   ],
   "description": "A JavaScript utility for adding deep anchor links to page content.",
   "main": "anchor.js",
   "license": "MIT",
-  "homepage": "https://github.com/bryanbraun/anchorjs",
+  "homepage": "https://github.com/iKwinto/anchorjs",
   "ignore": [
     "**/.*",
     "node_modules",
