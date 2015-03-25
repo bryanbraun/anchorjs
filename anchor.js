@@ -49,6 +49,11 @@ function addAnchors(selector) {
                               .toLowerCase()
                               .substring(0, 32);
 
+      // Trim of trailing and multiple hyphens (for non-safe characters headers)
+      // Ex. "Заголовок, содержащий 29 не-ASCII символов" --> "-29--ascii-" --> "29-ascii"
+      tidyText = tidyText.replace(/^-+|-+$/gm, '')
+                         .replace(/-{2,}/g, '-');
+
       // Compare our generated ID to existing IDs (and increment it if needed)
       // before we add it to the page.
       var index,
