@@ -1,6 +1,6 @@
 {
   "name": "anchor-js",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "author": "bryanbraun (https://github.com/bryanbraun)",
   "description": "A tiny javscript utility for adding anchor links to existing page content.",
   "homepage": "https://github.com/bryanbraun/anchorjs",
@@ -18,8 +18,8 @@
     "test": "npm run lint"
   },
   "devDependencies": {
-    "eslint": "~0.15.1",
-    "jshint": "~2.6.3",
+    "eslint": "~0.19.0",
+    "jshint": "~2.7.0",
     "uglify-js": "~2.4.16"
   },
   "engines": {
