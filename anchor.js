@@ -1,5 +1,5 @@
 /*!
- * AnchorJS - v0.3.1 - 2015-03-06
+ * AnchorJS - v0.4.0 - 2015-04-20
  * https://github.com/bryanbraun/anchorjs
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
@@ -42,17 +42,15 @@ function addAnchors(selector) {
       var roughText = elements[i][textMethod];
 
       // Refine it so it makes a good ID. Strip out non-safe characters, replace
-      // spaces with hyphens, make lowercase, and truncate to 32 characters.
-      // Ex. Hello World --> hello-world
-      var tidyText = roughText.replace(/[^\w\s-]/gi, '')
-                              .replace(/\s+/g, '-')
-                              .toLowerCase()
-                              .substring(0, 32);
-
-      // Trim of trailing and multiple hyphens (for non-safe characters headers)
-      // Ex. "Заголовок, содержащий 29 не-ASCII символов" --> "-29--ascii-" --> "29-ascii"
-      tidyText = tidyText.replace(/^-+|-+$/gm, '')
-                         .replace(/-{2,}/g, '-');
+      // spaces with hyphens, truncate to 32 characters, and make toLowerCase.
+      //
+      // Example string:                                 // "⚡⚡⚡ Unicode icons are cool--but don't belong in a URL."
+      var tidyText = roughText.replace(/[^\w\s-]/gi, '') // " Unicode icons are cool--but dont belong in a URL"
+                              .replace(/\s+/g, '-')      // "-Unicode-icons-are-cool--but-dont-belong-in-a-URL"
+                              .replace(/-{2,}/g, '-')    // "-Unicode-icons-are-cool-but-dont-belong-in-a-URL"
+                              .substring(0, 32)          // "-Unicode-icons-are-cool-but-dont"
+                              .replace(/^-+|-+$/gm, '')  // "Unicode-icons-are-cool-but-dont"
+                              .toLowerCase();            // "unicode-icons-are-cool-but-dont"
 
       // Compare our generated ID to existing IDs (and increment it if needed)
       // before we add it to the page.
