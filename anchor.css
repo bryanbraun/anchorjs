@@ -22,57 +22,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/**
- * Link placement and hover behavior.
- */
-.anchorjs-link {
-  opacity: 0;
-  text-decoration: none;
-}
-*:hover > .anchorjs-link,
-.anchorjs-link:focus  {
-  /* To fade links as they appear, change transition-property from 'color' to 'all' */
-  opacity: 1;
-  -webkit-transition: color .16s linear;
-  -moz-transition: color .16s linear;
-  -o-transition: color .16s linear;
-  transition: color .16s linear;
-}
-/**
- * Make screen-reader friendly description text visually hidden.
- */
-.anchorjs-description {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-/**
- * Reasonable default styles.
- * Feel free to override or replace these with your own.
- */
 .anchorjs-link:link    { color: #DFD487; }
 .anchorjs-link:visited { color: #DFD487; }
 .anchorjs-link:hover   { color: #EC7963; }
 .anchorjs-link:active  { color: #EC7963; }
 
 .anchorjs-icon {
-  font-size: 90%;
-  padding-left: 6px;
+  font-size: 80%;
+  padding: 6px;
+  /*visibility: hidden; /* Hide the default icon */
 }
 
 .anchorjs-icon:before {
   content: '\e600';
-  /* alternative icons -- uncomment to use */
-  /*
-  content: '#';
-  content: '¶';
-  content: '❡';
-  content: '§';
-  */
+  /*visibility: visible; /* Override the default icon with ours */
 }
