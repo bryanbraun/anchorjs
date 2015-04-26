@@ -32,7 +32,7 @@
         "no-mixed-requires": 2,
         "no-mixed-spaces-and-tabs": 2,
         "no-multiple-empty-lines": 2,
-        "no-multi-spaces": 2,
+        "no-multi-spaces": 0,
         "no-negated-in-lhs": 2,
         "no-new-object": 2,
         "no-path-concat": 2,
@@ -44,7 +44,7 @@
         "no-space-before-semi": 2,
         "no-spaced-func": 2,
         "no-trailing-spaces": 2,
-        "no-underscore-dangle": 2,
+        "no-underscore-dangle": 0,
         "no-unused-vars": 0, // we should find a way to only exclude addAnchors and enable this
         "no-void": 2,
         "operator-assignment": [2, "always"],
