@@ -28,7 +28,7 @@ function AnchorJS(options) {
         roughText,
         tidyText,
         index,
-        count = 0,
+        count,
         newTidyText,
         readableID,
         anchor,
@@ -78,6 +78,7 @@ function AnchorJS(options) {
         // Compare our generated ID to existing IDs (and increment it if needed)
         // before we add it to the page.
         newTidyText = tidyText;
+        count = 0;
         do {
           if (index !== undefined) {
             newTidyText = tidyText + '-' + count;
