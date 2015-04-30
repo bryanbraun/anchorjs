@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AnchorJS Example</title>
+  <link rel="stylesheet" href="anchor.css">
+  <style>
+    .main {
+      font-family: Georgia, serif;
+      font-size: 1.4em;
+      margin: 80px auto;
+      width: 600px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .page-title {
+      font-size: 2em;
+      text-align: center;
+    }
+    .anchorjs-logo {
+      background-image: url(data:image/png;base64,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);
+      background-position: center center;
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <section class="main">
+    <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <h1 class="page-title">AnchorJS</h1>
+    <div class="anchorjs-logo"></div>
+    <p class="intro"><strong>Hover over each heading to see the anchor link produced by AnchorJS.</strong></p>
+    <div class="content">
+      <h1 id="test-id-1">H1 with ID</h1>
+      <p>
+        If the element being selected has an ID, AnchorJS will create anchors that link to that ID. For example, because the h1 above has an id of <code>test-id-1</code>, AnchorJS creates an anchor link with an href of <code>href="#test-id-1"</code>. Anchor links will always use relative paths.
+      </p>
+
+      <h1>H1 without ID</h1>
+      <p>
+        If an element has no ID for anchoring to, AnchorJS will create an ID based on the element's content and add it to the tag. For example, this h1 was originally defined as <code>&lt;h1&gt;H1 without ID&lt;/h1&gt;</code>. After running AnchorJS, the element looks like this<code>&lt;h1 id="h1-without-id"&gt;H1 without ID&lt;/h1&gt;</code> (not including the appended anchor). This allows you to provide anchors, even if you don't have control over the original markup being used.
+      </p>
+
+      <hr />
+
+      <h1>Examples of anchor links at different sizes</h1>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor.</p>
+      <h2>Heading 2</h2>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+      <h3>Heading 3</h3>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+      <h4>Heading 4</h4>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+      <h4 id="test">Test</h4>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+      <h4>Test</h4>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+      <h4>Test</h4>
+      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+
+    </div>
+  </section>
+  <script src="anchor.js"></script>
+  <script>
+    var selector = '.content h1, .content h2, .content h3, .content h4';
+    addAnchors(selector);
+  </script>
+</body>
+</html>
