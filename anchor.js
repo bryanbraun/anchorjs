@@ -1,5 +1,5 @@
 /*!
- * AnchorJS - v0.4.0 - 2015-04-20
+ * AnchorJS - v1.0.0 - 2015-04-30
  * https://github.com/bryanbraun/anchorjs
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
