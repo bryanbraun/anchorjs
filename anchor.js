@@ -4,7 +4,6 @@
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
 
-
 function AnchorJS(options) {
   'use strict';
 
@@ -138,7 +137,9 @@ function AnchorJS(options) {
         elements = document.querySelectorAll(selector);
     for (var i = 0; i < elements.length; i++) {
       domAnchor = elements[i].querySelector('.anchorjs-link');
-      elements[i].removeChild(domAnchor);
+      if (domAnchor) {
+        elements[i].removeChild(domAnchor);
+      }
     }
     return this;
   };
@@ -186,7 +187,7 @@ function AnchorJS(options) {
         ' }',
         firstStyleEl;
 
-    style.className = 'anchorjs'; // I should check on the cross-browser compatibility of this.
+    style.className = 'anchorjs';
     style.appendChild(document.createTextNode('')); // Necessary for Webkit.
 
     // We place it in the head with the other style tags, if possible, so as to
