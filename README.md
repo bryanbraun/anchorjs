@@ -1,4 +1,4 @@
-# AnchorJS [![Build Status](https://img.shields.io/travis/bryanbraun/anchorjs/gh-pages.svg?style=flat)](https://travis-ci.org/bryanbraun/anchorjs) [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
+# AnchorJS [![Build Status](https://img.shields.io/travis/bryanbraun/anchorjs/master.svg?style=flat)](https://travis-ci.org/bryanbraun/anchorjs) [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
 
 ![AnchorJS logo](http://bryanbraun.com/sites/default/files/anchorjs_logo.png)
 
