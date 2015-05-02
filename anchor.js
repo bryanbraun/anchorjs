@@ -116,7 +116,6 @@ function AnchorJS(options) {
         anchorNodes[0].style.fontStyle = 'normal';
         anchorNodes[0].style.fontVariant = 'normal';
         anchorNodes[0].style.fontWeight = 'normal';
-        anchorNodes[0].style.lineHeight = '1';
         anchorNodes[0].style.speak = 'none';
       }
 
@@ -209,4 +208,3 @@ function AnchorJS(options) {
 }
 
 var anchors = new AnchorJS();
-
