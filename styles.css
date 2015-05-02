@@ -1,0 +1,121 @@
+div,
+article,
+section,
+main,
+footer,
+header,
+form,
+fieldset,
+pre,
+code,
+p,
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="password"] {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+
+
+
+
+.main {
+  line-height: 1.4em;
+  margin: 80px auto;
+  max-width: 720px;
+}
+
+.page-title {
+  margin-top: 1.5em;
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+}
+
+.examples {
+  max-width: 720px;
+  margin: 0 auto;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: left;
+  justify-content: left;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: flex-end;
+  align-content: flex-end;
+}
+
+.example {
+  max-width: 354px;
+  min-height: 160px;
+  border: 1px solid #ccc;
+  margin: 0 12px 12px 0;
+  padding: 1em 0 0 3.5em;
+  overflow: hidden;
+  position: relative;
+}
+.example-code-link {
+  width: 16px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: Courier monospace;
+  color: #888;
+  text-decoration: none;
+}
+
+.example-code-link:hover:after {
+  left: -50px;
+  opacity: 1;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+
+.example-code-link:after {
+  content: "SOURCE";
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  display: block;
+  position: absolute;
+  text-transform: uppercase;
+  top: 7px;
+  left: -45px;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+}
+
+
+.example-tray {
+
+}
+
+.example > p {
+  width: 310px;
+}
+
+.example:nth-of-type(2n) {
+  margin-right: 0;
+}
