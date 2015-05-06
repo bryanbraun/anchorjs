@@ -5,6 +5,8 @@
   <title>AnchorJS Example</title>
   <link rel="stylesheet" href="anchor.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts/fonts.css">
+
 </head>
 <body>
   <header>
@@ -12,7 +14,7 @@
     <img class="logo" src="img/anchorjs_logo.png" />
   </header>
   <section class="main">
-    <h1 id="examples">Examples</h1>
+    <h1 id="examples" class="title">Examples</h1>
     <div class="examples">
       <div class="example">
         <h2>Example 1</h2>
@@ -41,6 +43,49 @@
       </div>
       <div class="example">
         <h2>Example 6</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 7</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 8</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 9</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 10</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 11</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 12</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+    </div>
+    <h1 id="hover-examples" class="title">Hover Examples</h1>
+    <div class="hover-examples">
+      <div class="example">
+        <h2>Example 13</h2>
+        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+        <a href="#" class="example-code-link">{}</a>
+      </div>
+      <div class="example">
+        <h2>Example 14</h2>
         <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
         <a href="#" class="example-code-link">{}</a>
       </div>
@@ -86,8 +131,44 @@
     });
     ex6.add('.example:nth-child(6) p');
 
+    var ex7 = new AnchorJS({
+      icon: '# LINK',
+      visible: 'always'
+    });
+    ex7.add('.example:nth-child(7) h2');
 
-    // #, ¶, ❡, and §.
+    var ex8 = new AnchorJS({
+      icon: ' ',
+      visible: 'always',
+      placement: 'left'
+    });
+    ex8.add('.example:nth-child(8) h2');
+
+    var ex9 = new AnchorJS({
+      visible: 'always',
+      placement: 'left'
+    });
+    ex9.add('.example:nth-child(9) h2');
+
+    var ex10 = new AnchorJS({
+      visible: 'always',
+      class: 'ajs-10',
+      icon: '&#xe600'
+    });
+    ex10.add('.example:nth-child(10) h2');
+
+    var ex11 = new AnchorJS({
+      visible: 'always',
+      icon: ' '
+    });
+    ex11.add('.example:nth-child(11) h2');
+
+    var ex12 = new AnchorJS({
+      visible: 'always',
+      placement: 'left',
+      icon: ' '
+    });
+    ex12.add('.example:nth-child(12) h2');
   </script>
 </body>
 </html>
