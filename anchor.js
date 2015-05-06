@@ -120,7 +120,7 @@ function AnchorJS(options) {
       }
 
       if (this.options.placement === 'left') {
-        anchorNodes[0].style.float = 'left';
+        anchorNodes[0].style.position = 'absolute';
         anchorNodes[0].style.marginLeft = '-1.25em';
         elements[i].insertBefore(anchorNodes[0], elements[i].firstChild);
       } else { // if the option provided is `right` (or anything else).
