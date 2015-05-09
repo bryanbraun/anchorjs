@@ -140,7 +140,8 @@ pre > code {
   text-decoration: none;
 }
 
-.example-code-link:hover:after {
+.example-code-link:hover:after,
+.example-code-link:focus:after {
   left: -50px;
   opacity: 1;
   -webkit-transition: all 0.25s ease-in;
