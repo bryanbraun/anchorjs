@@ -32,6 +32,49 @@ h2 {
   font-size: 1.8em;
 }
 
+/*//// Code Snippet Styles  ////*/
+
+code,
+samp,
+kbd {
+  background-color: #292929;
+  color: #f7f7f7;
+  font-family: "Inconsolata", "Menlo", "Consolas", monospace;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  text-align: left;
+}
+
+pre {
+  background-color: #292929;
+  color: #f7f7f7;
+  font-family: "Inconsolata", "Menlo", "Consolas", monospace;
+  font-size: 0.9em;
+  line-height: 1.2em;
+  margin: 0;
+  overflow: auto;
+  padding: 0.75em 0.5em 0.75em 2.75em;
+}
+
+/* Override 'code' css rules if using 'pre > code' markup. */
+pre > code {
+  font-size: 1em;
+  padding: 0px;
+}
+
+/* for IE7 and IE6 */
+*:first-child+html pre {
+  overflow: visible;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2em;
+}
+
+* html pre {
+  overflow: visible;
+  overflow-x: auto;
+  padding-bottom: 2em;
+}
 
 /*//// Page Styles ////*/
 
@@ -62,8 +105,6 @@ h2 {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
-  -webkit-align-items: center;
-  align-items: center;
   -webkit-justify-content: center;
   justify-content: center;
   -webkit-flex-wrap: wrap;
@@ -75,12 +116,20 @@ h2 {
 .example {
   max-width: 354px;
   min-height: 160px;
-  border: 1px solid #ccc;
   margin: 0 12px 12px 0;
+}
+.example-label {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  color: #aaa;
+}
+.example-content {
+  border: 1px solid #ccc;
   padding: 0 0 0 3.5em;
   overflow: hidden;
   position: relative;
 }
+
 .example-code-link {
   width: 16px;
   position: absolute;
@@ -113,11 +162,40 @@ h2 {
   transition: all 0.25s ease-in;
 }
 
-.example-tray {
-
+.example-code {
+  display: none;
 }
 
-.example > p {
+.css {
+  border-top: 1px solid #666;
+}
+
+.css,
+.js {
+  position: relative;
+}
+
+.css::before,
+.js::before {
+  left: 0;
+  top: 0;
+  padding: 1px 4px;
+  color: white;
+  background: #FF5231;
+  position: absolute;
+  font-size: 11px;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.css::before {
+  content: 'css';
+}
+.js::before {
+  content: 'js';
+}
+
+.example-content > p {
   width: 310px;
 }
 
@@ -131,19 +209,19 @@ h2 {
 }
 
 /*///// Styles within Examples /////*/
-.example:nth-child(4) .anchorjs-link {
+.examples .example:nth-child(4) .anchorjs-link {
   padding-left: 6px;
 }
 
-.example:nth-child(5) .anchorjs-link {
+.examples .example:nth-child(5) .anchorjs-link {
   padding-left: 6px;
 }
 
-.example:nth-child(6) .anchorjs-icon::before {
+.examples .example:nth-child(6) .anchorjs-icon::after {
   padding-left: 6px;
 }
 
-.example:nth-child(7) .anchorjs-link {
+.examples .example:nth-child(7) .anchorjs-link {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 200;
   margin: 0 0 0 10px;
@@ -153,7 +231,7 @@ h2 {
   vertical-align: middle;
 }
 
-.example:nth-child(8) .anchorjs-link {
+.examples .example:nth-child(8) .anchorjs-link {
   width: 32px;
   height: 32px;
   margin: 6px 0 0 0;
@@ -162,15 +240,15 @@ h2 {
   background-repeat: no-repeat;
 }
 
-.example:nth-child(9) .anchorjs-icon:before {
+.examples .example:nth-child(9) .anchorjs-icon:after {
   margin: -4px 0px 0px -2px;
   display: block;
 }
-.example:nth-child(9) .anchorjs-link:link {
+.examples .example:nth-child(9) .anchorjs-link:link {
   color: white;
   margin-left: -1.4em !important;
 }
-.example:nth-child(9) .anchorjs-icon {
+.examples .example:nth-child(9) .anchorjs-icon {
   background-color: #FF5231;
   height: 32px;
   width: 32px;
@@ -179,13 +257,12 @@ h2 {
   margin: 4px 0 0 0;
 }
 
-.example:nth-child(10) .anchorjs-link {
+.examples .example:nth-child(10) .anchorjs-link {
   padding-left: 8px;
   vertical-align: text-bottom;
 }
 
-
-.example:nth-child(11) .anchorjs-link {
+.examples .example:nth-child(11) .anchorjs-link {
   display: inline-block;
   background: url('img/hyperlink.svg') no-repeat;
   margin-left: 8px;
@@ -193,9 +270,85 @@ h2 {
   height: 24px;
 }
 
-.example:nth-child(12) .anchorjs-link {
+.examples .example:nth-child(12) .anchorjs-link {
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
   margin-top: 15px;
   height: 10px;
   width: 20px;
+}
+
+/* Hover Examples */
+
+.hover-examples .example:nth-child(2) *:hover > .anchorjs-link,
+.hover-examples .example:nth-child(2) .anchorjs-link:focus  {
+  transition: color .25s linear;
+}
+.hover-examples .example:nth-child(2) .anchorjs-link:hover {
+  color: #2500AD;
+}
+
+.hover-examples .example:nth-child(3) .anchorjs-link {
+  margin-left: -1.1em !important;
+  transition: all .25s linear;
+}
+.hover-examples .example:nth-child(3) *:hover > .anchorjs-link,
+.hover-examples .example:nth-child(3) .anchorjs-link:focus  {
+  margin-left: -1.25em !important;
+  transition: all .25s linear;
+}
+
+
+.hover-examples .example:nth-child(4) h2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.hover-examples .example:nth-child(4) .anchorjs-link {
+  background: #FF5231;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+  position: relative;
+  top: 4px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: -6%;
+  padding-right: 6%;
+  padding-left: 42px;
+  height: 36px;
+  line-height: 38px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.hover-examples .example:nth-child(4) .anchorjs-icon::before {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 0;
+  border: 18px solid #fdfdfd;
+  border-right-color: #FF5231;
+  content: '';
+  transition: all 0.5s ease;
+}
+.hover-examples .example:nth-child(4) *:hover > .anchorjs-link,
+.hover-examples .example:nth-child(4) .anchorjs-link:focus {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+}
+.hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover,
+.hover-examples .example:nth-child(4) .anchorjs-link:focus {
+  background: #FF806A;
+}
+.hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover .anchorjs-icon:before,
+.hover-examples .example:nth-child(4) .anchorjs-link:focus {
+  border-right-color: #FF806A;
 }

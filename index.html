@@ -17,158 +17,449 @@
     <h1 id="examples" class="title">Examples</h1>
     <div class="examples">
       <div class="example">
-        <h2>Example 1</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Basic Link</div>
+        <div class="example-content">
+          <h2>Example 1</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options.visible = 'always';
+anchors.add('h2');</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 2</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Basic Link - Left</div>
+        <div class="example-content">
+          <h2>Example 2</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left'
+};
+anchors.add('h2');</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 3</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Paragraph Link</div>
+        <div class="example-content">
+          <h2>Example 3</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left',
+  icon: '¶'
+};
+anchors.add('p');</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 4</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label"># Link</div>
+        <div class="example-content">
+          <h2>Example 4</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  icon: '#'
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  padding-left: 6px;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 5</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Unicode Icon 1</div>
+        <div class="example-content">
+          <h2>Example 5</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left',
+  icon: '§'
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  padding-left: 6px;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 6</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Unicode Icon 2</div>
+        <div class="example-content">
+          <h2>Example 6</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  icon: '❡'
+};
+anchors.add('p');</code></pre>
+          <pre class="css"><code>.anchorjs-icon::before {
+  padding-left: 6px;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 7</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Custom Text Link</div>
+        <div class="example-content">
+          <h2>Example 7</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  icon: '# LINK'
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  margin: 0 0 0 10px;
+  padding: 0 8px;
+  font-size: 11px;
+  border: 1px dashed #FFBAAC;
+  vertical-align: middle;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 8</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Custom Background Image</div>
+        <div class="example-content">
+          <h2>Example 8</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>// Use an empty string ('') for the icon when styling the background with CSS.
+anchors.options = {
+  visible: 'always',
+  placement: 'left',
+  icon: ''
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  width: 32px;
+  height: 32px;
+  margin: 6px 0 0 0;
+  background-image: url('img/anchorjs_logo.png');
+  background-size: 27px 32px;
+  background-repeat: no-repeat;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 9</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Icon w/custom Styling</div>
+        <div class="example-content">
+          <h2>Example 9</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left'
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-icon:before {
+  margin: -4px 0px 0px -2px;
+  display: block;
+}
+.anchorjs-link:link {
+  color: white;
+  margin-left: -1.4em !important;
+}
+.anchorjs-icon {
+  background-color: #FF5231;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 4px 0 0 0;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 10</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Custom Icon Font</div>
+        <div class="example-content">
+          <h2>Example 10</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>// Just pass in the html entity for your icon-font character.
+anchors.options = {
+  visible: 'always',
+  icon: '&amp;#xe600'
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  font-family: 'your-icon-font';
+  padding-left: 8px;
+  vertical-align: text-bottom;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 11</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">SVG Icon</div>
+        <div class="example-content">
+          <h2>Example 11</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  icon: ''
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  display: inline-block;
+  background: url('img/hyperlink.svg') no-repeat;
+  margin-left: 8px;
+  width: 24px;
+  height: 24px;
+}</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 12</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Base64 Icon</div>
+        <div class="example-content">
+          <h2>Example 12</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left',
+  icon: ''
+};
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
+  margin-top: 15px;
+  height: 10px;
+  width: 20px;
+}</code></pre>
+        </div>
       </div>
     </div>
     <h1 id="hover-examples" class="title">Hover Examples</h1>
     <div class="hover-examples">
       <div class="example">
-        <h2>Example 13</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Basic Hover</div>
+        <div class="example-content">
+          <h2>Example 1</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.add('h2');</code></pre>
+        </div>
       </div>
       <div class="example">
-        <h2>Example 14</h2>
-        <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-        <a href="#" class="example-code-link">{}</a>
+        <div class="example-label">Link Color Transition</div>
+        <div class="example-content">
+          <h2>Example 2</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link:hover {
+  color: #2500AD;
+}
+*:hover > .anchorjs-link {
+  transition: color .25s linear;
+}</code></pre>
+        </div>
       </div>
+      <div class="example">
+        <div class="example-label">Shift Out</div>
+        <div class="example-content">
+          <h2>Example 3</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options.placement = 'left';
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  margin-left: -1.1em !important;
+  transition: all .25s linear;
+}
+*:hover > .anchorjs-link {
+  margin-left: -1.25em !important;
+  transition: all .25s linear;
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">Arrow</div>
+        <div class="example-content">
+          <h2>Example 4</h2>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options.icon = '# LINK';
+anchors.add('h2');</code></pre>
+          <pre class="css"><code>/* Based on http://codepen.io/corysimmons/pen/NPBXbe */
+/* Vendor prefixes not included */
+.anchorjs-link {
+  position: relative;
+  top: 4px;
+  height: 36px;
+  flex: 1;
+  background: #FF5231;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+  margin-right: -6%;
+  padding-right: 6%;
+  padding-left: 42px;
+  line-height: 38px;
+  transition: all 0.5s ease;
+  transform: translateX(100%);
+}
+.anchorjs-icon::before {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 0;
+  height: 0;
+  content: '';
+  border: 18px solid #fdfdfd; /* Background color */
+  border-right-color: #FF5231;
+  transition: all 0.5s ease;
+}
+h2 {
+  display: flex;
+}
+h2:hover .anchorjs-link {
+  transform: translateX(0);
+}
+h2:hover .anchorjs-link:hover {
+  background: #FF806A;
+}
+h2:hover .anchorjs-link:hover .anchorjs-icon:before {
+  border-right-color: #FF806A;
+}</code></pre>
+        </div>
+      </div>
+
     </div>
     <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
   </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="anchor.js"></script>
+  <script src="scripts.js"></script>
   <script>
     anchors.add('.main > h1');
 
     var ex1 = new AnchorJS({ visible: 'always' });
-    ex1.add('.example:nth-child(1) h2');
+    ex1.add('.examples .example:nth-child(1) h2');
 
     var ex2 = new AnchorJS({
       placement: 'left',
       visible: 'always'
     });
-    ex2.add('.example:nth-child(2) h2');
+    ex2.add('.examples .example:nth-child(2) h2');
 
     var ex3 = new AnchorJS({
       icon: '¶',
       visible: 'always',
       placement: 'left'
     });
-    ex3.add('.example:nth-child(3) p');
+    ex3.add('.examples .example:nth-child(3) p');
 
     var ex4 = new AnchorJS({
       icon: '#',
       visible: 'always'
     });
-    ex4.add('.example:nth-child(4) h2');
+    ex4.add('.examples .example:nth-child(4) h2');
 
     var ex5 = new AnchorJS({
       icon: '§',
       visible: 'always',
       placement: 'left'
     });
-    ex5.add('.example:nth-child(5) h2');
+    ex5.add('.examples .example:nth-child(5) h2');
 
     var ex6 = new AnchorJS({
       icon: '❡',
       visible: 'always'
     });
-    ex6.add('.example:nth-child(6) p');
+    ex6.add('.examples .example:nth-child(6) p');
 
     var ex7 = new AnchorJS({
       icon: '# LINK',
       visible: 'always'
     });
-    ex7.add('.example:nth-child(7) h2');
+    ex7.add('.examples .example:nth-child(7) h2');
 
     var ex8 = new AnchorJS({
-      icon: ' ',
+      icon: '',
       visible: 'always',
       placement: 'left'
     });
-    ex8.add('.example:nth-child(8) h2');
+    ex8.add('.examples .example:nth-child(8) h2');
 
     var ex9 = new AnchorJS({
       visible: 'always',
       placement: 'left'
     });
-    ex9.add('.example:nth-child(9) h2');
+    ex9.add('.examples .example:nth-child(9) h2');
 
     var ex10 = new AnchorJS({
       visible: 'always',
       class: 'ajs-10',
       icon: '&#xe600'
     });
-    ex10.add('.example:nth-child(10) h2');
+    ex10.add('.examples .example:nth-child(10) h2');
 
     var ex11 = new AnchorJS({
       visible: 'always',
-      icon: ' '
+      icon: ''
     });
-    ex11.add('.example:nth-child(11) h2');
+    ex11.add('.examples .example:nth-child(11) h2');
 
     var ex12 = new AnchorJS({
       visible: 'always',
       placement: 'left',
-      icon: ' '
+      icon: ''
     });
-    ex12.add('.example:nth-child(12) h2');
+    ex12.add('.examples .example:nth-child(12) h2');
+
+    var hovEx1 = new AnchorJS();
+    hovEx1.add('.hover-examples .example:nth-child(1) h2');
+
+    var hovEx2 = new AnchorJS();
+    hovEx2.add('.hover-examples .example:nth-child(2) h2');
+
+    var hovEx3 = new AnchorJS({ placement: 'left' });
+    hovEx3.add('.hover-examples .example:nth-child(3) h2');
+
+    var hovEx4 = new AnchorJS({ icon: '# LINK' });
+    hovEx4.add('.hover-examples .example:nth-child(4) h2');
   </script>
 </body>
 </html>
