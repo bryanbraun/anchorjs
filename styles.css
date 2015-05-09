@@ -218,7 +218,7 @@ pre > code {
   padding-left: 6px;
 }
 
-.examples .example:nth-child(6) .anchorjs-icon::after {
+.examples .example:nth-child(6) .anchorjs-link::after {
   padding-left: 6px;
 }
 
@@ -241,21 +241,20 @@ pre > code {
   background-repeat: no-repeat;
 }
 
-.examples .example:nth-child(9) .anchorjs-icon:after {
+.examples .example:nth-child(9) .anchorjs-link:after {
   margin: -4px 0px 0px -2px;
   display: block;
 }
-.examples .example:nth-child(9) .anchorjs-link:link {
-  color: white;
-  margin-left: -1.4em !important;
-}
-.examples .example:nth-child(9) .anchorjs-icon {
+
+.examples .example:nth-child(9) .anchorjs-link {
   background-color: #FF5231;
   height: 32px;
   width: 32px;
   border-radius: 50%;
   display: inline-block;
-  margin: 4px 0 0 0;
+  color: white;
+  margin-top: 4px;
+  margin-left: -1.4em !important;
 }
 
 .examples .example:nth-child(10) .anchorjs-link {
@@ -328,7 +327,7 @@ pre > code {
       -ms-transform: translateX(100%);
           transform: translateX(100%);
 }
-.hover-examples .example:nth-child(4) .anchorjs-icon::before {
+.hover-examples .example:nth-child(4) .anchorjs-link::before {
   position: absolute;
   left: 0;
   display: block;
@@ -349,7 +348,7 @@ pre > code {
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
   background: #FF806A;
 }
-.hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover .anchorjs-icon:before,
+.hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover::before,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
   border-right-color: #FF806A;
 }

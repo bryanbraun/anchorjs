@@ -109,7 +109,7 @@ anchors.add('h2');</code></pre>
   icon: '❡'
 };
 anchors.add('p');</code></pre>
-          <pre class="css"><code>.anchorjs-icon::before {
+          <pre class="css"><code>.anchorjs-link::after {
   padding-left: 6px;
 }</code></pre>
         </div>
@@ -164,7 +164,7 @@ anchors.add('h2');</code></pre>
         </div>
       </div>
       <div class="example">
-        <div class="example-label">Icon w/custom Styling</div>
+        <div class="example-label">Icon w/Custom Styling</div>
         <div class="example-content">
           <h2>Example 9</h2>
           <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
@@ -176,21 +176,19 @@ anchors.add('h2');</code></pre>
   placement: 'left'
 };
 anchors.add('h2');</code></pre>
-          <pre class="css"><code>.anchorjs-icon:before {
-  margin: -4px 0px 0px -2px;
-  display: block;
-}
-.anchorjs-link:link {
-  color: white;
-  margin-left: -1.4em !important;
-}
-.anchorjs-icon {
-  background-color: #FF5231;
+          <pre class="css"><code>.anchorjs-link {
+  display: inline-block;
   height: 32px;
   width: 32px;
   border-radius: 50%;
-  display: inline-block;
-  margin: 4px 0 0 0;
+  background-color: #FF5231;
+  color: white;
+  margin-top: 4px;
+  margin-left: -1.4em !important;
+}
+.anchorjs-link:before {
+  margin: -4px 0px 0px -2px;
+  display: block;
 }</code></pre>
         </div>
       </div>
@@ -340,7 +338,7 @@ anchors.add('h2');</code></pre>
   transition: all 0.5s ease;
   transform: translateX(100%);
 }
-.anchorjs-icon::before {
+.anchorjs-link::before {
   position: absolute;
   display: block;
   left: 0;
@@ -360,7 +358,7 @@ h2:hover .anchorjs-link {
 h2:hover .anchorjs-link:hover {
   background: #FF806A;
 }
-h2:hover .anchorjs-link:hover .anchorjs-icon:before {
+h2:hover .anchorjs-link:hover::before {
   border-right-color: #FF806A;
 }</code></pre>
         </div>
