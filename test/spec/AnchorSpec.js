@@ -30,7 +30,7 @@ describe("AnchorJS", function() {
     anchorLink = document.getElementsByTagName('h1')[0].lastChild;
     hasClass = anchorLink.classList.contains('anchorjs-link');
     opacity = anchorLink.style.opacity;
-    icon = document.querySelector('.anchorjs-icon').getAttribute('data-anchorjs-icon');
+    icon = document.querySelector('.anchorjs-link').getAttribute('data-anchorjs-icon');
 
     expect(hasClass).toBe(true);
     expect(opacity).not.toEqual('1');
@@ -188,7 +188,7 @@ describe("AnchorJS", function() {
     var icon;
     anchors.options.icon = '¶';
     anchors.add('h1');
-    icon = document.querySelector('.anchorjs-icon').getAttribute('data-anchorjs-icon');
+    icon = document.querySelector('.anchorjs-link').getAttribute('data-anchorjs-icon');
     expect(icon).toEqual('¶');
   });
 
@@ -197,7 +197,7 @@ describe("AnchorJS", function() {
     anchors.options.placement = 'left';
     anchors.add('h1');
     anchorNode = document.getElementsByTagName('h1')[0].firstChild;
-    expect(anchorNode.style.float).toEqual('left');
+    expect(anchorNode.style.position).toEqual('absolute');
     expect(anchorNode.style.marginLeft).toEqual('-1.25em');
   });
 

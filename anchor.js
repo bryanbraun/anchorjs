@@ -10,7 +10,7 @@ function AnchorJS(options) {
   this.options = options || {};
 
   this._applyRemainingDefaultOptions = function(opts) {
-    this.options.icon = this.options.hasOwnProperty('icon') ? opts.icon : '&#xe9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
+    this.options.icon = this.options.hasOwnProperty('icon') ? opts.icon : '&#xe9cb'; // Accepts characters like  '#', '¶', '❡', and '§'.
     this.options.visible = this.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
     this.options.placement = this.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
     this.options.class = this.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
@@ -89,19 +89,14 @@ function AnchorJS(options) {
         index = undefined;
         idList.push(newTidyText);
 
-        // Assign it to our element.
-        // Currently the setAttribute element is only supported in IE9 and above.
+        // Set the ID.
         elements[i].setAttribute('id', newTidyText);
-
         elementID = newTidyText;
       }
 
       readableID = elementID.replace(/-/g, ' ');
 
-      anchor = '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '">' +
-                 '<span class="anchorjs-description">Anchor link for: ' + readableID + '</span>' +
-                 '<span class="anchorjs-icon" aria-hidden="true" data-anchorjs-icon="' + this.options.icon + '"></span>' +
-               '</a>';
+      anchor = '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor link for: ' + readableID + '" data-anchorjs-icon="' + this.options.icon + '"></a>';
 
       div = document.createElement('div');
       div.innerHTML = anchor;
@@ -116,11 +111,10 @@ function AnchorJS(options) {
         anchorNodes[0].style.fontStyle = 'normal';
         anchorNodes[0].style.fontVariant = 'normal';
         anchorNodes[0].style.fontWeight = 'normal';
-        anchorNodes[0].style.speak = 'none';
       }
 
       if (this.options.placement === 'left') {
-        anchorNodes[0].style.float = 'left';
+        anchorNodes[0].style.position = 'absolute';
         anchorNodes[0].style.marginLeft = '-1.25em';
         elements[i].insertBefore(anchorNodes[0], elements[i].firstChild);
       } else { // if the option provided is `right` (or anything else).
@@ -162,17 +156,6 @@ function AnchorJS(options) {
         ' .anchorjs-link:focus  {'                +
         '   opacity: 1;'                          +
         ' }',
-        screenreaderRule =
-        ' .anchorjs-description {'                +
-        '   border: 0;'                           +
-        '   clip: rect(0 0 0 0);'                 +
-        '   height: 1px;'                         +
-        '   margin: -1px;'                        +
-        '   overflow: hidden;'                    +
-        '   padding: 0;'                          +
-        '   position: absolute;'                  +
-        '   width: 1px;'                          +
-        ' }',
         anchorjsLinkFontFace =
         ' @font-face {'                           +
         '   font-family: "anchorjs-icons";'       +
@@ -181,7 +164,7 @@ function AnchorJS(options) {
         '   src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBvUAAAC8AAAAYGNtYXAWitPtAAABHAAAAExnYXNwAAAAEAAAAWgAAAAIZ2x5Zutcv3cAAAFwAAABOGhlYWQFlHU0AAACqAAAADZoaGVhB3QExgAAAuAAAAAkaG10eAcAAUYAAAMEAAAAFGxvY2EAKACwAAADGAAAAAxtYXhwAAgAVwAAAyQAAAAgbmFtZVcZpu4AAANEAAABRXBvc3QAAwAAAAAEjAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpywPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADgAAAAKAAgAAgACAAEAIOnL//3//wAAAAAAIOnL//3//wAB/+MWOQADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAgFGACsDsgL/ACsAVAAAASImJyY0PwE+ATMyFhcWFA8BBiInJjQ/ATY0Jy4BIyIGDwEGFBcWFAcOASMDIiYnJjQ/ATYyFxYUDwEGFBceATMyNj8BNjQnJjQ3NjIXFhQPAQ4BIwJIBw4FNDSLGUAkI0AZNDQ/Cx8LCws/Hh4OJRQVJQ6LHh4LCwYOB4UkQBk0ND8LIAsLC0AeHg4lFRQlDoseHgsLCyALMzOLGUEjATsGBTSTM4sZGxsZM5M0PwsLCx8LQB1UHg4QEA6LHlQdCyALBQb+8BsZM5M0PwsLCx8LQB1UHg4QEA6LHlQdCyALCws0kzOLGRsAAAAAAQAAAAEAAEWYnzxfDzz1AAsEAAAAAADRYhicAAAAANFiGJwAAAAAA7IC/wAAAAgAAgAAAAAAAAABAAADwP/AAAAFAAAAAAADsgABAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAIAAAAFAAFGAAAAAAAKABQAHgCcAAEAAAAFAFUAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAOAAAAAQAAAAAAAgAOAEcAAQAAAAAAAwAOACQAAQAAAAAABAAOAFUAAQAAAAAABQAWAA4AAQAAAAAABgAHADIAAQAAAAAACgA0AGMAAwABBAkAAQAOAAAAAwABBAkAAgAOAEcAAwABBAkAAwAOACQAAwABBAkABAAOAFUAAwABBAkABQAWAA4AAwABBAkABgAOADkAAwABBAkACgA0AGMAaQBjAG8AbQBvAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AbgBSAGUAZwB1AGwAYQByAGkAYwBvAG0AbwBvAG4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype");' +
         ' }',
         pseudoElContent =
-        ' [data-anchorjs-icon]:before {'          +
+        ' [data-anchorjs-icon]::after {'          +
         '   content: attr(data-anchorjs-icon);'   +
         ' }',
         firstStyleEl;
@@ -201,7 +184,6 @@ function AnchorJS(options) {
 
     style.sheet.insertRule(linkRule, style.sheet.cssRules.length);
     style.sheet.insertRule(hoverRule, style.sheet.cssRules.length);
-    style.sheet.insertRule(screenreaderRule, style.sheet.cssRules.length);
     style.sheet.insertRule(pseudoElContent, style.sheet.cssRules.length);
     style.sheet.insertRule(anchorjsLinkFontFace, style.sheet.cssRules.length);
   };
