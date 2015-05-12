@@ -20,16 +20,37 @@ input[type="password"] {
 }
 
 body {
-  font-family: Georgia, serif;
-  background-color: #fdfdfd;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: rgb(162, 255, 224);
   color: #333;
+  margin: 0 1.5em;
 }
 
 h1 {
   font-size: 2.2em;
 }
 h2 {
+  font-size: 2.0em;
+}
+h3 {
   font-size: 1.8em;
+}
+
+table {
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0px 0px 10px -4px #666;
+  border: 1px solid white;
+}
+
+table td,
+table th {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+img {
+  max-width: 100%;
 }
 
 /*//// Code Snippet Styles  ////*/
@@ -43,6 +64,7 @@ kbd {
   font-size: 0.9em;
   padding: 2px 6px;
   text-align: left;
+  border-radius: 3px;
 }
 
 pre {
@@ -53,7 +75,14 @@ pre {
   line-height: 1.2em;
   margin: 0;
   overflow: auto;
-  padding: 0.75em 0.5em 0.75em 2.75em;
+  padding: 1em;
+  border-radius: 3px;
+}
+
+.examples pre,
+.hover-examples pre {
+  padding-left: 2.75em;
+  border-radius: 0;
 }
 
 /* Override 'code' css rules if using 'pre > code' markup. */
@@ -77,18 +106,13 @@ pre > code {
 }
 
 /*//// Page Styles ////*/
-
-.main {
-  line-height: 1.4;
-  margin: 80px auto;
+.header {
   max-width: 720px;
+  margin: 0 auto;
+  padding-top: 1.5em;
 }
 
 .page-title {
-  margin-top: 1.5em;
-  text-align: center;
-}
-.title {
   text-align: center;
 }
 
@@ -96,6 +120,88 @@ pre > code {
   display: block;
   margin: 0 auto;
 }
+
+
+.desc {
+  padding: 1em 0;
+  text-align: center;
+}
+.desc p {
+  font-size: 30px;
+  margin-bottom: 0.5em;
+}
+
+.button {
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 10px -4px #666;
+  color: #333;
+  background-color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.featurelist {
+  display: block;
+  text-align: center;
+  -webkit-padding-start: 0;
+  padding: 0;
+  margin-bottom: 3em;
+}
+.featurelist li {
+  display: inline;
+  margin-left: 2em;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.featurelist li:before {
+    content: '\2022';
+    margin-right: 2em;
+}
+.featurelist li:first-child {
+  margin: 0;
+}
+.featurelist li:first-child:before {
+  display: none;
+  margin: 0;
+}
+
+.main {
+  line-height: 1.4;
+  margin: 0 auto;
+  max-width: 720px;
+}
+.used-by {
+  text-align: center;
+  position: relative;
+  padding: 1.5em 0;
+}
+.used-by-label {
+  font-size: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+.used-by img {
+  border-radius: 8px;
+  opacity: 1;
+  margin: 0 35px;
+}
+
+.anchorlink-examples {
+  float: right;
+  margin: 0 0 1em 1em;
+  box-shadow: 0px 0px 10px -3px #666;
+}
+
+.options-table {
+  width: 100%;
+  margin: 1em 0;
+}
+/*///////////// Examples /////////////*/
 
 .examples,
 .hover-examples {
@@ -114,20 +220,21 @@ pre > code {
 }
 
 .example {
-  max-width: 354px;
+  max-width: 350px;
   min-height: 160px;
-  margin: 0 12px 12px 0;
+  margin: 5px;
 }
 .example-label {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  color: #aaa;
+  font-size: 12px;
+  color: #777;
+  display: none;
 }
 .example-content {
-  border: 1px solid #ccc;
   padding: 0 0 0 3.5em;
   overflow: hidden;
   position: relative;
+  background: #fff;
+  box-shadow: 0px 0px 10px -3px #666;
 }
 
 .example-code-link {
@@ -200,16 +307,15 @@ pre > code {
   width: 310px;
 }
 
-.example:nth-of-type(2n) {
-  margin-right: 0;
-}
-
-.anchorjs-link:link,
-.anchorjs-link:visited {
+.anchorjs-link {
   color: #FF5231;
 }
 
 /*///// Styles within Examples /////*/
+.examples .example:nth-child(3) .anchorjs-link {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 .examples .example:nth-child(4) .anchorjs-link {
   padding-left: 6px;
 }
@@ -235,10 +341,8 @@ pre > code {
 .examples .example:nth-child(8) .anchorjs-link {
   width: 32px;
   height: 32px;
-  margin: 6px 0 0 0;
-  background-image: url('img/anchorjs_logo.png');
-  background-size: 27px 32px;
-  background-repeat: no-repeat;
+  margin-top: 6px;
+  background: url('img/mini-logo.png') no-repeat;
 }
 
 .examples .example:nth-child(9) .anchorjs-link:after {
@@ -259,7 +363,7 @@ pre > code {
 
 .examples .example:nth-child(10) .anchorjs-link {
   padding-left: 8px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 
 .examples .example:nth-child(11) .anchorjs-link {
@@ -275,6 +379,18 @@ pre > code {
   margin-top: 15px;
   height: 10px;
   width: 20px;
+}
+
+.examples .example:nth-child(13) .anchorjs-link {
+  border-color: #FF5231 #FF5231 transparent;
+  border-width: 15px 7px 6px;
+  border-style: solid;
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+.examples .example:nth-child(14) .anchorjs-link {
+  margin-left: -1.8em !important;
 }
 
 /* Hover Examples */
@@ -298,7 +414,7 @@ pre > code {
 }
 
 
-.hover-examples .example:nth-child(4) h2 {
+.hover-examples .example:nth-child(4) h3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -333,7 +449,7 @@ pre > code {
   display: block;
   width: 0;
   height: 0;
-  border: 18px solid #fdfdfd;
+  border: 18px solid #fff;
   border-right-color: #FF5231;
   content: '';
   transition: all 0.5s ease;
@@ -351,4 +467,12 @@ pre > code {
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover::before,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
   border-right-color: #FF806A;
+}
+
+/*////// Utilities ////////*/
+/* Clearfix */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
