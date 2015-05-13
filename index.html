@@ -12,16 +12,38 @@
     <h1 class="page-title">AnchorJS</h1>
     <img class="logo" src="img/anchorjs_logo.png" />
     <div class="desc">
-      <p>Add deep anchor links to online docs and web content.</p>
-      <ul class="featurelist group">
-        <li>No Dependencies</li>
-        <li>Highly Cusomizable</li>
-        <li>Accessible</li>
-        <li>< 5k minified</li>
-      </ul>
-      <a href="#examples" class="button">See Examples</a>
-      <a href="#overview" class="button">Learn More</a>
+      <p class="maindesc">Add deep anchor links to online docs and web content.</p>
+      <p class="subdesc">What are "deep anchor links"? Here are a few examples:</p>
     </div>
+    <div class="preview-examples">
+      <div class="example">
+        <div class="example-content">
+          <h3 id="basic-link-preview">Basic Link</h3>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options.visible = 'always';
+anchors.add('h3');</code></pre>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-content">
+          <h3>Paragraph Link</h3>
+          <p id="paragraph-link-preview">Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = {
+  visible: 'always',
+  placement: 'left',
+  icon: '¶'
+};
+anchors.add('p');</code></pre>
+        </div>
+      </div>
+    </div>
+    <p class="more-examples"><a href="#examples">See more examples</a></p>
     <div class="used-by">
       <h2 class="used-by-label">Used by</h2>
       <a href="http://primercss.io/about/"><img src="img/primer.png" alt="Primer CSS Logo" title="PrimerCSS"/></a>
@@ -31,19 +53,22 @@
   </header>
   <section class="main">
     <h2>Overview</h2>
-    <img class="anchorlink-examples" src="img/anchorlinks.png" alt="Examples of deep anchor links from across the web." />
+    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web." />
     <p>AnchorJS lets you drop deep anchor links (<a href="http://ux.stackexchange.com/q/36304/33248">like these</a>) onto any webpage, and be on your way.</p>
-    <p>You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs, if you have them, and generate them if you don't.</p>
-    <p>It uses an attractive link icon by default, but you can customize the appearance via <a href="#options">options</a>, and CSS syling. Our <a href="#examples">examples</a> show what kinds of customization is possible.</p>
+    <p>You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs if you have them, and generate them if you don't.</p>
+    <p>It uses an attractive link icon by default, but you can customize the display via <a href="#options">options</a> and CSS syling. The <a href="#examples">examples</a> demonstrate a few customization ideas.</p>
+    <p>Finally, AnchorJS is <strong>lightweight</strong>, <strong>accessible</strong>, and has <strong>no dependencies</strong>.</p>
 
     <h2>Installation</h2>
 
-    <p>Download AnchorJS via npm:</p>
+    <p>Download AnchorJS using npm,</p>
     <pre><code>npm install anchor-js</code></pre>
-    <p>or alternatively via bower:</p>
+    <p>or bower:</p>
     <pre><code>bower install anchor-js</code></pre>
-    <p>Then include the anchor.js file (or alternatively anchor.min.js) in your webpage.</p>
+    <p>(or just <a href="https://github.com/bryanbraun/anchorjs/releases">download it from github</a>).</p>
+    <p>Then include the anchor.js file (or anchor.min.js) in your webpage.</p>
     <pre>&lt;script src="anchor.js"&gt;&lt;/script&gt;</pre>
+    <p>You could also include it via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a>.</p>
 
     <h2>Basic Usage</h2>
     <p>AnchorJS provides the <code>anchors.add()</code> method which takes a CSS selector (similar to jQuery) for targeting elements you want to deep-link. Here are some usage examples.</p>
@@ -522,18 +547,18 @@ h2 {
 }</code></pre>
         </div>
       </div>
-
     </div>
+    <footer class="footer"><p><small>Made by <a href="http://www.bryanbraun.com">Bryan</a>. You should <a href="mailto:bbraun7@gmail.com">say hi</a> sometime. 👋</small></p></footer>
     <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="anchor.js"></script>
   <script src="scripts.js"></script>
   <script>
-    anchors.add('h2');
+    anchors.add('h2').remove('.used-by-label');
 
     var ex1 = new AnchorJS({ visible: 'always' });
-    ex1.add('.examples .example:nth-child(1) h3');
+    ex1.add('.examples .example:nth-child(1) h3, .preview-examples .example:nth-child(1) h3');
 
     var ex2 = new AnchorJS({
       placement: 'left',
@@ -546,7 +571,7 @@ h2 {
       visible: 'always',
       placement: 'left'
     });
-    ex3.add('.examples .example:nth-child(3) p');
+    ex3.add('.examples .example:nth-child(3) p, .preview-examples .example:nth-child(2) p');
 
     var ex4 = new AnchorJS({
       icon: '#',

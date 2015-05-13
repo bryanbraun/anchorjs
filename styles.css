@@ -31,6 +31,7 @@ h1 {
 }
 h2 {
   font-size: 2.0em;
+  margin-top: 1.5em;
 }
 h3 {
   font-size: 1.8em;
@@ -51,6 +52,11 @@ table th {
 
 img {
   max-width: 100%;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
 }
 
 /*//// Code Snippet Styles  ////*/
@@ -80,7 +86,8 @@ pre {
 }
 
 .examples pre,
-.hover-examples pre {
+.hover-examples pre,
+.preview-examples pre {
   padding-left: 2.75em;
   border-radius: 0;
 }
@@ -121,53 +128,22 @@ pre > code {
   margin: 0 auto;
 }
 
-
 .desc {
   padding: 1em 0;
   text-align: center;
 }
-.desc p {
+.maindesc {
   font-size: 30px;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+.subdesc {
+  font-size: 15px;
 }
 
-.button {
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 2px;
-  box-shadow: 0px 0px 10px -4px #666;
-  color: #333;
-  background-color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.featurelist {
-  display: block;
-  text-align: center;
-  -webkit-padding-start: 0;
-  padding: 0;
-  margin-bottom: 3em;
-}
-.featurelist li {
-  display: inline;
-  margin-left: 2em;
-  list-style-type: disc;
-  list-style-position: inside;
-}
-.featurelist li:before {
-    content: '\2022';
-    margin-right: 2em;
-}
-.featurelist li:first-child {
-  margin: 0;
-}
-.featurelist li:first-child:before {
-  display: none;
-  margin: 0;
+.more-examples {
+  text-align: right;
+  font-size: 12px;
+  margin: 0 5px 0 0;
 }
 
 .main {
@@ -178,7 +154,7 @@ pre > code {
 .used-by {
   text-align: center;
   position: relative;
-  padding: 1.5em 0;
+  padding: 1em 0;
 }
 .used-by-label {
   font-size: 20px;
@@ -201,10 +177,27 @@ pre > code {
   width: 100%;
   margin: 1em 0;
 }
+
+.footer {
+  text-align: center;
+  color: #777;
+}
+.footer a {
+  color: #777;
+}
+
+/* It feels like the pre tags lean close to headings and visually overwhelm them, so I add extra space to headings when they are near.
+pre + h2,
+pre + h3 {
+  padding-top: 1em;
+}
+*/
+
 /*///////////// Examples /////////////*/
 
 .examples,
-.hover-examples {
+.hover-examples,
+.preview-examples {
   max-width: 720px;
   margin: 0 auto;
   display: -webkit-flex;
@@ -312,7 +305,8 @@ pre > code {
 }
 
 /*///// Styles within Examples /////*/
-.examples .example:nth-child(3) .anchorjs-link {
+.examples .example:nth-child(3) .anchorjs-link,
+.preview-examples .example:nth-child(2) .anchorjs-link {
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -427,7 +421,7 @@ pre > code {
   font-weight: 200;
   font-size: 1rem;
   position: relative;
-  top: 4px;
+  top: 2px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
@@ -458,7 +452,8 @@ pre > code {
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
   -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
-          transform: translateX(0);
+          
+  transform: translateX(0);
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
