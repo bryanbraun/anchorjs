@@ -186,13 +186,6 @@ pre > code {
   color: #777;
 }
 
-/* It feels like the pre tags lean close to headings and visually overwhelm them, so I add extra space to headings when they are near.
-pre + h2,
-pre + h3 {
-  padding-top: 1em;
-}
-*/
-
 /*///////////// Examples /////////////*/
 
 .examples,
@@ -285,7 +278,6 @@ pre + h3 {
   background: #FF5231;
   position: absolute;
   font-size: 11px;
-  font-family: Helvetica, Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -310,44 +302,32 @@ pre + h3 {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.examples .example:nth-child(4) .anchorjs-link {
-  padding-left: 6px;
-}
-
-.examples .example:nth-child(5) .anchorjs-link {
-  padding-left: 6px;
-}
-
-.examples .example:nth-child(6) .anchorjs-link::after {
-  padding-left: 6px;
-}
-
 .examples .example:nth-child(7) .anchorjs-link {
-  font-family: Helvetica, Arial, sans-serif;
   font-weight: 200;
-  margin: 0 0 0 10px;
-  padding: 0 8px;
-  font-size: 11px;
+  margin-left: 1em;
+  padding-right: 0.375em;
+  font-size: 0.5em;
   border: 1px dashed #FFBAAC;
   vertical-align: middle;
 }
 
 .examples .example:nth-child(8) .anchorjs-link {
-  width: 32px;
+  width: 14px;
   height: 32px;
   margin-top: 6px;
   background: url('img/mini-logo.png') no-repeat;
+  margin-left: -1.25em !important;
 }
 
 .examples .example:nth-child(9) .anchorjs-link:after {
-  margin: -4px 0px 0px -2px;
+  margin: -5px 0px 0px 7px;
   display: block;
 }
 
 .examples .example:nth-child(9) .anchorjs-link {
   background-color: #FF5231;
   height: 32px;
-  width: 32px;
+  width: 18px;
   border-radius: 50%;
   display: inline-block;
   color: white;
@@ -355,23 +335,18 @@ pre + h3 {
   margin-left: -1.4em !important;
 }
 
-.examples .example:nth-child(10) .anchorjs-link {
-  padding-left: 8px;
-  vertical-align: middle;
-}
-
 .examples .example:nth-child(11) .anchorjs-link {
   display: inline-block;
   background: url('img/hyperlink.svg') no-repeat;
   margin-left: 8px;
-  width: 24px;
+  width: 14px;
   height: 24px;
 }
 
 .examples .example:nth-child(12) .anchorjs-link {
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
   margin-top: 15px;
-  height: 10px;
+  height: 16px;
   width: 20px;
 }
 
@@ -381,6 +356,7 @@ pre + h3 {
   border-style: solid;
   margin-top: 10px;
   font-size: 22px;
+  padding-right: 0 !important;
 }
 
 .examples .example:nth-child(14) .anchorjs-link {
@@ -398,13 +374,11 @@ pre + h3 {
 }
 
 .hover-examples .example:nth-child(3) .anchorjs-link {
-  margin-left: -1.1em !important;
-  transition: all .25s linear;
+    transition: all .25s linear;
 }
 .hover-examples .example:nth-child(3) *:hover > .anchorjs-link,
 .hover-examples .example:nth-child(3) .anchorjs-link:focus  {
-  margin-left: -1.25em !important;
-  transition: all .25s linear;
+  margin-left: -1.125em !important;
 }
 
 
@@ -428,7 +402,7 @@ pre + h3 {
           flex: 1;
   margin-right: -6%;
   padding-right: 6%;
-  padding-left: 42px;
+  padding-left: 42px !important;
   height: 36px;
   line-height: 38px;
   -webkit-transition: all 0.5s ease;
@@ -452,7 +426,7 @@ pre + h3 {
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
   -webkit-transform: translateX(0);
       -ms-transform: translateX(0);
-          
+
   transform: translateX(0);
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover,

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>AnchorJS Example</title>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts/fonts.css">
 </head>
@@ -226,11 +226,7 @@ anchors.add('p');</code></pre>
           <pre class="js"><code>anchors.options = {
   visible: 'always',
   icon: '#'
-};
-anchors.add('h3');</code></pre>
-          <pre class="css"><code>.anchorjs-link {
-  padding-left: 6px;
-}</code></pre>
+};</code></pre>
         </div>
       </div>
       <div class="example">
@@ -244,11 +240,7 @@ anchors.add('h3');</code></pre>
   visible: 'always',
   placement: 'left',
   icon: '§'
-};
-anchors.add('h3');</code></pre>
-          <pre class="css"><code>.anchorjs-link {
-  padding-left: 6px;
-}</code></pre>
+};</code></pre>
         </div>
       </div>
       <div class="example">
@@ -261,11 +253,7 @@ anchors.add('h3');</code></pre>
           <pre class="js"><code>anchors.options = {
   visible: 'always',
   icon: '❡'
-};
-anchors.add('p');</code></pre>
-          <pre class="css"><code>.anchorjs-link::after {
-  padding-left: 6px;
-}</code></pre>
+};</code></pre>
         </div>
       </div>
       <div class="example">
@@ -281,11 +269,10 @@ anchors.add('p');</code></pre>
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  font-family: Helvetica, Arial, sans-serif;
   font-weight: 200;
-  margin: 0 0 0 10px;
-  padding: 0 8px;
-  font-size: 11px;
+  margin-left: 1em;
+  padding-right: 0.375em;
+  font-size: 0.5em;
   border: 1px dashed #FFBAAC;
   vertical-align: middle;
 }</code></pre>
@@ -306,9 +293,10 @@ anchors.options = {
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  width: 32px;
+  width: 14px;
   height: 32px;
   margin-top: 6px;
+  margin-left: -1.25em !important;
   background: url('img/mini-logo.png') no-repeat;
 }</code></pre>
         </div>
@@ -328,7 +316,7 @@ anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   display: inline-block;
   height: 32px;
-  width: 32px;
+  width: 18px;
   border-radius: 50%;
   background-color: #FF5231;
   color: white;
@@ -336,7 +324,7 @@ anchors.add('h3');</code></pre>
   margin-left: -1.4em !important;
 }
 .anchorjs-link:before {
-  margin: -4px 0px 0px -2px;
+  margin: -5px 0px 0px 7px;
   display: block;
 }</code></pre>
         </div>
@@ -351,13 +339,11 @@ anchors.add('h3');</code></pre>
           <pre class="js"><code>// Just pass in the html entity for your icon-font character.
 anchors.options = {
   visible: 'always',
-  icon: '&amp;#xe600'
+  icon: '&amp;#xf0c1'
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   font-family: 'your-icon-font';
-  padding-left: 8px;
-  vertical-align: text-bottom;
 }</code></pre>
         </div>
       </div>
@@ -377,7 +363,7 @@ anchors.add('h3');</code></pre>
   display: inline-block;
   background: url('img/hyperlink.svg') no-repeat;
   margin-left: 8px;
-  width: 24px;
+  width: 14px;
   height: 24px;
 }</code></pre>
         </div>
@@ -398,7 +384,7 @@ anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
   margin-top: 15px;
-  height: 10px;
+  height: 16px;
   width: 20px;
 }</code></pre>
         </div>
@@ -423,6 +409,7 @@ anchors.add('h3');</code></pre>
   border-style: solid;
   margin-top: 10px;
   font-size: 22px;
+  padding-right: 0 !important;
 }</code></pre>
         </div>
       </div>
@@ -484,12 +471,10 @@ anchors.add('p');</code></pre>
           <pre class="js"><code>anchors.options.placement = 'left';
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  margin-left: -1.1em !important;
   transition: all .25s linear;
 }
 *:hover > .anchorjs-link {
-  margin-left: -1.25em !important;
-  transition: all .25s linear;
+  margin-left: -1.125em !important;
 }</code></pre>
         </div>
       </div>
@@ -517,7 +502,7 @@ anchors.add('h3');</code></pre>
   font-size: 1rem;
   margin-right: -6%;
   padding-right: 6%;
-  padding-left: 42px;
+  padding-left: 42px !important;
   line-height: 38px;
   transition: all 0.5s ease;
   transform: translateX(100%);
@@ -548,7 +533,7 @@ h2 {
         </div>
       </div>
     </div>
-    <footer class="footer"><p><small>Made by <a href="http://www.bryanbraun.com">Bryan</a>. You should <a href="mailto:bbraun7@gmail.com">say hi</a> sometime. 👋</small></p></footer>
+    <footer class="footer"><p><small>Made by <a href="http://www.bryanbraun.com">Bryan</a>. You should <a href="https://twitter.com/intent/tweet?text=Hi%20%40BryanEBraun%2C%20">say hi</a> sometime. 👋</small></p></footer>
     <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -614,7 +599,7 @@ h2 {
     var ex10 = new AnchorJS({
       visible: 'always',
       class: 'ajs-10',
-      icon: '&#xe600'
+      icon: '&#xf0c1'
     });
     ex10.add('.examples .example:nth-child(10) h3');
 
