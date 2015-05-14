@@ -38,6 +38,7 @@ Currently Supports: IE9+ and modern browsers
 
 ## Contributing [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
 To contribute:
+
 1. Fork/Clone the repo.
 2. Make your changes.
 3. Write tests as needed.
