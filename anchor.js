@@ -1,5 +1,5 @@
 /*!
- * AnchorJS - v1.0.0 - 2015-04-30
+ * AnchorJS - v1.0.0 - 2015-05-14
  * https://github.com/bryanbraun/anchorjs
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
@@ -10,7 +10,7 @@ function AnchorJS(options) {
   this.options = options || {};
 
   this._applyRemainingDefaultOptions = function(opts) {
-    this.options.icon = this.options.hasOwnProperty('icon') ? opts.icon : '&#xe9cb'; // Accepts characters like  '#', '¶', '❡', and '§'.
+    this.options.icon = this.options.hasOwnProperty('icon') ? opts.icon : '&#xe9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
     this.options.visible = this.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
     this.options.placement = this.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
     this.options.class = this.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
@@ -89,8 +89,10 @@ function AnchorJS(options) {
         index = undefined;
         idList.push(newTidyText);
 
-        // Set the ID.
+        // Assign it to our element.
+        // Currently the setAttribute element is only supported in IE9 and above.
         elements[i].setAttribute('id', newTidyText);
+
         elementID = newTidyText;
       }
 
@@ -115,9 +117,11 @@ function AnchorJS(options) {
 
       if (this.options.placement === 'left') {
         anchorNodes[0].style.position = 'absolute';
-        anchorNodes[0].style.marginLeft = '-1.25em';
+        anchorNodes[0].style.marginLeft = '-1em';
+        anchorNodes[0].style.paddingRight = '0.5em';
         elements[i].insertBefore(anchorNodes[0], elements[i].firstChild);
       } else { // if the option provided is `right` (or anything else).
+        anchorNodes[0].style.paddingLeft = '0.375em';
         elements[i].appendChild(anchorNodes[0]);
       }
     }
@@ -160,8 +164,8 @@ function AnchorJS(options) {
         ' @font-face {'                           +
         '   font-family: "anchorjs-icons";'       +
         '   font-style: normal;'                  +
-        '   font-weight: normal;'                 +
-        '   src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBvUAAAC8AAAAYGNtYXAWitPtAAABHAAAAExnYXNwAAAAEAAAAWgAAAAIZ2x5Zutcv3cAAAFwAAABOGhlYWQFlHU0AAACqAAAADZoaGVhB3QExgAAAuAAAAAkaG10eAcAAUYAAAMEAAAAFGxvY2EAKACwAAADGAAAAAxtYXhwAAgAVwAAAyQAAAAgbmFtZVcZpu4AAANEAAABRXBvc3QAAwAAAAAEjAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpywPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEADgAAAAKAAgAAgACAAEAIOnL//3//wAAAAAAIOnL//3//wAB/+MWOQADAAEAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAgFGACsDsgL/ACsAVAAAASImJyY0PwE+ATMyFhcWFA8BBiInJjQ/ATY0Jy4BIyIGDwEGFBcWFAcOASMDIiYnJjQ/ATYyFxYUDwEGFBceATMyNj8BNjQnJjQ3NjIXFhQPAQ4BIwJIBw4FNDSLGUAkI0AZNDQ/Cx8LCws/Hh4OJRQVJQ6LHh4LCwYOB4UkQBk0ND8LIAsLC0AeHg4lFRQlDoseHgsLCyALMzOLGUEjATsGBTSTM4sZGxsZM5M0PwsLCx8LQB1UHg4QEA6LHlQdCyALBQb+8BsZM5M0PwsLCx8LQB1UHg4QEA6LHlQdCyALCws0kzOLGRsAAAAAAQAAAAEAAEWYnzxfDzz1AAsEAAAAAADRYhicAAAAANFiGJwAAAAAA7IC/wAAAAgAAgAAAAAAAAABAAADwP/AAAAFAAAAAAADsgABAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAIAAAAFAAFGAAAAAAAKABQAHgCcAAEAAAAFAFUAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAOAAAAAQAAAAAAAgAOAEcAAQAAAAAAAwAOACQAAQAAAAAABAAOAFUAAQAAAAAABQAWAA4AAQAAAAAABgAHADIAAQAAAAAACgA0AGMAAwABBAkAAQAOAAAAAwABBAkAAgAOAEcAAwABBAkAAwAOACQAAwABBAkABAAOAFUAAwABBAkABQAWAA4AAwABBAkABgAOADkAAwABBAkACgA0AGMAaQBjAG8AbQBvAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AbgBSAGUAZwB1AGwAYQByAGkAYwBvAG0AbwBvAG4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype");' +
+        '   font-weight: normal;'                 + // Icon from icomoon; 10px wide & 10px tall; 2 empty below & 4 above
+        '   src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBTUAAAC8AAAAYGNtYXAWi9QdAAABHAAAAFRnYXNwAAAAEAAAAXAAAAAIZ2x5Zgq29TcAAAF4AAABNGhlYWQEZM3pAAACrAAAADZoaGVhBhUDxgAAAuQAAAAkaG10eASAADEAAAMIAAAAFGxvY2EAKACuAAADHAAAAAxtYXhwAAgAVwAAAygAAAAgbmFtZQ5yJ3cAAANIAAAB2nBvc3QAAwAAAAAFJAAAACAAAwJAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADpywPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAADAAAAAwAAABwAAQADAAAAHAADAAEAAAAcAAQAOAAAAAoACAACAAIAAQAg6cv//f//AAAAAAAg6cv//f//AAH/4xY5AAMAAQAAAAAAAAAAAAAAAQAB//8ADwABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAACADEARAJTAsAAKwBUAAABIiYnJjQ/AT4BMzIWFxYUDwEGIicmND8BNjQnLgEjIgYPAQYUFxYUBw4BIwciJicmND8BNjIXFhQPAQYUFx4BMzI2PwE2NCcmNDc2MhcWFA8BDgEjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAEAAAABAACiToc1Xw889QALBAAAAAAA0XnFFgAAAADRecUWAAAAAAJTAsAAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAAAlMAAQAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAACAAAAAoAAMQAAAAAACgAUAB4AmgABAAAABQBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAADgCuAAEAAAAAAAEADgAAAAEAAAAAAAIABwCfAAEAAAAAAAMADgBLAAEAAAAAAAQADgC0AAEAAAAAAAUACwAqAAEAAAAAAAYADgB1AAEAAAAAAAoAGgDeAAMAAQQJAAEAHAAOAAMAAQQJAAIADgCmAAMAAQQJAAMAHABZAAMAAQQJAAQAHADCAAMAAQQJAAUAFgA1AAMAAQQJAAYAHACDAAMAAQQJAAoANAD4YW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzVmVyc2lvbiAxLjAAVgBlAHIAcwBpAG8AbgAgADEALgAwYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzUmVndWxhcgBSAGUAZwB1AGwAYQByYW5jaG9yanMtaWNvbnMAYQBuAGMAaABvAHIAagBzAC0AaQBjAG8AbgBzRm9udCBnZW5lcmF0ZWQgYnkgSWNvTW9vbi4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==) format("truetype");' +
         ' }',
         pseudoElContent =
         ' [data-anchorjs-icon]::after {'          +

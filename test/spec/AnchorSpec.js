@@ -198,7 +198,7 @@ describe("AnchorJS", function() {
     anchors.add('h1');
     anchorNode = document.getElementsByTagName('h1')[0].firstChild;
     expect(anchorNode.style.position).toEqual('absolute');
-    expect(anchorNode.style.marginLeft).toEqual('-1.25em');
+    expect(anchorNode.style.marginLeft).toEqual('-1em');
   });
 
   it("should make anchors always visible, when that option is set.", function() {
