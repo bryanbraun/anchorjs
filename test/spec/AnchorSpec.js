@@ -42,7 +42,7 @@ describe("AnchorJS", function() {
     anchors.add();
     // We query for the first style tag because we are testing both that it's
     // there and that it's overridable by other styles later in the cascade.
-    hasClass = document.head.getElementsByTagName('style')[0].classList.contains('anchorjs');
+    hasClass = document.head.querySelector('[rel="stylesheet"], style').classList.contains('anchorjs');
     expect(hasClass).toBe(true);
   });
 

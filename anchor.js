@@ -1,5 +1,5 @@
 /*!
- * AnchorJS - v1.0.0 - 2015-05-14
+ * AnchorJS - v1.0.1 - 2015-05-15
  * https://github.com/bryanbraun/anchorjs
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
@@ -179,7 +179,7 @@ function AnchorJS(options) {
     // We place it in the head with the other style tags, if possible, so as to
     // not look out of place. We insert before the others so these styles can be
     // overridden if necessary.
-    firstStyleEl = document.head.getElementsByTagName('style')[0];
+    firstStyleEl = document.head.querySelector('[rel="stylesheet"], style');
     if (firstStyleEl === undefined) {
       document.head.appendChild(style);
     } else {
