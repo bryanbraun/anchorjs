@@ -4,7 +4,7 @@ describe("AnchorJS", function() {
 
   beforeEach(function() {
     h = document.createElement("h1");
-    t = document.createTextNode("⚡⚡⚡ Unicode icons are cool--but don't belong in a URL.");
+    t = document.createTextNode("⚡⚡⚡ Unicode icons are cool--but they definitely don't belong in a URL fragment.");
     h.appendChild(t);
     document.body.appendChild(h);
   });
@@ -113,8 +113,8 @@ describe("AnchorJS", function() {
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
     id = document.getElementsByTagName('h1')[0].getAttribute('id');
-    expect(href).toEqual('#unicode-icons-are-cool-but-dont');
-    expect(id).toEqual('unicode-icons-are-cool-but-dont');
+    expect(href).toEqual('#unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-url');
+    expect(id).toEqual('unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-url');
   });
 
   it("should leave existing IDs in place, and use them as the href for anchors.", function() {
