@@ -56,7 +56,7 @@
         "quotes": [2, "single"],
         "radix": 2,
         "semi": [2, "always"],
-        "space-after-keywords": [2, "always", {"checkFunctionKeyword": true}],
+        "space-after-keywords": [2, "always"],
         "space-before-blocks": [2, "always"],
         "spaced-line-comment": [2, "always"],
         "space-in-brackets": [2, "never"],
