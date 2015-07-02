@@ -34,7 +34,7 @@ describe("AnchorJS", function() {
 
     expect(hasClass).toBe(true);
     expect(opacity).not.toEqual('1');
-    expect(icon).toEqual('');
+    expect(icon).toEqual('\ue9cb');
   });
 
   it("should set baseline styles in the document head", function() {
@@ -75,8 +75,8 @@ describe("AnchorJS", function() {
     anchors.add();
     anchorObj = new AnchorJS({ class: 'test-class' });
 
-    expect(anchors.options.icon).toEqual('&#xe9cb');
-    expect(anchorObj.options.icon).toEqual('&#xe9cb');
+    expect(anchors.options.icon).toEqual('\ue9cb');
+    expect(anchorObj.options.icon).toEqual('\ue9cb');
     expect(anchors.options.visible).toEqual('hover');
     expect(anchorObj.options.visible).toEqual('hover');
     expect(anchors.options.placement).toEqual('right');
