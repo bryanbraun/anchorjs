@@ -327,7 +327,7 @@ anchors.add('h3');</code></pre>
   margin-left: -1.4em !important;
 }
 .anchorjs-link:before {
-  margin: -5px 0px 0px 7px;
+  margin-left: 7px;
   display: block;
 }</code></pre>
         </div>
@@ -339,10 +339,10 @@ anchors.add('h3');</code></pre>
           <a href="#" class="example-code-link">{}</a>
         </div>
         <div class="example-code">
-          <pre class="js"><code>// Just pass in the html entity for your icon-font character.
+          <pre class="js"><code>// Just pass in the octal code for your icon-font character.
 anchors.options = {
   visible: 'always',
-  icon: '&amp;#xf0c1'
+  icon: '\uf0c1'
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
@@ -543,7 +543,7 @@ h2 {
   <script src="anchor.js"></script>
   <script src="scripts.js"></script>
   <script>
-    anchors.add('h2').remove('.used-by-label');
+    anchors.add('.main > h2, .main > h3').remove('.used-by-label');
 
     var ex1 = new AnchorJS({ visible: 'always' });
     ex1.add('.examples .example:nth-child(1) h3, .preview-examples .example:nth-child(1) h3');
@@ -602,7 +602,7 @@ h2 {
     var ex10 = new AnchorJS({
       visible: 'always',
       class: 'ajs-10',
-      icon: '&#xf0c1'
+      icon: '\uf0c1'
     });
     ex10.add('.examples .example:nth-child(10) h3');
 
