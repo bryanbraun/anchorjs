@@ -114,6 +114,13 @@ function AnchorJS(options) {
         anchor.style.fontVariant = 'normal';
         anchor.style.fontWeight = 'normal';
         anchor.style.lineHeight = 1;
+        // We set lineHeight = 1 here because the `anchorjs-icons` font family could otherwise affect the
+        // height of the heading. This isn't the case for icons with `placement: left`, so we restore
+        // line-height: inherit in that case, ensuring they remain positioned correctly. For more info,
+        // see https://github.com/bryanbraun/anchorjs/issues/39.
+        if (this.options.placement === 'left') {
+          anchor.style.lineHeight = 'inherit';
+        }
       }
 
       if (this.options.placement === 'left') {
