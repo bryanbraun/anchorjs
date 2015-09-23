@@ -321,6 +321,7 @@ pre > code {
 
 .examples .example:nth-child(9) .anchorjs-link:after {
   margin-left: 7px;
+  margin-top: -4px;
   display: block;
 }
 
