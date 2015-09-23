@@ -19,12 +19,12 @@
     "test": "npm run lint && npm run jasmine"
   },
   "devDependencies": {
-    "eslint": "~0.24.0",
+    "eslint": "~1.5.1",
     "jasmine-core": "~2.3.4",
-    "karma": "~0.12.37",
+    "karma": "~0.13.10",
     "karma-cli": "~0.1.0",
     "karma-jasmine": "~0.3.6",
-    "karma-phantomjs-launcher": "~0.2.0",
-    "uglify-js": "~2.4.23"
+    "karma-phantomjs-launcher": "~0.2.1",
+    "uglify-js": "~2.4.24"
   }
 }
