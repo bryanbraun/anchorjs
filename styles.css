@@ -363,6 +363,13 @@ pre > code {
   margin-left: -1.8em !important;
 }
 
+.examples .example:nth-child(15) .anchorjs-link {
+  display: inline-block;
+  width: 0.375em;
+  height: 20px;
+  margin-left: 0.375em;
+}
+
 /* Hover Examples */
 
 .hover-examples .example:nth-child(2) *:hover > .anchorjs-link,
