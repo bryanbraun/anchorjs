@@ -30,6 +30,7 @@ function AnchorJS(options) {
         count,
         newTidyText,
         readableID,
+        nonsafeChars,
         anchor;
 
     this._applyRemainingDefaultOptions(this.options);
@@ -61,16 +62,21 @@ function AnchorJS(options) {
       } else {
         roughText = elements[i].textContent;
 
-        // Refine it so it makes a good ID. Strip out non-safe characters, replace
-        // spaces with hyphens, truncate to 32 characters, and make toLowerCase.
+        // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!']./()*\
+        nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g;
+
+        // Refine the text so it makes a good ID: Remove apostrophes, replace nonsafe characters
+        // with hyphens, remove extra hyphens, truncate to 64 characters, trim hyphens and make lowercase.
         //
-        // Example string:                                // '⚡⚡⚡ Unicode icons are cool--but they definitely don't belong in a URL fragment.'
-        tidyText = roughText.replace(/[^\w\s-]/gi, '')    // ' Unicode icons are cool--but they definitely dont belong in a URL fragment'
-                                .replace(/\s+/g, '-')     // '-Unicode-icons-are-cool--but-they-definitely-dont-belong-in-a-URL-fragment'
-                                .replace(/-{2,}/g, '-')   // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL-fragment'
-                                .substring(0, 64)         // '-Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
-                                .replace(/^-+|-+$/gm, '') // 'Unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-URL'
-                                .toLowerCase();           // 'unicode-icons-are-cool-but-they-definitely-dont-belong-in-a-url'
+        // Note: we trim hyphens after truncating because truncating can cause dangling hyphens.
+        //
+        // Example string:                              // " ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+        tidyText = roughText.replace(/\'/gi, '')        // " ⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+                            .replace(nonsafeChars, '-') // "-⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
+                            .replace(/-{2,}/g, '-')     // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
+                            .substring(0, 64)           // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
+                            .replace(/^-+|-+$/gm, '')   // "⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
+                            .toLowerCase();             // "⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
 
         // Compare our generated ID to existing IDs (and increment it if needed)
         // before we add it to the page.
