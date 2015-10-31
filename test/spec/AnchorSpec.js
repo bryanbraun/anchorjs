@@ -1,10 +1,14 @@
-describe("AnchorJS", function() {
+/* eslint-env jasmine */
+/* global anchors, AnchorJS */
+
+describe('AnchorJS', function() {
+  'use strict';
   var h,
       t;
 
   beforeEach(function() {
-    h = document.createElement("h1");
-    t = document.createTextNode(" ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.");
+    h = document.createElement('h1');
+    t = document.createTextNode(' ⚡ Don\'t forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.');
     h.appendChild(t);
     document.body.appendChild(h);
   });
@@ -13,15 +17,14 @@ describe("AnchorJS", function() {
     document.body.removeChild(h);
   });
 
-
-  it("should add an anchor link to an h1 by default", function() {
+  it('should add an anchor link to an h1 by default', function() {
     var anchorLink;
     anchors.add();
     anchorLink = document.querySelector('h1 > .anchorjs-link');
     expect(anchorLink).not.toBe(null);
   });
 
-  it("should have default options (right placement, hover visiblity, & link icon)", function() {
+  it('should have default options (right placement, hover visiblity, & link icon)', function() {
     var anchorLink,
         hasClass,
         opacity,
@@ -37,7 +40,7 @@ describe("AnchorJS", function() {
     expect(icon).toEqual('\ue9cb');
   });
 
-  it("should set baseline styles in the document head", function() {
+  it('should set baseline styles in the document head', function() {
     var hasClass;
     anchors.add();
     // We query for the first style tag because we are testing both that it's
@@ -46,7 +49,7 @@ describe("AnchorJS", function() {
     expect(hasClass).toBe(true);
   });
 
-  it("allows you to instantiate a new AnchorJS object that behaves like the default one.", function() {
+  it('allows you to instantiate a new AnchorJS object that behaves like the default one.', function() {
     var anchorObj,
         anchorLink;
     anchorObj = new AnchorJS();
@@ -55,9 +58,9 @@ describe("AnchorJS", function() {
     expect(anchorLink).not.toBe(null);
   });
 
-  it("ensures new AnchorJS instances don't add multiple baseline style tags.", function() {
+  it('ensures new AnchorJS instances do not add multiple baseline style tags.', function() {
     var anchorObj,
-        anchorLink;
+        styleNodes;
     anchors.add();
     anchorObj = new AnchorJS();
     anchorObj.add();
@@ -65,7 +68,7 @@ describe("AnchorJS", function() {
     expect(styleNodes.length).toEqual(1);
   });
 
-  it("doesn't destroy default options when setting an incomplete options object.", function() {
+  it('does not destroy default options when setting an incomplete options object.', function() {
     var anchorObj,
         anchorLink,
         hasClass,
@@ -83,7 +86,7 @@ describe("AnchorJS", function() {
     expect(anchorObj.options.placement).toEqual('right');
   });
 
-  it("can remove anchors, using the .remove() method.", function() {
+  it('can remove anchors, using the .remove() method.', function() {
     var anchorLinkBefore,
         anchorLinkAfter;
     anchors.add();
@@ -95,7 +98,7 @@ describe("AnchorJS", function() {
     expect(anchorLinkAfter).toBe(null);
   });
 
-  it("can chain methods.", function() {
+  it('can chain methods.', function() {
     var anchorLinkBefore,
         anchorLinkAfter;
     anchors.add('h1').remove('h1');
@@ -107,7 +110,7 @@ describe("AnchorJS", function() {
     expect(anchorLinkAfter).not.toBe(null);
   });
 
-  it("should create a URL-appropriate ID (and href) for targeted elements without IDs.", function() {
+  it('should create a URL-appropriate ID (and href) for targeted elements without IDs.', function() {
     var href,
         id;
     anchors.add('h1');
@@ -117,10 +120,10 @@ describe("AnchorJS", function() {
     expect(id).toEqual('⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
   });
 
-  it("should leave existing IDs in place, and use them as the href for anchors.", function() {
+  it('should leave existing IDs in place, and use them as the href for anchors.', function() {
     var href,
         id;
-    document.getElementsByTagName('h1')[0].setAttribute('id', 'test-id')
+    document.getElementsByTagName('h1')[0].setAttribute('id', 'test-id');
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
     id = document.getElementsByTagName('h1')[0].getAttribute('id');
@@ -128,7 +131,7 @@ describe("AnchorJS", function() {
     expect(id).toEqual('test-id');
   });
 
-  it("should increment new IDs if multiple IDs are found on a page.", function() {
+  it('should increment new IDs if multiple IDs are found on a page.', function() {
     var h1,
         t1,
         id1,
@@ -144,14 +147,14 @@ describe("AnchorJS", function() {
         tags,
         links,
         i;
-    h1 = document.createElement("h2");
-    t1 = document.createTextNode("Example Title");
+    h1 = document.createElement('h2');
+    t1 = document.createTextNode('Example Title');
     h1.appendChild(t1);
-    h2 = document.createElement("h2");
-    t2 = document.createTextNode("Example Title");
+    h2 = document.createElement('h2');
+    t2 = document.createTextNode('Example Title');
     h2.appendChild(t2);
-    h3 = document.createElement("h2");
-    t3 = document.createTextNode("Example Title");
+    h3 = document.createElement('h2');
+    t3 = document.createTextNode('Example Title');
     h3.appendChild(t3);
     document.body.appendChild(h1);
     document.body.appendChild(h2);
@@ -178,13 +181,13 @@ describe("AnchorJS", function() {
     document.body.removeChild(h3);
   });
 
-  it("should throw an error if an inappropriate selector is provided.", function() {
+  it('should throw an error if an inappropriate selector is provided.', function() {
     expect(function() {
       anchors.add(25);
-    }).toThrowError("The selector provided to AnchorJS was invalid.");
+    }).toThrowError('The selector provided to AnchorJS was invalid.');
   });
 
-  it("should place the ¶ icon, when that option is set.", function() {
+  it('should place the ¶ icon, when that option is set.', function() {
     var icon;
     anchors.options.icon = '¶';
     anchors.add('h1');
@@ -192,7 +195,7 @@ describe("AnchorJS", function() {
     expect(icon).toEqual('¶');
   });
 
-  it("should place anchors to the left, when that option is set.", function() {
+  it('should place anchors to the left, when that option is set.', function() {
     var anchorNode;
     anchors.options.placement = 'left';
     anchors.add('h1');
@@ -201,7 +204,7 @@ describe("AnchorJS", function() {
     expect(anchorNode.style.marginLeft).toEqual('-1em');
   });
 
-  it("should make anchors always visible, when that option is set.", function() {
+  it('should make anchors always visible, when that option is set.', function() {
     var opacity;
     anchors.options.visible = 'always';
     anchors.add('h1');
@@ -209,7 +212,7 @@ describe("AnchorJS", function() {
     expect(opacity).toEqual('1');
   });
 
-  it("should apply a provided class, when that option is set.", function() {
+  it('should apply a provided class, when that option is set.', function() {
     var anchorLink;
     anchors.options.class = 'test-class';
     anchors.add('h1');

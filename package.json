@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "lint": "eslint anchor.js",
+    "lint": "eslint anchor.js test/spec/AnchorSpec.js",
     "jasmine": "karma start test/config.js --single-run",
     "release": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
     "test": "npm run lint && npm run jasmine"

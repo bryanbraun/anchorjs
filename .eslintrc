@@ -52,10 +52,10 @@
         "no-unused-vars": 0, // we should find a way to only exclude addAnchors and enable this
         "no-use-before-define": 2,
         "no-void": 2,
-        "object-curly-spacing": [2, "never"],
+        "object-curly-spacing": [2, "always"],
         "operator-assignment": [2, "always"],
         "quotes": [2, "single"],
-        "quote-props": 2,
+        "quote-props": [2, "as-needed"],
         "radix": 2,
         "semi": [2, "always"],
         "semi-spacing": 2,
