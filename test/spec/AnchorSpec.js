@@ -219,4 +219,38 @@ describe('AnchorJS', function() {
     anchorLink = document.querySelector('h1 > .test-class');
     expect(anchorLink).not.toBe(null);
   });
+
+  it('preserves unicode characters when making text URL-friendly ', function() {
+    var text1Before = 'Заголовок, содержащий 29 не-ASCII символов',
+        text1After = 'заголовок-содержащий-29-не-ascii-символов',
+        text2Before = '船や航海を連想させるものとして、シンボル的に用いられることも多い。',
+        text2After = '船や航海を連想させるものとして、シンボル的に用いられることも多い。',
+        text3Before = 'അടിത്തട്ടിലെ മണ്ണിൽ ആഴ്ന്നിറങ്ങുക, ഭാരത്താൽ താഴ്ന്നു കിടക്കുക, കപ്പലിന്റെ ഗുരുത്വകേന്ദ്രവും',
+        text3After = 'അടിത്തട്ടിലെ-മണ്ണിൽ-ആഴ്ന്നിറങ്ങുക-ഭാരത്താൽ-താഴ്ന്നു-കിടക്കുക-കപ്',
+        text4Before = 'Use ⚓ and 👪 all over the 🌐 can 🔗 inside your webpages.',
+        text4After = 'use-⚓-and-👪-all-over-the-🌐-can-🔗-inside-your-webpages';
+
+    expect(anchors.urlify(text1Before)).toEqual(text1After);
+    expect(anchors.urlify(text2Before)).toEqual(text2After);
+    expect(anchors.urlify(text3Before)).toEqual(text3After);
+    expect(anchors.urlify(text4Before)).toEqual(text4After);
+  });
+
+  it('removes non-url-safe characters when making text URL-friendly', function() {
+    var text1Before = 'one&two three+four$five,six:seven;eight=nine?ten',
+        text2Before = 'one@two"three#four{five}six|seven^eight~nine[ten',
+        text3Before = 'one`two%three!four]five.six/seven(eight)nine*ten\\',
+        after = 'one-two-three-four-five-six-seven-eight-nine-ten';
+
+    expect(anchors.urlify(text1Before)).toEqual(after);
+    expect(anchors.urlify(text2Before)).toEqual(after);
+    expect(anchors.urlify(text3Before)).toEqual(after);
+  });
+
+  it('removes apostrophes when making text URL-friendly', function() {
+    var before = 'don\'t',
+        after = 'dont';
+
+    expect(anchors.urlify(before)).toEqual(after);
+  });
 });
