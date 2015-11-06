@@ -6,17 +6,22 @@
 
 function AnchorJS(options) {
   'use strict';
+  var that = this;
 
   this.options = options || {};
 
-  this._applyRemainingDefaultOptions = function(opts) {
-    this.options.icon = this.options.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
-    this.options.visible = this.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
-    this.options.placement = this.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
-    this.options.class = this.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
-  };
+  /**
+   * Assigns options to the internal options object, and provides defaults.
+   * @param {Object} opts - Options object
+   */
+  function _applyRemainingDefaultOptions(opts) {
+    that.options.icon = that.options.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
+    that.options.visible = that.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
+    that.options.placement = that.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
+    that.options.class = that.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
+  }
 
-  this._applyRemainingDefaultOptions(options);
+  _applyRemainingDefaultOptions(options);
 
   this.add = function(selector) {
     var elements,
@@ -32,7 +37,11 @@ function AnchorJS(options) {
         readableID,
         anchor;
 
-    this._applyRemainingDefaultOptions(this.options);
+    // We reapply options here because somebody may have overwritten the default options object when setting options.
+    // For example, this overwrites all options but visible:
+    //
+    // anchors.options = { visible: 'always'; }
+    _applyRemainingDefaultOptions(this.options);
 
     // Provide a sensible default selector, if none is given.
     if (!selector) {
@@ -46,7 +55,7 @@ function AnchorJS(options) {
       return false;
     }
 
-    this._addBaselineStyles();
+    _addBaselineStyles();
 
     // We produce a list of existing IDs so we don't generate a duplicate.
     elsWithIds = document.querySelectorAll('[id]');
@@ -167,7 +176,11 @@ function AnchorJS(options) {
     return urlText;
   };
 
-  this._addBaselineStyles = function() {
+  /**
+   * _addBaselineStyles
+   * Adds baseline styles to the page, used by all AnchorJS links irregardless of configuration.
+   */
+  function _addBaselineStyles() {
     // We don't want to add global baseline styles if they've been added before.
     if (document.head.querySelector('style.anchorjs') !== null) {
       return;
@@ -216,7 +229,7 @@ function AnchorJS(options) {
     style.sheet.insertRule(hoverRule, style.sheet.cssRules.length);
     style.sheet.insertRule(pseudoElContent, style.sheet.cssRules.length);
     style.sheet.insertRule(anchorjsLinkFontFace, style.sheet.cssRules.length);
-  };
+  }
 }
 
 var anchors = new AnchorJS();
