@@ -23,6 +23,11 @@ function AnchorJS(options) {
 
   _applyRemainingDefaultOptions(options);
 
+  /**
+   * Add anchor links to page elements.
+   * @param  {String} selector  A CSS selector for targeting the elements you wish to add anchor links to.
+   * @return {this}             The AnchorJS object
+   */
   this.add = function(selector) {
     var elements,
         elsWithIds,
@@ -138,6 +143,11 @@ function AnchorJS(options) {
     return this;
   };
 
+  /**
+   * Removes all anchorjs-links from elements targed by the selector.
+   * @param  {String} selector  A CSS selector used to target elements containing anchor links.
+   * @return {this}             The AnchorJS object
+   */
   this.remove = function(selector) {
     var domAnchor,
         elements = document.querySelectorAll(selector);
