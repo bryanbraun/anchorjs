@@ -19,6 +19,8 @@ function AnchorJS(options) {
     that.options.visible = that.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
     that.options.placement = that.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
     that.options.class = that.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
+    // Using Math.floor here will ensure the value is Number-cast and an integer.
+    that.options.truncate = that.options.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
   }
 
   _applyRemainingDefaultOptions(options);
@@ -34,10 +36,9 @@ function AnchorJS(options) {
         idList,
         elementID,
         i,
-        roughText,
-        tidyText,
         index,
         count,
+        tidyText,
         newTidyText,
         readableID,
         anchor;
@@ -73,8 +74,7 @@ function AnchorJS(options) {
       if (elements[i].hasAttribute('id')) {
         elementID = elements[i].getAttribute('id');
       } else {
-        roughText = elements[i].textContent;
-        tidyText = this.urlify(roughText);
+        tidyText = this.urlify(elements[i].textContent);
 
         // Compare our generated ID to existing IDs (and increment it if needed)
         // before we add it to the page.
@@ -164,7 +164,7 @@ function AnchorJS(options) {
    * Urlify - Refine text so it makes a good ID.
    *
    * To do this, we remove apostrophes, replace nonsafe characters with hyphens,
-   * remove extra hyphens, truncate to 64 characters, trim hyphens, and make lowercase.
+   * remove extra hyphens, truncate, trim hyphens, and make lowercase.
    *
    * @param  {String} text - Any text. Usually pulled from the webpage element we are linking to.
    * @return {String}      - hyphen-delimited text for use in IDs and URLs.
@@ -174,14 +174,18 @@ function AnchorJS(options) {
     var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
         urlText;
 
+    if (!this.options.truncate) {
+      _applyRemainingDefaultOptions(this.options);
+    }
+
     // Note: we trim hyphens after truncating because truncating can cause dangling hyphens.
-    // Example string:                        // " ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
-    urlText = text.replace(/\'/gi, '')        // " ⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
-                  .replace(nonsafeChars, '-') // "-⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
-                  .replace(/-{2,}/g, '-')     // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
-                  .substring(0, 64)           // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
-                  .replace(/^-+|-+$/gm, '')   // "⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
-                  .toLowerCase();             // "⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
+    // Example string:                                  // " ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+    urlText = text.replace(/\'/gi, '')                  // " ⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+                  .replace(nonsafeChars, '-')           // "-⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
+                  .replace(/-{2,}/g, '-')               // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
+                  .substring(0, this.options.truncate)  // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
+                  .replace(/^-+|-+$/gm, '')             // "⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
+                  .toLowerCase();                       // "⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
 
     return urlText;
   };

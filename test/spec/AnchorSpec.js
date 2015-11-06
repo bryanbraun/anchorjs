@@ -253,4 +253,26 @@ describe('AnchorJS', function() {
 
     expect(anchors.urlify(before)).toEqual(after);
   });
+
+  it('truncates IDs via truncate option when making text URL-friendly', function() {
+    var before = 'Today you are you! That is truer than true! There is no one alive who is you-er than you!',
+        trunc1 = 'today-you-are-you-that-is-truer-than-true-there-is-no-one-alive',
+        trunc2 = 'today-you-are-you-that-is-truer-than-true',
+        trunc3 = 'today-you-are-you',
+        trunc4 = 'today-you-are-you-that-is-truer-than-true-there-is-no-one-alive-who-is-you-er-than-you';
+
+    expect(anchors.urlify(before)).toEqual(trunc1);
+    anchors.options.truncate = 41;
+    expect(anchors.urlify(before)).toEqual(trunc2);
+    anchors.options.truncate = 17;
+    expect(anchors.urlify(before)).toEqual(trunc3);
+    anchors.options.truncate = 87;
+    expect(anchors.urlify(before)).toEqual(trunc4);
+
+    // Verify that the final answer remains the same for non-integer numbers or strings.
+    anchors.options.truncate = 87.9999999999;
+    expect(anchors.urlify(before)).toEqual(trunc4);
+    anchors.options.truncate = '87';
+    expect(anchors.urlify(before)).toEqual(trunc4);
+  });
 });
