@@ -107,30 +107,41 @@ anchors.add();</code></pre>
       <thead>
         <tr>
           <th>Option</th>
-          <th>Accepted Values</th>
+          <th class="minicol">Accepted Values</th>
+          <th class="minicol">Default Value</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><code>placement</code></td>
-          <td><code>right</code> (default) <br> <code>left</code></td>
+          <td><code>right</code> <br> <code>left</code></td>
+          <td><code>right</code></td>
           <td><code>right</code> appends the anchor to the end of the element.<br> <code>left</code> places it to the left, in the margin.</td>
         </tr>
         <tr>
           <td><code>visible</code></td>
-          <td><code>hover</code> (default) <br> <code>always</code></td>
+          <td><code>hover</code> <br> <code>always</code></td>
+          <td><code>hover</code></td>
           <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link.</td>
         </tr>
         <tr>
           <td><code>icon</code></td>
-          <td>(any character)</td>
-          <td>Replace the default link icon with the character(s) provided.<br> These are a few good options: <code>#</code>, <code>¶</code>, <code>❡</code>, and <code>§</code>.</td>
+          <td>(any unicode character)</td>
+          <td><code style="font-family: 'anchorjs-icons'; font-size: 24px; -webkit-font-smoothing: antialiased;"></code></td>
+          <td>Replace the default link icon with the character(s) provided. These are a few good options: <code>#</code>, <code>¶</code>, <code>❡</code>, and <code>§</code>.</td>
         </tr>
         <tr>
           <td><code>class</code></td>
           <td>(any string)</td>
+          <td>(none)</td>
           <td>Adds the provided class(es) to the anchor html.</td>
+        </tr>
+        <tr>
+          <td><code>truncate</code></td>
+          <td>(any number)</td>
+          <td><code>64</code></td>
+          <td>Truncates the generated ID to the specified character length. <small>Note: the length may not be exactly the same, if there are dangling spaces or hypens to be trimmed.</small></td>
         </tr>
       </tbody>
     </table>

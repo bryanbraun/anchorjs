@@ -178,6 +178,10 @@ pre > code {
   margin: 1em 0;
 }
 
+.minicol {
+  width: 62px;
+}
+
 .footer {
   text-align: center;
   color: #777;
