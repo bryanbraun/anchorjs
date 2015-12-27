@@ -28,7 +28,7 @@ Then include the anchor.js file (or anchor.min.js) in your webpage.
 <script src="anchor.js"></script>
 ```
 
-You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js).
+You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](http://www.jsdelivr.com/projects/anchorjs).
 
 ##Usage
 See **[the Documentation](http://bryanbraun.github.io/anchorjs#basic-usage)** for detailed instructions.
