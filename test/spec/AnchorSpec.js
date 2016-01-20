@@ -247,6 +247,19 @@ describe('AnchorJS', function() {
     expect(anchors.urlify(text3Before)).toEqual(after);
   });
 
+  it('optionally trims whitespace characters when making text URL-friendly', function() {
+    var text1Before = '\n abc\r',
+        text2Before = 'abc  ',
+        text3Before = 'abc\n ',
+        after = 'abc';
+
+    var options = { trim: true };
+
+    expect(anchors.urlify(text1Before, options)).toEqual(after);
+    expect(anchors.urlify(text2Before, options)).toEqual(after);
+    expect(anchors.urlify(text3Before, options)).toEqual(after);
+  });
+
   it('removes apostrophes when making text URL-friendly', function() {
     var before = 'don\'t',
         after = 'dont';
