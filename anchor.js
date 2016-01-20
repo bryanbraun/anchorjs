@@ -8,13 +8,16 @@ function AnchorJS(options) {
   'use strict';
   this.options = options || {};
 
+  // https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
+  var isTouchDevice = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+
   /**
    * Assigns options to the internal options object, and provides defaults.
    * @param {Object} opts - Options object
    */
   function _applyRemainingDefaultOptions(opts) {
     opts.icon = opts.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
-    opts.visible = opts.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
+    opts.visible = opts.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
     opts.placement = opts.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
     opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
     // Using Math.floor here will ensure the value is Number-cast and an integer.
@@ -40,13 +43,19 @@ function AnchorJS(options) {
         tidyText,
         newTidyText,
         readableID,
-        anchor;
+        anchor,
+        visibleOptionToUse;
 
     // We reapply options here because somebody may have overwritten the default options object when setting options.
     // For example, this overwrites all options but visible:
     //
     // anchors.options = { visible: 'always'; }
     _applyRemainingDefaultOptions(this.options);
+
+    visibleOptionToUse = this.options.visible;
+    if (visibleOptionToUse === 'touch') {
+      visibleOptionToUse = isTouchDevice ? 'always' : 'hover';
+    }
 
     // Provide a sensible default selector, if none is given.
     if (!selector) {
@@ -108,7 +117,7 @@ function AnchorJS(options) {
       anchor.setAttribute('aria-label', 'Anchor link for: ' + readableID);
       anchor.setAttribute('data-anchorjs-icon', this.options.icon);
 
-      if (this.options.visible === 'always') {
+      if (visibleOptionToUse === 'always') {
         anchor.style.opacity = '1';
       }
 

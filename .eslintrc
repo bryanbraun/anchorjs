@@ -28,7 +28,7 @@
         "no-else-return": 2,
         "no-empty": 2,
         "no-eq-null": 2,
-        "no-extra-parens": 2,
+        "no-extra-parens": 0,
         "no-extra-semi": 2,
         "no-undef": 2,
         "no-floating-decimal": 2,
@@ -70,5 +70,9 @@
         "valid-typeof": 2,
         "wrap-iife": [2, "outside"],
         "yoda": [2, "never"]
+    },
+
+    "globals": {
+        "DocumentTouch": true,
     }
 }
