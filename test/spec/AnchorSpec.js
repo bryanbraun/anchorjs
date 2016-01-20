@@ -69,11 +69,8 @@ describe('AnchorJS', function() {
   });
 
   it('does not destroy default options when setting an incomplete options object.', function() {
-    var anchorObj,
-        anchorLink,
-        hasClass,
-        opacity,
-        icon;
+    var anchorObj;
+
     anchors.options = { class: 'test-class' };
     anchors.add();
     anchorObj = new AnchorJS({ class: 'test-class' });
@@ -253,11 +250,11 @@ describe('AnchorJS', function() {
         text3Before = 'abc\n ',
         after = 'abc';
 
-    var options = { trim: true };
+    anchors.options.trim = true;
 
-    expect(anchors.urlify(text1Before, options)).toEqual(after);
-    expect(anchors.urlify(text2Before, options)).toEqual(after);
-    expect(anchors.urlify(text3Before, options)).toEqual(after);
+    expect(anchors.urlify(text1Before)).toEqual(after);
+    expect(anchors.urlify(text2Before)).toEqual(after);
+    expect(anchors.urlify(text3Before)).toEqual(after);
   });
 
   it('removes apostrophes when making text URL-friendly', function() {

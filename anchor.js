@@ -6,8 +6,6 @@
 
 function AnchorJS(options) {
   'use strict';
-  var that = this;
-
   this.options = options || {};
 
   /**
@@ -171,18 +169,19 @@ function AnchorJS(options) {
    * @param  {?Object} options - Optional option overrides.
    * @return {String}      - hyphen-delimited text for use in IDs and URLs.
    */
-  this.urlify = function(text, options) {
-    options = options || this.options;
-
+  this.urlify = function(text) {
     // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!']./()*\
     var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
         urlText;
 
-    if (!options.truncate) {
-      _applyRemainingDefaultOptions(options);
+    // AnchorJS has three public methods... add(), remove(), and urlify(). The reason we include this
+    // _applyRemainingDefaultOptions is so urlify can be called independently, even after setting
+    // options. This can be useful for tests or other applications.
+    if (!this.options.truncate) {
+      _applyRemainingDefaultOptions(this.options);
     }
 
-    if (options.trim) {
+    if (this.options.trim) {
       text = text.trim();
     }
 
@@ -191,7 +190,7 @@ function AnchorJS(options) {
     urlText = text.replace(/\'/gi, '')                  // " ⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
                   .replace(nonsafeChars, '-')           // "-⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
                   .replace(/-{2,}/g, '-')               // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
-                  .substring(0, options.truncate)  // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
+                  .substring(0, this.options.truncate)  // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
                   .replace(/^-+|-+$/gm, '')             // "⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
                   .toLowerCase();                       // "⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
 
