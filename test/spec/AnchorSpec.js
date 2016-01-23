@@ -8,7 +8,7 @@ describe('AnchorJS', function() {
 
   beforeEach(function() {
     h = document.createElement('h1');
-    t = document.createTextNode(' ⚡ Don\'t forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.');
+    t = document.createTextNode(' ⚡⚡ Don\'t forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.');
     h.appendChild(t);
     document.body.appendChild(h);
   });
@@ -113,8 +113,8 @@ describe('AnchorJS', function() {
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
     id = document.getElementsByTagName('h1')[0].getAttribute('id');
-    expect(href).toEqual('#⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
-    expect(id).toEqual('⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
+    expect(href).toEqual('#⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
+    expect(id).toEqual('⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
   });
 
   it('should leave existing IDs in place, and use them as the href for anchors.', function() {
@@ -244,13 +244,11 @@ describe('AnchorJS', function() {
     expect(anchors.urlify(text3Before)).toEqual(after);
   });
 
-  it('optionally trims whitespace characters when making text URL-friendly', function() {
+  it('trims whitespace characters when making text URL-friendly', function() {
     var text1Before = '\n abc\r',
         text2Before = 'abc  ',
         text3Before = 'abc\n ',
         after = 'abc';
-
-    anchors.options.trim = true;
 
     expect(anchors.urlify(text1Before)).toEqual(after);
     expect(anchors.urlify(text2Before)).toEqual(after);
