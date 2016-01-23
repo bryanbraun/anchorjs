@@ -8,9 +8,6 @@ function AnchorJS(options) {
   'use strict';
   this.options = options || {};
 
-  // https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
-  var isTouchDevice = !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
-
   /**
    * Assigns options to the internal options object, and provides defaults.
    * @param {Object} opts - Options object
@@ -26,6 +23,15 @@ function AnchorJS(options) {
   }
 
   _applyRemainingDefaultOptions(this.options);
+
+  /**
+   * Checks to see if this device supports touch. Uses criteria pulled from Modernizr:
+   * https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
+   * @return {Boolean} - true if the current device supports touch.
+   */
+  this.isTouchDevice = function() {
+    return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+  };
 
   /**
    * Add anchor links to page elements.
@@ -54,7 +60,7 @@ function AnchorJS(options) {
 
     visibleOptionToUse = this.options.visible;
     if (visibleOptionToUse === 'touch') {
-      visibleOptionToUse = isTouchDevice ? 'always' : 'hover';
+      visibleOptionToUse = this.isTouchDevice() ? 'always' : 'hover';
     }
 
     // Provide a sensible default selector, if none is given.
@@ -183,9 +189,8 @@ function AnchorJS(options) {
     var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
         urlText;
 
-    // AnchorJS has three public methods... add(), remove(), and urlify(). The reason we include this
-    // _applyRemainingDefaultOptions is so urlify can be called independently, even after setting
-    // options. This can be useful for tests or other applications.
+    // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
+    // even after setting options. This can be useful for tests or other applications.
     if (!this.options.truncate) {
       _applyRemainingDefaultOptions(this.options);
     }

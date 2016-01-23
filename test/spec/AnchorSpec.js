@@ -285,4 +285,26 @@ describe('AnchorJS', function() {
     anchors.options.truncate = '87';
     expect(anchors.urlify(before)).toEqual(trunc4);
   });
+
+  describe('touch option', function() {
+    beforeEach(function() {
+      anchors.options.visible = 'touch';
+    });
+
+    it('invokes the `always` behavior for touch devices', function() {
+      var opacity;
+      spyOn(anchors, 'isTouchDevice').and.returnValue(true);
+      anchors.add('h1');
+      opacity = document.querySelector('.anchorjs-link').style.opacity;
+      expect(opacity).toEqual('1');
+    });
+
+    it('invokes the `hover` behavior for non-touch devices', function() {
+      var opacity;
+      spyOn(anchors, 'isTouchDevice').and.returnValue(false);
+      anchors.add('h1');
+      opacity = document.querySelector('.anchorjs-link').style.opacity;
+      expect(opacity).toEqual('');
+    });
+  });
 });
