@@ -55,8 +55,8 @@ anchors.add('p');</code></pre>
     <div class="used-by">
       <h2 class="used-by-label">Used by</h2>
       <a href="http://primercss.io/about/"><img src="img/primer.png" alt="Primer CSS Logo" title="PrimerCSS"/></a>
-      <a href="http://eslint.org/docs/rules/"><img src="img/eslint-logo.png" alt="ESLint logo" title="ESLint"/></a>
       <a href="http://getbootstrap.com/getting-started/"><img src="img/bootstrap.png" alt="Bootstrap Logo" title="Bootstrap" /></a>
+      <a href="http://eslint.org/docs/rules/"><img src="img/eslint-logo.png" alt="ESLint logo" title="ESLint"/></a>
       <a href="https://middlemanapp.com/basics/install/"><img src="img/middleman-logo.png" alt="Middleman logo" title="Middleman"/></a>
       <a href="http://learn.getgrav.org/"><img src="img/grav.png" alt="Grav Logo" title="Grav" /></a>
     </div>
@@ -121,9 +121,9 @@ anchors.add();</code></pre>
         </tr>
         <tr>
           <td><code>visible</code></td>
-          <td><code>hover</code> <br> <code>always</code></td>
+          <td><code>hover</code> <br> <code>always</code> <br> <code>touch</code></td></td>
           <td><code>hover</code></td>
-          <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link.</td>
+          <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link. <br> <code>touch</code> will always display links on touch devices, and only display them via hover on cursor devices.</td>
         </tr>
         <tr>
           <td><code>icon</code></td>
@@ -141,7 +141,7 @@ anchors.add();</code></pre>
           <td><code>truncate</code></td>
           <td>(any number)</td>
           <td><code>64</code></td>
-          <td>Truncates the generated ID to the specified character length. <small>Note: the length may not be exactly the same, if there are dangling spaces or hypens to be trimmed.</small></td>
+          <td>Truncates the generated ID to the specified character length. <small>Note: the length may not be exactly the same, if there are dangling spaces or hyphens to be trimmed.</small></td>
         </tr>
       </tbody>
     </table>
