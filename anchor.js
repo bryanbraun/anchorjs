@@ -1,13 +1,11 @@
 /**
- * AnchorJS - v2.0.0 - 2015-10-31
+ * AnchorJS - v3.0.0 - 2016-01-24
  * https://github.com/bryanbraun/anchorjs
  * Copyright (c) 2015 Bryan Braun; Licensed MIT
  */
 
 function AnchorJS(options) {
   'use strict';
-  var that = this;
-
   this.options = options || {};
 
   /**
@@ -15,15 +13,24 @@ function AnchorJS(options) {
    * @param {Object} opts - Options object
    */
   function _applyRemainingDefaultOptions(opts) {
-    that.options.icon = that.options.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
-    that.options.visible = that.options.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always'
-    that.options.placement = that.options.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
-    that.options.class = that.options.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
+    opts.icon = opts.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
+    opts.visible = opts.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
+    opts.placement = opts.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
+    opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
     // Using Math.floor here will ensure the value is Number-cast and an integer.
-    that.options.truncate = that.options.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
+    opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
   }
 
-  _applyRemainingDefaultOptions(options);
+  _applyRemainingDefaultOptions(this.options);
+
+  /**
+   * Checks to see if this device supports touch. Uses criteria pulled from Modernizr:
+   * https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
+   * @return {Boolean} - true if the current device supports touch.
+   */
+  this.isTouchDevice = function() {
+    return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+  };
 
   /**
    * Add anchor links to page elements.
@@ -41,13 +48,19 @@ function AnchorJS(options) {
         tidyText,
         newTidyText,
         readableID,
-        anchor;
+        anchor,
+        visibleOptionToUse;
 
     // We reapply options here because somebody may have overwritten the default options object when setting options.
     // For example, this overwrites all options but visible:
     //
     // anchors.options = { visible: 'always'; }
     _applyRemainingDefaultOptions(this.options);
+
+    visibleOptionToUse = this.options.visible;
+    if (visibleOptionToUse === 'touch') {
+      visibleOptionToUse = this.isTouchDevice() ? 'always' : 'hover';
+    }
 
     // Provide a sensible default selector, if none is given.
     if (!selector) {
@@ -109,7 +122,7 @@ function AnchorJS(options) {
       anchor.setAttribute('aria-label', 'Anchor link for: ' + readableID);
       anchor.setAttribute('data-anchorjs-icon', this.options.icon);
 
-      if (this.options.visible === 'always') {
+      if (visibleOptionToUse === 'always') {
         anchor.style.opacity = '1';
       }
 
@@ -167,6 +180,7 @@ function AnchorJS(options) {
    * remove extra hyphens, truncate, trim hyphens, and make lowercase.
    *
    * @param  {String} text - Any text. Usually pulled from the webpage element we are linking to.
+   * @param  {?Object} options - Optional option overrides.
    * @return {String}      - hyphen-delimited text for use in IDs and URLs.
    */
   this.urlify = function(text) {
@@ -174,18 +188,21 @@ function AnchorJS(options) {
     var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'\]\.\/\(\)\*\\]/g,
         urlText;
 
+    // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
+    // even after setting options. This can be useful for tests or other applications.
     if (!this.options.truncate) {
       _applyRemainingDefaultOptions(this.options);
     }
 
     // Note: we trim hyphens after truncating because truncating can cause dangling hyphens.
-    // Example string:                                  // " ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
-    urlText = text.replace(/\'/gi, '')                  // " ⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
-                  .replace(nonsafeChars, '-')           // "-⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
-                  .replace(/-{2,}/g, '-')               // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
-                  .substring(0, this.options.truncate)  // "-⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
-                  .replace(/^-+|-+$/gm, '')             // "⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
-                  .toLowerCase();                       // "⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
+    // Example string:                                  // " ⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+    urlText = text.trim()                               // "⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+                  .replace(/\'/gi, '')                  // "⚡⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+                  .replace(nonsafeChars, '-')           // "⚡⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
+                  .replace(/-{2,}/g, '-')               // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
+                  .substring(0, this.options.truncate)  // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
+                  .replace(/^-+|-+$/gm, '')             // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
+                  .toLowerCase();                       // "⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
 
     return urlText;
   };
