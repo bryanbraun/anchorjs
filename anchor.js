@@ -17,6 +17,7 @@ function AnchorJS(options) {
     opts.visible = opts.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
     opts.placement = opts.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
     opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
+    opts.query = opts.hasOwnProperty('query') ? opts.query : ''; // Query parameters
     // Using Math.floor here will ensure the value is Number-cast and an integer.
     opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
   }
@@ -118,7 +119,7 @@ function AnchorJS(options) {
       // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor link for: ' + readableID + '" data-anchorjs-icon="' + this.options.icon + '"></a>';
       anchor = document.createElement('a');
       anchor.className = 'anchorjs-link ' + this.options.class;
-      anchor.href = '#' + elementID;
+      anchor.href = this.options.query + '#' + elementID;
       anchor.setAttribute('aria-label', 'Anchor link for: ' + readableID);
       anchor.setAttribute('data-anchorjs-icon', this.options.icon);
 
