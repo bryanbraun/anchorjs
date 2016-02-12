@@ -7,6 +7,7 @@
 function AnchorJS(options) {
   'use strict';
   this.options = options || {};
+  this.elements = [];
 
   /**
    * Assigns options to the internal options object, and provides defaults.
@@ -161,6 +162,8 @@ function AnchorJS(options) {
     for (i = 0; i < indexesToDrop.length; i++) {
       elements.splice(indexesToDrop[i] - i, 1);
     }
+    this.elements = this.elements.concat(elements);
+
     return this;
   };
 
@@ -178,6 +181,12 @@ function AnchorJS(options) {
     for (var i = 0; i < elements.length; i++) {
       domAnchor = elements[i].querySelector('.anchorjs-link');
       if (domAnchor) {
+        // Drop the element from our main list, if it's in there.
+        index = this.elements.indexOf(elements[i]);
+        if (index !== -1) {
+          this.elements.splice(index, 1);
+        }
+        // Remove the anchor from the DOM.
         elements[i].removeChild(domAnchor);
       }
     }

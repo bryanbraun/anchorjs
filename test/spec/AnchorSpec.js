@@ -205,6 +205,47 @@ describe('AnchorJS', function() {
     expect(anchorLinkList2.length).toEqual(1);
   });
 
+  describe('exposed elements list', function() {
+    var el2,
+        el3,
+        el4;
+
+    beforeEach(function() {
+      el2 = appendElementToBody('h2', 'Example Title 1');
+      el3 = appendElementToBody('h2', 'Example Title 2');
+      el4 = appendElementToBody('h3', 'Example Title 3');
+    });
+
+    afterEach(function() {
+      document.body.removeChild(el2);
+      document.body.removeChild(el3);
+      document.body.removeChild(el4);
+    });
+
+    it('contains added anchors', function() {
+      anchors.add('h2');
+      expect(anchors.elements.length).toEqual(2);
+      expect(anchors.elements[0].textContent).toEqual('Example Title 1');
+      expect(anchors.elements[1].textContent).toEqual('Example Title 2');
+    });
+
+    it('contains combined anchors from multiple adds', function() {
+      anchors.add('h2');
+      expect(anchors.elements.length).toEqual(2);
+      anchors.add('h3');
+      expect(anchors.elements.length).toEqual(3);
+    });
+
+    it('doesn\'t contain removed anchors', function() {
+      anchors.add('h2, h3');
+      expect(anchors.elements.length).toEqual(3);
+      expect(anchors.elements.indexOf(el4)).toEqual(2);
+      anchors.remove('h3');
+      expect(anchors.elements.length).toEqual(2);
+      expect(anchors.elements.indexOf(el4)).toEqual(-1);
+    });
+  });
+
   describe('urlify', function() {
     it('preserves unicode characters', function() {
       var text1Before = 'Заголовок, содержащий 29 не-ASCII символов',
