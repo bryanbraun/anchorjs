@@ -50,7 +50,8 @@ function AnchorJS(options) {
         newTidyText,
         readableID,
         anchor,
-        visibleOptionToUse;
+        visibleOptionToUse,
+        indexesToDrop = [];
 
     // We reapply options here because somebody may have overwritten the default options object when setting options.
     // For example, this overwrites all options but visible:
@@ -83,6 +84,10 @@ function AnchorJS(options) {
     });
 
     for (i = 0; i < elements.length; i++) {
+      if (this.hasAnchorJSLink(elements[i])) {
+        indexesToDrop.push(i);
+        continue;
+      }
 
       if (elements[i].hasAttribute('id')) {
         elementID = elements[i].getAttribute('id');
@@ -153,6 +158,9 @@ function AnchorJS(options) {
       }
     }
 
+    for (i = 0; i < indexesToDrop.length; i++) {
+      elements.splice(indexesToDrop[i] - i, 1);
+    }
     return this;
   };
 

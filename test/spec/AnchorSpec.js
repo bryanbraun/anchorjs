@@ -193,6 +193,18 @@ describe('AnchorJS', function() {
     }).toThrowError('The selector provided to AnchorJS was invalid.');
   });
 
+  it('silently prevents an anchor from being added twice to the same element', function() {
+    var anchorLinkList1,
+        anchorLinkList2;
+    anchors.add('h1');
+
+    anchorLinkList1 = document.querySelectorAll('h1 > .anchorjs-link');
+    expect(anchorLinkList1.length).toEqual(1);
+    anchors.add('h1');
+    anchorLinkList2 = document.querySelectorAll('h1 > .anchorjs-link');
+    expect(anchorLinkList2.length).toEqual(1);
+  });
+
   describe('urlify', function() {
     it('preserves unicode characters', function() {
       var text1Before = 'Заголовок, содержащий 29 не-ASCII символов',
