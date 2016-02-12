@@ -11,6 +11,7 @@ describe('AnchorJS', function() {
   });
 
   afterEach(function() {
+    anchors.removeAll();
     document.body.removeChild(el1);
   });
 
@@ -117,6 +118,21 @@ describe('AnchorJS', function() {
     anchors.remove('h1');
     anchorLinkAfter = document.querySelector('h1 > .anchorjs-link');
     expect(anchorLinkAfter).toBe(null);
+  });
+
+  it('can remove all anchors with removeAll', function() {
+    var el2 = appendElementToBody('h2', 'Example Title');
+
+    anchors.add('h1, h2');
+    expect(anchors.hasAnchorJSLink(el1)).toBe(true);
+    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+
+    anchors.removeAll();
+    expect(anchors.hasAnchorJSLink(el1)).toBe(false);
+    expect(anchors.hasAnchorJSLink(el2)).toBe(false);
+    expect(anchors.elements.length).toBe(0);
+
+    document.body.removeChild(el2);
   });
 
   it('can chain methods.', function() {

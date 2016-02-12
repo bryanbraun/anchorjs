@@ -194,6 +194,13 @@ function AnchorJS(options) {
   };
 
   /**
+   * Removes all anchorjs links. Mostly used for tests.
+   */
+  this.removeAll = function() {
+    this.remove(this.elements);
+  };
+
+  /**
    * Urlify - Refine text so it makes a good ID.
    *
    * To do this, we remove apostrophes, replace nonsafe characters with hyphens,
