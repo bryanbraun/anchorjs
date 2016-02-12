@@ -104,17 +104,13 @@ function AnchorJS(options) {
             newTidyText = tidyText + '-' + count;
           }
 
-          // .indexOf is only supported in IE9+.
           index = idList.indexOf(newTidyText);
           count += 1;
         } while (index !== -1);
         index = undefined;
         idList.push(newTidyText);
 
-        // Assign it to our element.
-        // Currently the setAttribute element is only supported in IE9 and above.
         elements[i].setAttribute('id', newTidyText);
-
         elementID = newTidyText;
       }
 
@@ -207,7 +203,6 @@ function AnchorJS(options) {
    * remove extra hyphens, truncate, trim hyphens, and make lowercase.
    *
    * @param  {String} text - Any text. Usually pulled from the webpage element we are linking to.
-   * @param  {?Object} options - Optional option overrides.
    * @return {String}      - hyphen-delimited text for use in IDs and URLs.
    */
   this.urlify = function(text) {

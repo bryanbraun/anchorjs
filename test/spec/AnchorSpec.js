@@ -169,9 +169,9 @@ describe('AnchorJS', function() {
   });
 
   it('should increment new IDs if multiple IDs are found on a page.', function() {
-    var el1 = appendElementToBody('h2', 'Example Title'),
-        el2 = appendElementToBody('h2', 'Example Title'),
+    var el2 = appendElementToBody('h2', 'Example Title'),
         el3 = appendElementToBody('h2', 'Example Title'),
+        el4 = appendElementToBody('h2', 'Example Title'),
         id1,
         id2,
         id3,
@@ -198,9 +198,9 @@ describe('AnchorJS', function() {
     expect(id3).toEqual('example-title-2');
     expect(href3).toEqual('#example-title-2');
 
-    document.body.removeChild(el1);
     document.body.removeChild(el2);
     document.body.removeChild(el3);
+    document.body.removeChild(el4);
   });
 
   it('should throw an error if an inappropriate selector is provided.', function() {
