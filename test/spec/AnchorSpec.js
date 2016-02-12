@@ -14,11 +14,44 @@ describe('AnchorJS', function() {
     document.body.removeChild(el1);
   });
 
+  it('can detect if an element has an AnchorJS link', function() {
+    var anchorLink,
+        el2 = appendElementToBody('h2', 'Example Title');
+
+    anchors.add('h2');
+    anchorLink = document.querySelector('h2 > .anchorjs-link');
+    expect(anchorLink).not.toBe(null); // reference test
+    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+
+    document.body.removeChild(el2);
+  });
+
   it('should add an anchor link to an h1 by default', function() {
     var anchorLink;
     anchors.add();
     anchorLink = document.querySelector('h1 > .anchorjs-link');
     expect(anchorLink).not.toBe(null);
+  });
+
+  it('add/remove accepts a string (selector), nodelist, or array of els', function() {
+    var el2 = appendElementToBody('h2', 'Example Title');
+
+    anchors.add('h2');
+    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+    anchors.remove('h2');
+    expect(anchors.hasAnchorJSLink(el2)).toBe(false);
+
+    anchors.add(document.querySelectorAll('h2'));
+    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+    anchors.remove(document.querySelectorAll('h2'));
+    expect(anchors.hasAnchorJSLink(el2)).toBe(false);
+
+    anchors.add([document.querySelector('h2')]);
+    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+    anchors.remove([document.querySelector('h2')]);
+    expect(anchors.hasAnchorJSLink(el2)).toBe(false);
+
+    document.body.removeChild(el2);
   });
 
   it('should set the expected default options', function() {

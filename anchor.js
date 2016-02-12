@@ -34,8 +34,9 @@ function AnchorJS(options) {
 
   /**
    * Add anchor links to page elements.
-   * @param  {String} selector  A CSS selector for targeting the elements you wish to add anchor links to.
-   * @return {this}             The AnchorJS object
+   * @param  {String|Array|Nodelist} selector - A CSS selector for targeting the elements you wish to add anchor links
+   *                                            to. Also accepts an array or nodeList containing the relavant elements.
+   * @return {this}                           - The AnchorJS object
    */
   this.add = function(selector) {
     var elements,
@@ -65,11 +66,10 @@ function AnchorJS(options) {
     // Provide a sensible default selector, if none is given.
     if (!selector) {
       selector = 'h1, h2, h3, h4, h5, h6';
-    } else if (typeof selector !== 'string') {
-      throw new Error('The selector provided to AnchorJS was invalid.');
     }
 
-    elements = document.querySelectorAll(selector);
+    elements = _getElements(selector);
+
     if (elements.length === 0) {
       return false;
     }
@@ -158,12 +158,15 @@ function AnchorJS(options) {
 
   /**
    * Removes all anchorjs-links from elements targed by the selector.
-   * @param  {String} selector  A CSS selector used to target elements containing anchor links.
-   * @return {this}             The AnchorJS object
+   * @param  {String|Array|Nodelist} selector - A CSS selector string targeting elements with anchor links,
+   *                                       	  	OR a nodeList / array containing the DOM elements.
+   * @return {this}                           - The AnchorJS object
    */
   this.remove = function(selector) {
-    var domAnchor,
-        elements = document.querySelectorAll(selector);
+    var index,
+        domAnchor,
+        elements = _getElements(selector);
+
     for (var i = 0; i < elements.length; i++) {
       domAnchor = elements[i].querySelector('.anchorjs-link');
       if (domAnchor) {
@@ -206,6 +209,40 @@ function AnchorJS(options) {
 
     return urlText;
   };
+
+  /**
+   * Determines if this element already has an AnchorJS link on it.
+   * Uses this technique: http://stackoverflow.com/a/5898748/1154642
+   * @param    {HTMLElemnt}  el - a DOM node
+   * @return   {Boolean}     true/false
+   */
+  this.hasAnchorJSLink = function(el) {
+    var hasLeftAnchor = (' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1,
+        hasRightAnchor = (' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1;
+
+    return hasLeftAnchor || hasRightAnchor;
+  };
+
+  /**
+   * Turns a selector, nodeList, or array of elements into an array of elements (so we can use array methods).
+   * It also throws errors on any other inputs. Used to handle inputs to .add and .remove.
+   * @param  {String|Array|Nodelist} input - A CSS selector string targeting elements with anchor links,
+   *                                       	 OR a nodeList / array containing the DOM elements.
+   * @return {Array} - An array containing the elements we want.
+   */
+  function _getElements(input) {
+    var elements;
+    if (typeof input === 'string' || input instanceof String) {
+      // See https://davidwalsh.name/nodelist-array for the technique transforming nodeList -> Array.
+      elements = [].slice.call(document.querySelectorAll(input));
+    // I checked the 'input instanceof NodeList' test in IE9 and modern browsers and it worked for me.
+    } else if (Array.isArray(input) || input instanceof NodeList) {
+      elements = [].slice.call(input);
+    } else {
+      throw new Error('The selector provided to AnchorJS was invalid.');
+    }
+    return elements;
+  }
 
   /**
    * _addBaselineStyles
