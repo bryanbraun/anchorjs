@@ -182,6 +182,7 @@ anchors.remove('.no-anchor');
  * Add anchors to all h1s, then remove some by chaining methods.
  */
 anchors.add('.h1').remove('.no-anchor');</pre></code>
+    <p>Additionally, you can remove all anchors with <code>anchors.removeAll()</code>.</p>
 
     <h3>Multiple Sets of Anchors</h3>
     <p>You can have multiple sets of anchors on one page, each with their own design. To do so, just create your own instances of the AnchorJS object:</p>
@@ -194,6 +195,11 @@ sidebarAnchors.add('.sidebar h2'); // The new instance.</code></pre>
   icon: '¶'
 });
 sidebarAnchors.add('.sidebar h2');</code></pre>
+
+    <h3>Generating Navigations</h3>
+    <p>AnchorJS doesn't include methods for dynamically generating navigations (like a table of contents or jump nav). This is to keep AnchorJS lightweight and simple for the most common usecases.</p>
+    <p>However, AnchorJS <em>does</em> expose a list of all anchored elements at <code>anchors.elements</code>. This way, external code can look up the elements and use them to generate navigations (as shown in <a href="https://jsfiddle.net/bryanbraun/nc6rL9hk/">this example</a>).</p>
+    <p>You can also use AnchorJS alongside a static navigation with pre-defined IDs (as is done in <a href="https://jsfiddle.net/bryanbraun/x85hfvbk/">this example</a>).</p>
 
     <h2>Examples</h2>
     <div class="examples">
