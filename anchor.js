@@ -236,10 +236,10 @@ function AnchorJS(options) {
    * @return   {Boolean}     true/false
    */
   this.hasAnchorJSLink = function(el) {
-    var hasLeftAnchor = (' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1,
-        hasRightAnchor = (' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1;
+    var hasLeftAnchor = el.firstChild && ((' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1),
+        hasRightAnchor = el.lastChild && ((' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1);
 
-    return hasLeftAnchor || hasRightAnchor;
+    return hasLeftAnchor || hasRightAnchor || false;
   };
 
   /**

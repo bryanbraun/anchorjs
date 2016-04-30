@@ -16,15 +16,16 @@ describe('AnchorJS', function() {
   });
 
   it('can detect if an element has an AnchorJS link', function() {
-    var anchorLink,
-        el2 = appendElementToBody('h2', 'Example Title');
+    var el2 = appendElementToBody('h2', 'Example Title'),
+        el3 = appendElementToBody('h3');
 
-    anchors.add('h2');
-    anchorLink = document.querySelector('h2 > .anchorjs-link');
-    expect(anchorLink).not.toBe(null); // reference test
-    expect(anchors.hasAnchorJSLink(el2)).toBe(true);
+    anchors.add('h1');
+    expect(anchors.hasAnchorJSLink(el1)).toBe(true);
+    expect(anchors.hasAnchorJSLink(el2)).toBe(false);
+    expect(anchors.hasAnchorJSLink(el3)).toBe(false);
 
     document.body.removeChild(el2);
+    document.body.removeChild(el3);
   });
 
   it('should add an anchor link to an h1 by default', function() {
