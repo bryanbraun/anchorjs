@@ -450,6 +450,33 @@ pre > code {
   border-right-color: #FF806A;
 }
 
+.hover-examples .example:nth-child(5) .anchorjs-link:after {
+  display: inline-block;
+  transition: opacity .25s linear;
+  font-family: Verdana, sans-serif;
+  font-size: 0.75ex;
+  font-weight: 100;
+  padding: 0.5ex 1.5ex;
+  background: #444;
+  color: #fff;
+  border-radius: 0.6ex;
+  vertical-align: 0.8ex;
+}
+.hover-examples .example:nth-child(5) .anchorjs-link:before {
+  content: '';
+  display: inline-block;
+  border-top: 0.3ex solid transparent;
+  border-right: 0.5ex solid #444;
+  border-bottom: 0.3ex solid transparent;
+  vertical-align: 0.35ex;
+}
+.hover-examples .example:nth-child(5) .anchorjs-link:hover:after {
+  background-color: #666;
+}
+.hover-examples .example:nth-child(5) .anchorjs-link:hover:before {
+  border-right-color: #666;
+}
+
 /*////// Utilities ////////*/
 /* Clearfix */
 .group:after {

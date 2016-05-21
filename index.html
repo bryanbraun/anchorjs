@@ -491,63 +491,6 @@ anchors.add('h3');</code></pre>
 
     </div>
 
-    <div class="example">
-        <div class="example-content">
-          <h3>Permalink Label</h3>
-          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-          <a href="#" class="example-code-link">{}</a>
-        </div>
-        <div class="example-code">
-          <pre class="js"><code>anchors.options = { icon: 'Permalink' };
-anchors.add('h1, h2, h3, h4');
-</code></pre>
-          <pre class="css"><code>.anchorjs-link:after {
-  display: inline-block;
-  transition: opacity .25s linear;
-  font-family: Verdana, sans-serif;
-  font-size: 0.75ex;
-  font-weight: 100;
-  padding: 0.5ex 1.5ex;
-  background: #444;
-  color: #fff;
-  border-radius: 0.6ex;
-  vertical-align: 0.8ex;
-}
-
-.anchorjs-link:before {
-  content: '';
-  display: inline-block;
-  border-top: 0.3ex solid transparent;
-  border-right: 0.5ex solid #444;
-  border-bottom: 0.3ex solid transparent;
-  border-left: 0 solid transparent;
-  vertical-align: 0.35ex;
-}
-
-.anchorjs-link:hover:after {
-  background-color: #666;
-}
-
-.anchorjs-link:hover:before {
-  border-right-color: #666;
-}
-
-/* unimportant styles */
-body {
-  font-family: Georgia, seriff;
-  max-width: 600px;
-  margin: 4em auto 0;
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }</code></pre>
-        </div>
-      </div>
-
-    </div>
-
     <h2 id="hover-examples" class="title">Hover Examples</h2>
     <div class="hover-examples">
       <div class="example">
@@ -647,6 +590,47 @@ h2 {
 }</code></pre>
         </div>
       </div>
+
+      <div class="example">
+        <div class="example-content">
+          <h3>Tooltip</h3>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options = { icon: 'Permalink' };
+anchors.add('h3');</code></pre>
+          <pre class="css"><code>/* tooltip box */
+.anchorjs-link:after {
+  display: inline-block;
+  transition: opacity .25s linear;
+  font-family: Verdana, sans-serif;
+  font-size: 0.75ex;
+  font-weight: 100;
+  padding: 0.5ex 1.5ex;
+  background: #444;
+  color: #fff;
+  border-radius: 0.6ex;
+  vertical-align: 0.8ex;
+}
+/* tooltip arrow */
+.anchorjs-link:before {
+  content: '';
+  display: inline-block;
+  border-top: 0.3ex solid transparent;
+  border-right: 0.5ex solid #444;
+  border-bottom: 0.3ex solid transparent;
+  vertical-align: 0.35ex;
+}
+.anchorjs-link:hover:after {
+  background-color: #666;
+}
+.anchorjs-link:hover:before {
+  border-right-color: #666;
+}</code></pre>
+        </div>
+      </div>
+
     </div>
     <footer class="footer"><p><small>Made by <a href="http://www.bryanbraun.com">Bryan</a>. You should <a href="https://twitter.com/intent/tweet?text=Hi%20%40BryanEBraun%2C%20">say hi</a> sometime. 👋</small></p></footer>
     <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
@@ -763,6 +747,9 @@ h2 {
 
     var hovEx4 = new AnchorJS({ icon: '# LINK' });
     hovEx4.add('.hover-examples .example:nth-child(4) h3');
+
+    var hovEx5 = new AnchorJS({ icon: 'Permalink' });
+    hovEx5.add('.hover-examples .example:nth-child(5) h3');
   </script>
 </body>
 </html>
