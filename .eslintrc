@@ -64,7 +64,7 @@
         "spaced-comment": [2, "always"],
         "space-in-parens": [2, "never"],
         "space-unary-ops": [2, {"words": true, "nonwords": false}],
-        "strict": 2,
+        "strict": [2, "function"],
         "valid-jsdoc": [2, {"requireReturn": false}],
         "valid-typeof": 2,
         "wrap-iife": [2, "outside"],
