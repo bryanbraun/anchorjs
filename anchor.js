@@ -41,6 +41,7 @@
       opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
       // Using Math.floor here will ensure the value is Number-cast and an integer.
       opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
+      opts.anchorCreated = opts.hasOwnProperty('anchorCreated') ? opts.anchorCreated : null; // no callback by default
     }
 
     _applyRemainingDefaultOptions(this.options);
@@ -173,6 +174,11 @@
         } else { // if the option provided is `right` (or anything else).
           anchor.style.paddingLeft = '0.375em';
           elements[i].appendChild(anchor);
+        }
+
+        //execute the callback
+        if (this.options.anchorCreated !== null) {
+            this.options.anchorCreated(elements[i]);
         }
       }
 
