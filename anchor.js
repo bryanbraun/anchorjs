@@ -150,11 +150,7 @@
         }
 
         if (this.options.icon === '\ue9cb') {
-          anchor.style.fontFamily = 'anchorjs-icons';
-          anchor.style.fontStyle = 'normal';
-          anchor.style.fontVariant = 'normal';
-          anchor.style.fontWeight = 'normal';
-          anchor.style.lineHeight = 1;
+          anchor.style.font = '1em/1 anchorjs-icons';
 
           // We set lineHeight = 1 here because the `anchorjs-icons` font family could otherwise affect the
           // height of the heading. This isn't the case for icons with `placement: left`, so we restore
