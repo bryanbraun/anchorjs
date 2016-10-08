@@ -1,9 +1,3 @@
-/**
- * AnchorJS - v3.2.2 - 2016-10-05
- * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2016 Bryan Braun; Licensed MIT
- */
-
 /* eslint-env amd, node */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
