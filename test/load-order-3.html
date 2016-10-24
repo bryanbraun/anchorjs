@@ -10,6 +10,9 @@
       margin: 80px auto;
       width: 600px;
     }
+    img {
+      max-width: 100%;
+    }
     p {
       font-size: 16px;
     }
@@ -28,60 +31,66 @@
 </head>
 <body>
   <section class="main">
-    <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
-    <h1 class="page-title">AnchorJS</h1>
-    <div class="anchorjs-logo"></div>
-    <p class="intro"><strong>Hover over each heading to see the anchor link produced by AnchorJS.</strong></p>
-    <div class="content">
-      <h1 id="test-id-1">H1 with ID</h1>
-      <p>
-        If the element being selected has an ID, AnchorJS will create anchors that link to that ID. For example, because the h1 above has an id of <code>test-id-1</code>, AnchorJS creates an anchor link with an href of <code>href="#test-id-1"</code>. Anchor links will always use relative paths.
-      </p>
-
-      <h1>H1 without ID</h1>
-      <p>
-        If an element has no ID for anchoring to, AnchorJS will create an ID based on the element's content and add it to the tag. For example, this h1 was originally defined as <code>&lt;h1&gt;H1 without ID&lt;/h1&gt;</code>. After running AnchorJS, the element looks like this<code>&lt;h1 id="h1-without-id"&gt;H1 without ID&lt;/h1&gt;</code> (not including the appended anchor). This allows you to provide anchors, even if you don't have control over the original markup being used.
-      </p>
-
-      <hr />
-
-      <h1>Examples of anchor links at different sizes</h1>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor.</p>
-      <h2>Heading 2</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-      <h3>Heading 3</h3>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est.Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-      <h4>Heading 4</h4>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-      <h4>Test</h4>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
-      <h4>Test</h4>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
-      <h4>Test</h4>
-      <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
-
-      <hr />
-
-      <h3> ⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.</h3>
-
-      <hr />
-
-      <h1>Examples of anchors for different length titles</h1>
-      <h4>Updating</h4>
-      <h4>Updating this project</h4>
-      <h4>Updating this project with npm</h4>
-      <h4>Updating this project with npm is easy</h4>
-      <h4>Updating this project with npm is as easy as pie</h4>
-      <h4>Updating this project with npm is as easy as chocolate pie</h4>
-      <h4>Updating this project with npm is as easy as chocolate coconut pie</h4>
+    <h1>A page with large images (delays after DOMContentLoaded).</h1>
+    <img src="http://lorempixel.com/1600/1600/" alt="Large image">
+    <h2 class="load-order-1">Before &lt;/body&gt;</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <h2 class="load-order-2">On DOMContentLoaded</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <h2 class="load-order-3">On $(document).ready()</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <h2 class="load-order-4">On window.onload</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <h2 class="load-order-5">On arbitrary setTimeout</h2>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+    <p>Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Lorem ipsum dolor sit amet, adipiscing elit. Nullam dignissim convallis est. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
 
 
-    </div>
   </section>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="../anchor.js"></script>
   <script>
-    var selector = '.content h1, .content h2, .content h3, .content h4';
-    anchors.add(selector);
+    var Anchor1 = new AnchorJS(),
+        Anchor2,
+        Anchor3,
+        Anchor4,
+        Anchor5;
+
+    console.log('Added anchors before </body>: ' + performance.now());
+    Anchor1.add('.load-order-1');
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+      console.log('Added anchors on DOMContentLoaded: ' + performance.now());
+      Anchor2 = new AnchorJS();
+      Anchor2.add('.load-order-2');
+    });
+
+    $(function() {
+      console.log('Added anchors on $(document).ready(): ' + performance.now());
+      Anchor3 = new AnchorJS();
+      Anchor3.add('.load-order-3');
+    });
+
+    $(document).ready(function() {
+      console.log('Other time for $(document).ready(): ' + performance.now());
+    });
+
+    window.onload = function() {
+      console.log('Added anchors on window.onload: ' + performance.now());
+      Anchor4 = new AnchorJS();
+      Anchor4.add('.load-order-4');
+    };
+
+    setTimeout(function() {
+      console.log('Added anchors after a 2 second setTimeout: ' + performance.now());
+      Anchor5 = new AnchorJS();
+      Anchor5.add('.load-order-5');
+    }, 2000);
+
   </script>
 </body>
 </html>
