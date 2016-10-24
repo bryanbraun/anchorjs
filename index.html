@@ -7,6 +7,7 @@
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/prism/1.5.1/themes/prism-twilight.css">
   <script src="grunticon/grunticon.loader.js"></script>
   <script>
     grunticon(["grunticon/icons.data.svg.css", "grunticon/icons.data.png.css", "grunticon/icons.fallback.css"]);
@@ -77,15 +78,15 @@ anchors.add('p');</code></pre>
     <pre><code>bower install anchor-js</code></pre>
     <p>(or just <a href="https://github.com/bryanbraun/anchorjs/releases">download it from github</a>).</p>
     <p>Then include the anchor.js file (or anchor.min.js) in your webpage.</p>
-    <pre>&lt;script src="anchor.js"&gt;&lt;/script&gt;</pre>
+    <pre><code class="language-markup">&lt;script src="anchor.js"&gt;&lt;/script&gt;</code></pre>
     <p>You could also include it via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="http://www.jsdelivr.com/projects/anchorjs">jsDelivr</a>.</p>
     <p>If you're using it from Node/CommonJS, include it via:</p>
-    <pre><code>var anchorJS = require('anchor-js');
+    <pre class="src-js"><code>var anchorJS = require('anchor-js');
 var anchors = new anchorJS();</code></pre>
 
     <h2>Basic usage</h2>
     <p>AnchorJS provides the <code>anchors.add()</code> method which takes a CSS selector (similar to jQuery) for targeting elements you want to deep-link. Here are some usage examples.</p>
-    <pre><code>/**
+    <pre class="src-js"><code>/**
  * Example 1
  * Add anchors to all h1's on the page
  */
@@ -108,13 +109,13 @@ anchors.add();</code></pre>
     <p>You need to add anchors to the page early in the page load process if you want browsers to jump to the ID properly.</p>
     <p>We recommend you call <code>anchors.add()</code> before the DOM finishes loading...</p>
 
-    <pre><code>&lt;!-- Add anchors before the closing body tag. --&gt;
+    <pre><code class="language-markup">&lt;!-- Add anchors before the closing body tag. --&gt;
   &lt;script&gt;
     anchors.add();
   &lt;/script&gt;
 &lt;/body&gt;</code></pre>
 <p>...or on DOMContentLoaded:</p>
-    <pre><code>// Add anchors on DOMContentLoaded
+    <pre class="src-js"><code>// Add anchors on DOMContentLoaded
 document.addEventListener("DOMContentLoaded", function(event) {
   anchors.add();
 });</code></pre>
@@ -166,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       </tbody>
     </table>
     <p>For example:</p>
-    <pre><code>/**
+    <pre class="src-js"><code>/**
  * Example 1
  * Add anchors to all h1s, h2s and h3s inside of #post.
  * Anchors will be always visible.
@@ -190,7 +191,7 @@ anchors.add('.story > p');
     <h2>Advanced usage</h2>
     <h3>Removing anchors</h3>
     <p>You can selectively remove anchors from the page by passing a selector to the <code>anchors.remove()</code> method, like so:</p>
-    <pre><code>/**
+    <pre class="src-js"><code>/**
  * Example 1
  * Add anchors to all h1s, except for those with a "no-anchor" class.
  */
@@ -206,11 +207,11 @@ anchors.add('.h1').remove('.no-anchor');</pre></code>
 
     <h3>Multiple sets of anchors</h3>
     <p>You can have multiple sets of anchors on one page, each with their own design. To do so, just create your own instances of the AnchorJS object:</p>
-    <pre><code>var sidebarAnchors = new AnchorJS();
+    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS();
 anchors.add('.main h2'); // The default instance.
 sidebarAnchors.add('.sidebar h2'); // The new instance.</code></pre>
     <p>You can preset your instance with whatever options you like:</p>
-    <pre><code>var sidebarAnchors = new AnchorJS({
+    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS({
   placement: 'left',
   icon: '¶'
 });
@@ -771,5 +772,6 @@ anchors.add('h3');</code></pre>
     var hovEx5 = new AnchorJS({ icon: 'Permalink' });
     hovEx5.add('.hover-examples .example:nth-child(5) h3');
   </script>
+  <script src="//cdn.jsdelivr.net/prism/1.5.1/prism.js"></script>
 </body>
 </html>
