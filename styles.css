@@ -112,6 +112,13 @@ pre > code {
   padding-bottom: 2em;
 }
 
+/* Reset PrismJS' border styles */
+.main pre[class*="language-"],
+.example pre[class*="language-"] {
+  border: 0;
+  border-radius: 3px;
+}
+
 /*//// Page Styles ////*/
 .header {
   max-width: 720px;
