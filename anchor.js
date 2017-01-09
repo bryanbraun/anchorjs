@@ -177,7 +177,7 @@
     /**
      * Removes all anchorjs-links from elements targed by the selector.
      * @param  {String|Array|Nodelist} selector - A CSS selector string targeting elements with anchor links,
-     *                                       	  	OR a nodeList / array containing the DOM elements.
+     *                                            OR a nodeList / array containing the DOM elements.
      * @return {this}                           - The AnchorJS object
      */
     this.remove = function(selector) {
@@ -257,7 +257,7 @@
      * Turns a selector, nodeList, or array of elements into an array of elements (so we can use array methods).
      * It also throws errors on any other inputs. Used to handle inputs to .add and .remove.
      * @param  {String|Array|Nodelist} input - A CSS selector string targeting elements with anchor links,
-     *                                       	 OR a nodeList / array containing the DOM elements.
+     *                                         OR a nodeList / array containing the DOM elements.
      * @return {Array} - An array containing the elements we want.
      */
     function _getElements(input) {
