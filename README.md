@@ -4,7 +4,7 @@ A JavaScript utility for adding deep anchor links ([like these](http://ux.stacke
 
 **[See Live Examples in the Documentation](http://bryanbraun.github.io/anchorjs#examples).**
 
-![Anchoring links](http://bryanbraun.com/sites/default/files/anchoring-links_0.png)
+![Anchoring links](http://bryanbraun.com/assets/images/anchoring-links_0.png)
 
 ## Installation
 
