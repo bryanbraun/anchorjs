@@ -283,12 +283,14 @@ describe('AnchorJS', function() {
     it('removes non-url-safe characters', function() {
       var text1Before = 'one&two three+four$five,six:seven;eight=nine?ten',
           text2Before = 'one@two"three#four{five}six|seven^eight~nine[ten',
-          text3Before = 'one`two%three!four]five.six/seven(eight)nine*ten\\',
+          text3Before = 'one`two%three!four]five.six/seven(eight)nine*ten',
+          text4Before = 'one\\two<three>four-five-six-seven-eight-nine-ten',
           after = 'one-two-three-four-five-six-seven-eight-nine-ten';
 
       expect(anchors.urlify(text1Before)).toEqual(after);
       expect(anchors.urlify(text2Before)).toEqual(after);
       expect(anchors.urlify(text3Before)).toEqual(after);
+      expect(anchors.urlify(text4Before)).toEqual(after);
     });
 
     it('trims whitespace characters', function() {
