@@ -28,11 +28,41 @@ describe('AnchorJS', function() {
     document.body.removeChild(el3);
   });
 
-  it('should add an anchor link to an h1 by default', function() {
+  it('should not add an anchor link to an h1 by default', function() {
     var anchorLink;
+
     anchors.add();
     anchorLink = document.querySelector('h1 > .anchorjs-link');
-    expect(anchorLink).not.toBe(null);
+    expect(anchorLink).toBe(null);
+  });
+
+  it('should add an anchor link to an h2-h6 by default', function() {
+    var anchorLink2, anchorLink3, anchorLink4, anchorLink5, anchorLink6,
+        el2 = appendElementToBody('h2', 'Example Title'),
+        el3 = appendElementToBody('h3', 'Example Title'),
+        el4 = appendElementToBody('h4', 'Example Title'),
+        el5 = appendElementToBody('h5', 'Example Title'),
+        el6 = appendElementToBody('h6', 'Example Title');
+
+    anchors.add();
+
+    anchorLink2 = document.querySelector('h2 > .anchorjs-link');
+    anchorLink3 = document.querySelector('h3 > .anchorjs-link');
+    anchorLink4 = document.querySelector('h4 > .anchorjs-link');
+    anchorLink5 = document.querySelector('h5 > .anchorjs-link');
+    anchorLink6 = document.querySelector('h6 > .anchorjs-link');
+
+    expect(anchorLink2).not.toBe(null);
+    expect(anchorLink3).not.toBe(null);
+    expect(anchorLink4).not.toBe(null);
+    expect(anchorLink5).not.toBe(null);
+    expect(anchorLink6).not.toBe(null);
+
+    document.body.removeChild(el2);
+    document.body.removeChild(el3);
+    document.body.removeChild(el4);
+    document.body.removeChild(el5);
+    document.body.removeChild(el6);
   });
 
   it('add/remove accepts a string (selector), nodelist, or array of els', function() {
@@ -94,7 +124,7 @@ describe('AnchorJS', function() {
     var anchorObj,
         anchorLink;
     anchorObj = new AnchorJS();
-    anchorObj.add();
+    anchorObj.add('h1');
     anchorLink = document.querySelector('h1 > .anchorjs-link');
     expect(anchorLink).not.toBe(null);
   });
@@ -112,7 +142,7 @@ describe('AnchorJS', function() {
   it('can remove anchors, using the .remove() method.', function() {
     var anchorLinkBefore,
         anchorLinkAfter;
-    anchors.add();
+    anchors.add('h1');
     anchorLinkBefore = document.querySelector('h1 > .anchorjs-link');
     expect(anchorLinkBefore).not.toBe(null);
 
@@ -213,6 +243,7 @@ describe('AnchorJS', function() {
   it('silently prevents an anchor from being added twice to the same element', function() {
     var anchorLinkList1,
         anchorLinkList2;
+
     anchors.add('h1');
 
     anchorLinkList1 = document.querySelectorAll('h1 > .anchorjs-link');
