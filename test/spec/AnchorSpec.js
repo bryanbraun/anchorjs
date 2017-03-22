@@ -199,6 +199,20 @@ describe('AnchorJS', function() {
     expect(id).toEqual('test-id');
   });
 
+  it('should leave existing data-IDs in place without injecting a superfluous id, and use them as the href for anchors.', function() {
+    var href,
+        dataId,
+        id;
+    document.getElementsByTagName('h1')[0].setAttribute('data-id', 'test-id');
+    anchors.add('h1');
+    href = document.querySelector('.anchorjs-link').getAttribute('href');
+    dataId = document.getElementsByTagName('h1')[0].getAttribute('data-id');
+    id = document.getElementsByTagName('h1')[0].getAttribute('id');
+    expect(href).toEqual('#test-id');
+    expect(dataId).toEqual('test-id');
+    expect(id).toBe(null);
+  });
+
   it('should increment new IDs if multiple IDs are found on a page.', function() {
     var el2 = appendElementToBody('h2', 'Example Title'),
         el3 = appendElementToBody('h2', 'Example Title'),
