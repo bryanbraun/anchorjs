@@ -107,6 +107,8 @@
 
         if (elements[i].hasAttribute('id')) {
           elementID = elements[i].getAttribute('id');
+        } else if (elements[i].hasAttribute('data-anchor-id')) {
+          elementID = elements[i].getAttribute('data-anchor-id');
         } else {
           tidyText = this.urlify(elements[i].textContent);
 
