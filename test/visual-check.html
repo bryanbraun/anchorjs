@@ -24,6 +24,9 @@
       width: 200px;
       height: 200px;
     }
+    #section:target {
+      background-color: cyan;
+    }
   </style>
 </head>
 <body>
@@ -74,6 +77,11 @@
       <h4>Updating this project with npm is as easy as pie</h4>
       <h4>Updating this project with npm is as easy as chocolate pie</h4>
       <h4>Updating this project with npm is as easy as chocolate coconut pie</h4>
+
+      <section id="section">
+        <h1 data-anchor-id="section">Section Highlighting Example</h1>
+        <p>The section including this paragraph should get highlighted when clicking the link.</p>
+      </section>
 
 
     </div>
