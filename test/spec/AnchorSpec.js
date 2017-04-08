@@ -199,14 +199,14 @@ describe('AnchorJS', function() {
     expect(id).toEqual('test-id');
   });
 
-  it('should leave existing data-IDs in place without injecting a superfluous id, and use them as the href for anchors.', function() {
+  it('should leave existing data-anchor-IDs in place without injecting a superfluous id, and use them as the href for anchors.', function() {
     var href,
         dataId,
         id;
-    document.getElementsByTagName('h1')[0].setAttribute('data-id', 'test-id');
+    document.getElementsByTagName('h1')[0].setAttribute('data-anchor-id', 'test-id');
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
-    dataId = document.getElementsByTagName('h1')[0].getAttribute('data-id');
+    dataId = document.getElementsByTagName('h1')[0].getAttribute('data-anchor-id');
     id = document.getElementsByTagName('h1')[0].getAttribute('id');
     expect(href).toEqual('#test-id');
     expect(dataId).toEqual('test-id');
