@@ -1,1 +1,1 @@
-anchor.js
+../anchor.js
