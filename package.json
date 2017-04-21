@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "eslint anchor.js test/spec/AnchorSpec.js",
     "jasmine": "karma start test/config.js --single-run",
-    "release": "npm run uglify && npm run add-banner",
+    "release": "npm run uglify && npm run add-banner && cp anchor.js docs/anchor.js",
     "add-banner": "node banner.js",
     "uglify": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
     "test": "npm run lint && npm run jasmine"
