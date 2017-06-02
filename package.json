@@ -1,6 +1,6 @@
 {
   "name": "anchor-js",
-  "version": "3.2.2",
+  "version": "4.0.0",
   "main": "anchor.js",
   "author": "bryanbraun (https://github.com/bryanbraun)",
   "description": "A Javscript utility for adding deep anchor links to online docs.",
