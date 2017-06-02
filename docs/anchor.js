@@ -88,7 +88,7 @@
       elements = _getElements(selector);
 
       if (elements.length === 0) {
-        return false;
+        return this;
       }
 
       _addBaselineStyles();
