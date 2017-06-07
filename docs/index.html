@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts/fonts.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/prism/1.5.1/themes/prism-twilight.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.5.1/themes/prism-twilight.css">
   <script src="grunticon/grunticon.loader.js"></script>
   <script>
     grunticon(["grunticon/icons.data.svg.css", "grunticon/icons.data.png.css", "grunticon/icons.fallback.css"]);
@@ -195,7 +195,13 @@ anchors.add('.story > p');</code></pre>
       <pre><code class="language-markup">&lt;section id="section-1"&gt;
   &lt;h3 data-anchor-id="section-1"&gt;Section 1&lt;/h3&gt;
   &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...&lt;/p&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;
+
+&lt;!-- ... --&gt;
+
+&lt;script&gt;
+  anchors.add('h3');
+&lt;/script&gt;</code></pre>
       <p>This allows you to do things like <a href="https://css-tricks.com/on-target/#article-header-id-3">highlight sections when your users jump to them</a>.</p>
     </section>
 
@@ -802,6 +808,6 @@ anchors.add('h3');</code></pre>
     var hovEx5 = new AnchorJS({ icon: 'Permalink' });
     hovEx5.add('.hover-examples .example:nth-child(5) h3');
   </script>
-  <script src="//cdn.jsdelivr.net/prism/1.5.1/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/prism/1.5.1/prism.js"></script>
 </body>
 </html>
