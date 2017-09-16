@@ -134,11 +134,11 @@
         readableID = elementID.replace(/-/g, ' ');
 
         // The following code builds the following DOM structure in a more effiecient (albeit opaque) way.
-        // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor link for: ' + readableID + '" data-anchorjs-icon="' + this.options.icon + '"></a>';
+        // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
         anchor = document.createElement('a');
         anchor.className = 'anchorjs-link ' + this.options.class;
         anchor.href = '#' + elementID;
-        anchor.setAttribute('aria-label', 'Anchor link for: ' + readableID);
+        anchor.setAttribute('aria-label', 'Anchor');
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
 
         if (visibleOptionToUse === 'always') {
