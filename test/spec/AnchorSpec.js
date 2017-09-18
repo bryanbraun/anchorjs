@@ -92,6 +92,7 @@ describe('AnchorJS', function() {
     expect(anchors.options.icon).toEqual('\ue9cb');
     expect(anchors.options.visible).toEqual('hover');
     expect(anchors.options.placement).toEqual('right');
+    expect(anchors.options.ariaLabel).toEqual('Anchor');
     expect(anchors.options.class).toEqual('');
     expect(anchors.options.truncate).toEqual(64);
   });
@@ -109,6 +110,8 @@ describe('AnchorJS', function() {
     expect(anchorObj.options.visible).toEqual('hover');
     expect(anchors.options.placement).toEqual('right');
     expect(anchorObj.options.placement).toEqual('right');
+    expect(anchors.options.ariaLabel).toEqual('Anchor');
+    expect(anchorObj.options.ariaLabel).toEqual('Anchor');
   });
 
   it('should set baseline styles in the document head', function() {
@@ -423,6 +426,18 @@ describe('AnchorJS', function() {
       anchorNode = document.getElementsByTagName('h1')[0].lastChild;
       expect(anchorNode.style.position).toEqual('');
       expect(anchorNode.style.marginLeft).toEqual('');
+    });
+  });
+
+  describe('ARIA label option', function() {
+    it('should allow users to add custom or translated aria-labels', function() {
+      var ariaLabelText;
+
+      // an example (probably inaccurate) Russian translation of "anchor"
+      anchors.options.ariaLabel = 'якорь';
+      anchors.add('h1');
+      ariaLabelText = document.querySelector('.anchorjs-link').getAttribute('aria-label');
+      expect(ariaLabelText).toEqual('якорь');
     });
   });
 
