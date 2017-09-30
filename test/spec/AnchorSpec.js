@@ -114,15 +114,6 @@ describe('AnchorJS', function() {
     expect(anchorObj.options.ariaLabel).toEqual('Anchor');
   });
 
-  it('should set baseline styles in the document head', function() {
-    var hasClass;
-    anchors.add();
-    // We query for the first style tag because we are testing both that it's
-    // there and that it's overridable by other styles later in the cascade.
-    hasClass = document.head.querySelector('[rel="stylesheet"], style').classList.contains('anchorjs');
-    expect(hasClass).toBe(true);
-  });
-
   it('allows you to instantiate a new AnchorJS object that behaves like the default one', function() {
     var anchorObj,
         anchorLink;
@@ -138,7 +129,7 @@ describe('AnchorJS', function() {
     anchors.add();
     anchorObj = new AnchorJS();
     anchorObj.add();
-    styleNodes = document.head.querySelectorAll('.anchorjs');
+    styleNodes = document.querySelectorAll('.anchorjs');
     expect(styleNodes.length).toEqual(1);
   });
 
