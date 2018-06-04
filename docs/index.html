@@ -128,54 +128,56 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     <h2>Options</h2>
     <p>You can set a number of options to customize how your anchors look:</p>
-    <table class='options-table'>
-      <thead>
-        <tr>
-          <th>Option</th>
-          <th class="minicol">Accepted Values</th>
-          <th class="minicol">Default Value</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>placement</code></td>
-          <td><code>right</code> <br> <code>left</code></td>
-          <td><code>right</code></td>
-          <td><code>right</code> appends the anchor to the end of the element.<br> <code>left</code> places it to the left, in the margin.</td>
-        </tr>
-        <tr>
-          <td><code>visible</code></td>
-          <td><code>hover</code> <br> <code>always</code> <br> <code>touch</code></td></td>
-          <td><code>hover</code></td>
-          <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link. <br> <code>touch</code> will <em>always</em> display anchors for devices that support touch events, and only display them via <em>hover</em> for devices that do not support touch events. This approximates touchscreen detection (but <a href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">isn't 100% accurate</a>).</td>
-        </tr>
-        <tr>
-          <td><code>icon</code></td>
-          <td>(any unicode character)</td>
-          <td><code style="font-family: 'anchorjs-icons'; font-size: 24px; -webkit-font-smoothing: antialiased;"></code></td>
-          <td>Replace the default link icon with the character(s) provided. These are a few good options: <code>#</code>, <code>¶</code>, <code>❡</code>, and <code>§</code>.</td>
-        </tr>
-        <tr>
-          <td><code>class</code></td>
-          <td>(any string)</td>
-          <td>(none)</td>
-          <td>Adds the provided class(es) to the anchor html.</td>
-        </tr>
-        <tr>
-          <td><code>truncate</code></td>
-          <td>(any positive number)</td>
-          <td><code>64</code></td>
-          <td>Truncates the generated ID to the specified character length. <small>Note: the length may not be exactly the same, if there are dangling spaces or hyphens to be trimmed.</small></td>
-        </tr>
-        <tr>
-          <td><code>ariaLabel</code></td>
-          <td>(any text)</td>
-          <td><code>Anchor</code></td>
-          <td>Allows you to customize or translate the default aria-label ("Anchor"), for screenreaders that encounter the link.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="options-table-wrap">
+      <table class="options-table">
+        <thead>
+          <tr>
+            <th>Option</th>
+            <th class="minicol">Accepted Values</th>
+            <th class="minicol">Default Value</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>placement</code></td>
+            <td><code>right</code> <br> <code>left</code></td>
+            <td><code>right</code></td>
+            <td><code>right</code> appends the anchor to the end of the element.<br> <code>left</code> places it to the left, in the margin.</td>
+          </tr>
+          <tr>
+            <td><code>visible</code></td>
+            <td><code>hover</code> <br> <code>always</code> <br> <code>touch</code></td></td>
+            <td><code>hover</code></td>
+            <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link. <br> <code>touch</code> will <em>always</em> display anchors for devices that support touch events, and only display them via <em>hover</em> for devices that do not support touch events. This approximates touchscreen detection (but <a href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">isn't 100% accurate</a>).</td>
+          </tr>
+          <tr>
+            <td><code>icon</code></td>
+            <td>(any unicode character)</td>
+            <td><code style="font-family: 'anchorjs-icons'; font-size: 24px; -webkit-font-smoothing: antialiased;"></code></td>
+            <td>Replace the default link icon with the character(s) provided. These are a few good options: <code>#</code>, <code>¶</code>, <code>❡</code>, and <code>§</code>.</td>
+          </tr>
+          <tr>
+            <td><code>class</code></td>
+            <td>(any string)</td>
+            <td>(none)</td>
+            <td>Adds the provided class(es) to the anchor html.</td>
+          </tr>
+          <tr>
+            <td><code>truncate</code></td>
+            <td>(any positive number)</td>
+            <td><code>64</code></td>
+            <td>Truncates the generated ID to the specified character length. <small>Note: the length may not be exactly the same, if there are dangling spaces or hyphens to be trimmed.</small></td>
+          </tr>
+          <tr>
+            <td><code>ariaLabel</code></td>
+            <td>(any text)</td>
+            <td><code>Anchor</code></td>
+            <td>Allows you to customize or translate the default aria-label ("Anchor"), for screenreaders that encounter the link.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p>For example:</p>
     <pre class="src-js"><code>/**
  * Example 1

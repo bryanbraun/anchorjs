@@ -181,8 +181,11 @@ pre > code {
   box-shadow: 0px 0px 10px -3px #666;
 }
 
+.options-table-wrap {
+  overflow: scroll;
+}
 .options-table {
-  width: 100%;
+  min-width: 500px;
   margin: 1em 0;
 }
 
