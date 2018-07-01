@@ -332,7 +332,7 @@ describe('AnchorJS', function() {
       var text1Before = 'one&two three+four$five,six:seven;eight=nine?ten',
           text2Before = 'one@two"three#four{five}six|seven^eight~nine[ten',
           text3Before = 'one`two%three!four]five.six/seven(eight)nine*ten',
-          text4Before = 'one\\two<three>four-five-six-seven-eight-nine-ten',
+          text4Before = 'one\\two<three>four\nfive\tsix\bseven\veight\n\nnine\t\tten',
           after = 'one-two-three-four-five-six-seven-eight-nine-ten';
 
       expect(anchors.urlify(text1Before)).toEqual(after);
