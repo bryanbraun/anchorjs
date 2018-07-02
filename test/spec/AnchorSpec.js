@@ -11,8 +11,14 @@ describe('AnchorJS', function() {
   });
 
   afterEach(function() {
+    var baselineStyles = document.querySelector('style.anchorjs');
+    if (baselineStyles) {
+      document.head.removeChild(baselineStyles);
+    }
+
     anchors.removeAll();
     document.body.removeChild(el1);
+    anchors = new AnchorJS();
   });
 
   it('can detect if an element has an AnchorJS link', function() {
@@ -116,7 +122,7 @@ describe('AnchorJS', function() {
 
   it('should set baseline styles in the document head', function() {
     var hasClass;
-    anchors.add();
+    anchors.add('h1');
     // We query for the first style tag because we are testing both that it's
     // there and that it's overridable by other styles later in the cascade.
     hasClass = document.head.querySelector('[rel="stylesheet"], style').classList.contains('anchorjs');
@@ -134,12 +140,16 @@ describe('AnchorJS', function() {
 
   it('ensures new AnchorJS instances do not add multiple baseline style tags.', function() {
     var anchorObj,
-        styleNodes;
-    anchors.add();
+        styleNodes,
+        el2 = appendElementToBody('h2', 'Example Title');
+
+    anchors.add('h1');
     anchorObj = new AnchorJS();
-    anchorObj.add();
+    anchorObj.add('h2');
     styleNodes = document.head.querySelectorAll('.anchorjs');
     expect(styleNodes.length).toEqual(1);
+
+    document.body.removeChild(el2);
   });
 
   it('can remove anchors, using the .remove() method.', function() {
