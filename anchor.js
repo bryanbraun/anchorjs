@@ -1,9 +1,9 @@
 /* eslint-env amd, node */
-
+ 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
 (function (root, factory) {
   'use strict';
-
+ 
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define([], factory);
@@ -19,11 +19,11 @@
   }
 }(this, function () {
   'use strict';
-
+ 
   function AnchorJS(options) {
     this.options = options || {};
     this.elements = [];
-
+ 
     /**
      * Assigns options to the internal options object, and provides defaults.
      * @param {Object} opts - Options object
@@ -36,10 +36,11 @@
       opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
       // Using Math.floor here will ensure the value is Number-cast and an integer.
       opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
+      opts.tooltip = opts.hasOwnProperty('tooltip') ? opts.tooltip : ''; // Accepts nothing, generic string applied to all anchors, or specific text taken from target's data attrib (data-anchorjs-tooltip)
     }
-
+ 
     _applyRemainingDefaultOptions(this.options);
-
+ 
     /**
      * Checks to see if this device supports touch. Uses criteria pulled from Modernizr:
      * https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
@@ -48,7 +49,7 @@
     this.isTouchDevice = function() {
       return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
     };
-
+ 
     /**
      * Add anchor links to page elements.
      * @param  {String|Array|Nodelist} selector - A CSS selector for targeting the elements you wish to add anchor links
@@ -69,50 +70,50 @@
           anchor,
           visibleOptionToUse,
           indexesToDrop = [];
-
+ 
       // We reapply options here because somebody may have overwritten the default options object when setting options.
       // For example, this overwrites all options but visible:
       //
       // anchors.options = { visible: 'always'; }
       _applyRemainingDefaultOptions(this.options);
-
+ 
       visibleOptionToUse = this.options.visible;
       if (visibleOptionToUse === 'touch') {
         visibleOptionToUse = this.isTouchDevice() ? 'always' : 'hover';
       }
-
+ 
       // Provide a sensible default selector, if none is given.
       if (!selector) {
         selector = 'h2, h3, h4, h5, h6';
       }
-
+ 
       elements = _getElements(selector);
-
+ 
       if (elements.length === 0) {
         return this;
       }
-
+ 
       _addBaselineStyles();
-
+ 
       // We produce a list of existing IDs so we don't generate a duplicate.
       elsWithIds = document.querySelectorAll('[id]');
       idList = [].map.call(elsWithIds, function assign(el) {
         return el.id;
       });
-
+ 
       for (i = 0; i < elements.length; i++) {
         if (this.hasAnchorJSLink(elements[i])) {
           indexesToDrop.push(i);
           continue;
         }
-
+ 
         if (elements[i].hasAttribute('id')) {
           elementID = elements[i].getAttribute('id');
         } else if (elements[i].hasAttribute('data-anchor-id')) {
           elementID = elements[i].getAttribute('data-anchor-id');
         } else {
           tidyText = this.urlify(elements[i].textContent);
-
+ 
           // Compare our generated ID to existing IDs (and increment it if needed)
           // before we add it to the page.
           newTidyText = tidyText;
@@ -121,19 +122,19 @@
             if (index !== undefined) {
               newTidyText = tidyText + '-' + count;
             }
-
+ 
             index = idList.indexOf(newTidyText);
             count += 1;
           } while (index !== -1);
           index = undefined;
           idList.push(newTidyText);
-
+ 
           elements[i].setAttribute('id', newTidyText);
           elementID = newTidyText;
         }
-
+ 
         readableID = elementID.replace(/-/g, ' ');
-
+ 
         // The following code builds the following DOM structure in a more effiecient (albeit opaque) way.
         // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
         anchor = document.createElement('a');
@@ -141,14 +142,20 @@
         anchor.href = '#' + elementID;
         anchor.setAttribute('aria-label', this.options.ariaLabel);
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
-
+ 
         if (visibleOptionToUse === 'always') {
           anchor.style.opacity = '1';
         }
-
+ 
+        if (elements[i].hasAttribute('data-anchorjs-tooltip') ) { // Use the tooltip specified in the element's data-anchorjs-tooltip attribute
+          anchor.title = elements[i].getAttribute('data-anchorjs-tooltip');
+        } else if (this.options.tooltip.length) { // Use the tooltip specified in the options
+          anchor.title = this.options.tooltip;
+        }  
+ 
         if (this.options.icon === '\ue9cb') {
           anchor.style.font = '1em/1 anchorjs-icons';
-
+ 
           // We set lineHeight = 1 here because the `anchorjs-icons` font family could otherwise affect the
           // height of the heading. This isn't the case for icons with `placement: left`, so we restore
           // line-height: inherit in that case, ensuring they remain positioned correctly. For more info,
@@ -157,7 +164,7 @@
             anchor.style.lineHeight = 'inherit';
           }
         }
-
+ 
         if (this.options.placement === 'left') {
           anchor.style.position = 'absolute';
           anchor.style.marginLeft = '-1em';
@@ -168,15 +175,15 @@
           elements[i].appendChild(anchor);
         }
       }
-
+ 
       for (i = 0; i < indexesToDrop.length; i++) {
         elements.splice(indexesToDrop[i] - i, 1);
       }
       this.elements = this.elements.concat(elements);
-
+ 
       return this;
     };
-
+ 
     /**
      * Removes all anchorjs-links from elements targed by the selector.
      * @param  {String|Array|Nodelist} selector - A CSS selector string targeting elements with anchor links,
@@ -187,7 +194,7 @@
       var index,
           domAnchor,
           elements = _getElements(selector);
-
+ 
       for (var i = 0; i < elements.length; i++) {
         domAnchor = elements[i].querySelector('.anchorjs-link');
         if (domAnchor) {
@@ -202,14 +209,14 @@
       }
       return this;
     };
-
+ 
     /**
      * Removes all anchorjs links. Mostly used for tests.
      */
     this.removeAll = function() {
       this.remove(this.elements);
     };
-
+ 
     /**
      * Urlify - Refine text so it makes a good ID.
      *
@@ -223,13 +230,13 @@
       // Regex for finding the nonsafe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, & vertical tabs)
       var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v]/g,
           urlText;
-
+ 
       // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
       // even after setting options. This can be useful for tests or other applications.
       if (!this.options.truncate) {
         _applyRemainingDefaultOptions(this.options);
       }
-
+ 
       // Note: we trim hyphens after truncating because truncating can cause dangling hyphens.
       // Example string:                      // " ⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
       urlText = text.trim()                   // "⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
@@ -239,10 +246,10 @@
         .substring(0, this.options.truncate)  // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
         .replace(/^-+|-+$/gm, '')             // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated"
         .toLowerCase();                       // "⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated"
-
+ 
       return urlText;
     };
-
+ 
     /**
      * Determines if this element already has an AnchorJS link on it.
      * Uses this technique: http://stackoverflow.com/a/5898748/1154642
@@ -252,10 +259,10 @@
     this.hasAnchorJSLink = function(el) {
       var hasLeftAnchor = el.firstChild && ((' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1),
           hasRightAnchor = el.lastChild && ((' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1);
-
+ 
       return hasLeftAnchor || hasRightAnchor || false;
     };
-
+ 
     /**
      * Turns a selector, nodeList, or array of elements into an array of elements (so we can use array methods).
      * It also throws errors on any other inputs. Used to handle inputs to .add and .remove.
@@ -276,7 +283,7 @@
       }
       return elements;
     }
-
+ 
     /**
      * _addBaselineStyles
      * Adds baseline styles to the page, used by all AnchorJS links irregardless of configuration.
@@ -286,7 +293,7 @@
       if (document.head.querySelector('style.anchorjs') !== null) {
         return;
       }
-
+ 
       var style = document.createElement('style'),
           linkRule =
           ' .anchorjs-link {'                       +
@@ -310,10 +317,10 @@
           '   content: attr(data-anchorjs-icon);'   +
           ' }',
           firstStyleEl;
-
+ 
       style.className = 'anchorjs';
       style.appendChild(document.createTextNode('')); // Necessary for Webkit.
-
+ 
       // We place it in the head with the other style tags, if possible, so as to
       // not look out of place. We insert before the others so these styles can be
       // overridden if necessary.
@@ -323,13 +330,13 @@
       } else {
         document.head.insertBefore(style, firstStyleEl);
       }
-
+ 
       style.sheet.insertRule(linkRule, style.sheet.cssRules.length);
       style.sheet.insertRule(hoverRule, style.sheet.cssRules.length);
       style.sheet.insertRule(pseudoElContent, style.sheet.cssRules.length);
       style.sheet.insertRule(anchorjsLinkFontFace, style.sheet.cssRules.length);
     }
   }
-
+ 
   return AnchorJS;
 }));
