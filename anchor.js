@@ -138,7 +138,7 @@
         // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
         anchor = document.createElement('a');
         anchor.className = 'anchorjs-link ' + this.options.class;
-        anchor.href = '#' + elementID;
+        anchor.href = (document.querySelector('base') ? (window.location.pathname + window.location.search) : '') + '#' + elementID;
         anchor.setAttribute('aria-label', this.options.ariaLabel);
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
 
