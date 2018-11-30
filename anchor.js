@@ -68,6 +68,7 @@
           readableID,
           anchor,
           visibleOptionToUse,
+          hrefBase,
           indexesToDrop = [];
 
       // We reapply options here because somebody may have overwritten the default options object when setting options.
@@ -134,13 +135,15 @@
 
         readableID = elementID.replace(/-/g, ' ');
 
-        // The following code builds the following DOM structure in a more effiecient (albeit opaque) way.
+        // The following code builds the following DOM structure in a more efficient (albeit opaque) way.
         // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
         anchor = document.createElement('a');
         anchor.className = 'anchorjs-link ' + this.options.class;
-        anchor.href = (document.querySelector('base') ? (window.location.pathname + window.location.search) : '') + '#' + elementID;
         anchor.setAttribute('aria-label', this.options.ariaLabel);
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
+        // Adjust the href if there's a <base> tag. See https://github.com/bryanbraun/anchorjs/issues/98
+        hrefBase = document.querySelector('base') ? window.location.pathname + window.location.search : '';
+        anchor.href = hrefBase + '#' + elementID;
 
         if (visibleOptionToUse === 'always') {
           anchor.style.opacity = '1';

@@ -280,6 +280,31 @@ describe('AnchorJS', function() {
     expect(anchorLinkList2.length).toEqual(1);
   });
 
+  it('produces absolute links if a <base> tag is found', function() {
+    var baseEl = document.createElement('base');
+    var anchorHref;
+
+    baseEl.setAttribute('href', document.location.hostname);
+    document.head.appendChild(baseEl);
+
+    anchors.add('h1');
+    anchorHref = document.querySelector('.anchorjs-link').getAttribute('href');
+
+    // This produces a full link in the test environment (/context.html#my-id)
+    // but I'll only check for the first character to ensure I'm not testing
+    // unimportant parts of the testing framework.
+    expect(anchorHref.charAt(0)).toEqual('/');
+
+    document.head.removeChild(baseEl);
+  });
+
+  it('produces relative anchors if no <base> tag is found', function() {
+    var anchorHref;
+    anchors.add('h1');
+    anchorHref = document.querySelector('.anchorjs-link').getAttribute('href');
+    expect(anchorHref.charAt(0)).toEqual('#');
+  });
+
   describe('exposed elements list', function() {
     var el2,
         el3,
