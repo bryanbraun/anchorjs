@@ -100,6 +100,7 @@ describe('AnchorJS', function() {
     expect(anchors.options.placement).toEqual('right');
     expect(anchors.options.ariaLabel).toEqual('Anchor');
     expect(anchors.options.class).toEqual('');
+    expect(anchors.options.base).toEqual('');
     expect(anchors.options.truncate).toEqual(64);
   });
 
@@ -259,6 +260,14 @@ describe('AnchorJS', function() {
     document.body.removeChild(el2);
     document.body.removeChild(el3);
     document.body.removeChild(el4);
+  });
+
+  it('should create a URL-appropriate href with a custom base', function() {
+    var href;
+    anchors.options = { base: 'ohana-means-family' };
+    anchors.add('h1');
+    href = document.querySelector('.anchorjs-link').getAttribute('href');
+    expect(href).toEqual('ohana-means-family#⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
   });
 
   it('should throw an error if an inappropriate selector is provided.', function() {

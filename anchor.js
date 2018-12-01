@@ -34,6 +34,7 @@
       opts.placement = opts.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
       opts.ariaLabel = opts.hasOwnProperty('ariaLabel') ? opts.ariaLabel : 'Anchor'; // Accepts any text.
       opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
+      opts.base = opts.hasOwnProperty('base') ? opts.base : ''; // Accepts any base URI.
       // Using Math.floor here will ensure the value is Number-cast and an integer.
       opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
     }
@@ -135,14 +136,15 @@
 
         readableID = elementID.replace(/-/g, ' ');
 
-        // The following code builds the following DOM structure in a more efficient (albeit opaque) way.
-        // '<a class="anchorjs-link ' + this.options.class + '" href="#' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
+        // The following code builds the following DOM structure in a more effiecient (albeit opaque) way.
+        // '<a class="anchorjs-link ' + this.options.class + '" href="this.options.base + #' + elementID + '" aria-label="Anchor" data-anchorjs-icon="' + this.options.icon + '"></a>';
         anchor = document.createElement('a');
         anchor.className = 'anchorjs-link ' + this.options.class;
         anchor.setAttribute('aria-label', this.options.ariaLabel);
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
         // Adjust the href if there's a <base> tag. See https://github.com/bryanbraun/anchorjs/issues/98
         hrefBase = document.querySelector('base') ? window.location.pathname + window.location.search : '';
+        hrefBase = this.options.base || hrefBase;
         anchor.href = hrefBase + '#' + elementID;
 
         if (visibleOptionToUse === 'always') {
