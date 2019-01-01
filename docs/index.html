@@ -56,14 +56,12 @@ anchors.add('p');</code></pre>
     <p class="more-examples"><a href="#examples">See more examples</a></p>
     <div class="used-by">
       <h2 class="used-by-label">Used by</h2>
-      <!-- <a href="http://primercss.io/about/"><img src="https://avatars.githubusercontent.com/u/7143434?v=3&s=120" alt="Primer CSS Logo" title="PrimerCSS"/></a> -->
-      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap" /></a>
+      <a href="https://github.com/"><img src="https://avatars1.githubusercontent.com/u/9919?v=3&s=120" alt="Github Logo" title="Github" /></a>
       <a href="http://eslint.org/docs/rules/"><img src="https://avatars.githubusercontent.com/u/6019716?v=3&s=120" alt="ESLint logo" title="ESLint"/></a>
-      <a href="https://frontend.18f.gov/"><img src="https://avatars.githubusercontent.com/u/6233994?v=3&s=120" alt="18F Logo" title="18F" /></a>
+      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap" /></a>
       <a href="http://bundler.io/v1.15/guides/deploying.html"><img src="https://avatars.githubusercontent.com/u/1137638?v=3&s=120" alt="Bundler Logo" title="Bundler" /></a>
       <a href="https://mochajs.org"><img src="https://avatars.githubusercontent.com/u/8770005?v=3&s=120" alt="Mocha Logo" title="Mocha" /></a>
       <a href="https://middlemanapp.com/basics/install/"><img src="https://avatars.githubusercontent.com/u/1280820?v=3&s=120" alt="Middleman logo" title="Middleman"/></a>
-      <!-- <a href="http://learn.getgrav.org/"><img src="https://avatars.githubusercontent.com/u/8237355?v=3&s=120" alt="Grav Logo" title="Grav" /></a> -->
     </div>
   </header>
   <section class="main">
@@ -84,7 +82,7 @@ anchors.add('p');</code></pre>
     <p>Then include the anchor.js file (or anchor.min.js) in your webpage.</p>
     <pre><code class="language-markup">&lt;script src="anchor.js"&gt;&lt;/script&gt;</code></pre>
     <p>You could also include it via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="http://www.jsdelivr.com/projects/anchorjs">jsDelivr</a>.</p>
-    <p>If you're using it from Node/CommonJS, include it via:</p>
+    <p>If you're using it from Node/CommonJS, include it like this:</p>
     <pre class="src-js"><code>var anchorJS = require('anchor-js');
 var anchors = new anchorJS();</code></pre>
 
@@ -167,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             <td><code>base</code></td>
             <td>(any string)</td>
             <td>(none)</td>
-            <td>Prepends the base URI to the anchor <code>href</code>.</td>
+            <td>Prepends the base URI to the anchor <code>href</code>. This is useful when <a href="#pages-with-changing-content">adding anchors to pages with changing content</a>.</td>
           </tr>
           <tr>
             <td><code>truncate</code></td>
@@ -213,6 +211,36 @@ anchors.add('.story > p');</code></pre>
 
     <h2>Advanced usage</h2>
 
+    <h3>Pages with a sticky navbar</h3>
+    <p>Pages with <a href="https://www.w3schools.com/howto/howto_js_navbar_sticky.asp">a sticky navbar</a> can sometimes cover the headings you are trying to link to.</p>
+    <p>To prevent this, you can add a few custom styles using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:target">CSS :target pseudo-selector</a> to add margins to targeted headings. Here's an example:</p>
+    <pre class="css"><code>/**
+* Create an invisible pseudo-element and make it the height of the
+* sticky navbar so the jump takes you to a location above the link
+*/
+:target:before {
+    content: "";
+    display: block;
+    margin-top: -80px;
+    height: 80px;
+    width: 1px;
+}</code></pre>
+
+    <h3>Pages with changing content</h3>
+    <p>It's common to have pages with changing content, like a page for your most recent blog posts, or a page for all posts with a given tag.</p>
+    <p>Adding anchors to pages like these can be problematic because the links could break when the content leaves that page. To avoid this issue, use the <code>base</code> option to ensure these anchors always point to the permalinked url for a post. For example:
+    <pre class="src-js"><code>// Note: you can often get the permalink url from your site's backend
+anchors.options.base = "/2019/1/03/my-post";
+anchors.add();
+
+// Anchor url before: "#conclusion"
+// Anchor url after: "/2019/1/03/my-post#conclusion"</code></pre>
+
+    <h3>Generating navigations</h3>
+    <p>AnchorJS doesn't include methods for dynamically generating navigations (like a table of contents or jump nav). This is to keep AnchorJS lightweight and simple for the most common usecases.</p>
+    <p>However, AnchorJS <em>does</em> expose a list of all anchored elements at <code>anchors.elements</code>. This way, external code can look up the elements and use them to generate navigations (as shown in <a href="https://jsfiddle.net/bryanbraun/nc6rL9hk/">this example</a>).</p>
+    <p>You can also use AnchorJS alongside a static navigation with pre-defined IDs (as is done in <a href="https://jsfiddle.net/bryanbraun/x85hfvbk/">this example</a>).</p>
+
     <section id="section-ids">
       <h3 data-anchor-id="section-ids">Section IDs</h3>
       <p>In some cases, you might want to link to existing section IDs instead of the heading element itself. You can instruct AnchorJS to do this with the <code>data-anchor-id</code> attribute:</p>
@@ -228,6 +256,18 @@ anchors.add('.story > p');</code></pre>
 &lt;/script&gt;</code></pre>
       <p>This allows you to do things like <a href="https://css-tricks.com/on-target/#article-header-id-3">highlight sections when your users jump to them</a>.</p>
     </section>
+
+    <h3>Multiple sets of anchors</h3>
+    <p>You can have multiple sets of anchors on one page, each with their own design. To do so, just create your own instances of the AnchorJS object:</p>
+    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS();
+anchors.add('.main h2'); // The default instance.
+sidebarAnchors.add('.sidebar h2'); // The new instance.</code></pre>
+    <p>You can preset your instance with whatever options you like:</p>
+    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS({
+  placement: 'left',
+  icon: '¶'
+});
+sidebarAnchors.add('.sidebar h2');</code></pre>
 
     <h3>Removing anchors</h3>
     <p>You can remove anchors with the <code>anchors.remove()</code> or <code>anchors.removeAll()</code> methods:</p>
@@ -265,23 +305,6 @@ anchors.add('h2:not(.no-anchor)');</pre></code>
   */
   anchors.add('.my-anchors:not(.no-anchor), .my-other-anchors:not(.no-anchor)');</code></pre>
 
-    <h3>Multiple sets of anchors</h3>
-    <p>You can have multiple sets of anchors on one page, each with their own design. To do so, just create your own instances of the AnchorJS object:</p>
-    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS();
-anchors.add('.main h2'); // The default instance.
-sidebarAnchors.add('.sidebar h2'); // The new instance.</code></pre>
-    <p>You can preset your instance with whatever options you like:</p>
-    <pre class="src-js"><code>var sidebarAnchors = new AnchorJS({
-  placement: 'left',
-  icon: '¶'
-});
-sidebarAnchors.add('.sidebar h2');</code></pre>
-
-    <h3>Generating navigations</h3>
-    <p>AnchorJS doesn't include methods for dynamically generating navigations (like a table of contents or jump nav). This is to keep AnchorJS lightweight and simple for the most common usecases.</p>
-    <p>However, AnchorJS <em>does</em> expose a list of all anchored elements at <code>anchors.elements</code>. This way, external code can look up the elements and use them to generate navigations (as shown in <a href="https://jsfiddle.net/bryanbraun/nc6rL9hk/">this example</a>).</p>
-    <p>You can also use AnchorJS alongside a static navigation with pre-defined IDs (as is done in <a href="https://jsfiddle.net/bryanbraun/x85hfvbk/">this example</a>).</p>
-
     <h2>Examples</h2>
     <div class="examples">
       <div class="example">
@@ -307,6 +330,23 @@ anchors.add('h3');</code></pre>
   placement: 'left'
 };
 anchors.add('h3');</code></pre>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-content">
+          <h3>Styled Link</h3>
+          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
+          <a href="#" class="example-code-link">{}</a>
+        </div>
+        <div class="example-code">
+          <pre class="js"><code>anchors.options.visible = 'always';
+anchors.add('h3');</code></pre>
+          <pre class="css"><code>.anchorjs-link {
+  color: #AAAAAA;
+}
+.anchorjs-link:hover {
+  color: #FF5231;
+}</code></pre>
         </div>
       </div>
       <div class="example">
@@ -732,45 +772,44 @@ anchors.add('h3');</code></pre>
     ex2.add('.examples .example:nth-child(2) h3');
 
     var ex3 = new AnchorJS({
+      visible: 'always'
+    });
+    ex3.add('.examples .example:nth-child(3) h3');
+
+    var ex4 = new AnchorJS({
       icon: '¶',
       visible: 'always',
       placement: 'left'
     });
-    ex3.add('.examples .example:nth-child(3) p, .preview-examples .example:nth-child(2) p');
-
-    var ex4 = new AnchorJS({
-      icon: '#',
-      visible: 'always'
-    });
-    ex4.add('.examples .example:nth-child(4) h3');
+    ex4.add('.examples .example:nth-child(4) p, .preview-examples .example:nth-child(2) p');
 
     var ex5 = new AnchorJS({
-      icon: '§',
-      visible: 'always',
-      placement: 'left'
+      icon: '#',
+      visible: 'always'
     });
     ex5.add('.examples .example:nth-child(5) h3');
 
     var ex6 = new AnchorJS({
+      icon: '§',
+      visible: 'always',
+      placement: 'left'
+    });
+    ex6.add('.examples .example:nth-child(6) h3');
+
+    var ex7 = new AnchorJS({
       icon: '❡',
       visible: 'always'
     });
-    ex6.add('.examples .example:nth-child(6) p');
-
-    var ex7 = new AnchorJS({
-      icon: '# LINK',
-      visible: 'always'
-    });
-    ex7.add('.examples .example:nth-child(7) h3');
+    ex7.add('.examples .example:nth-child(7) p');
 
     var ex8 = new AnchorJS({
-      icon: '',
-      visible: 'always',
-      placement: 'left'
+      icon: '# LINK',
+      visible: 'always'
     });
     ex8.add('.examples .example:nth-child(8) h3');
 
     var ex9 = new AnchorJS({
+      icon: '',
       visible: 'always',
       placement: 'left'
     });
@@ -778,20 +817,19 @@ anchors.add('h3');</code></pre>
 
     var ex10 = new AnchorJS({
       visible: 'always',
-      class: 'ajs-10',
-      icon: '\uf0c1'
+      placement: 'left'
     });
     ex10.add('.examples .example:nth-child(10) h3');
 
     var ex11 = new AnchorJS({
       visible: 'always',
-      icon: ''
+      class: 'ajs-10',
+      icon: '\uf0c1'
     });
     ex11.add('.examples .example:nth-child(11) h3');
 
     var ex12 = new AnchorJS({
       visible: 'always',
-      placement: 'left',
       icon: ''
     });
     ex12.add('.examples .example:nth-child(12) h3');
@@ -806,16 +844,23 @@ anchors.add('h3');</code></pre>
     var ex14 = new AnchorJS({
       visible: 'always',
       placement: 'left',
-      icon: '⚓'
+      icon: ''
     });
-    ex14.add('.examples .example:nth-child(14) p');
+    ex14.add('.examples .example:nth-child(14) h3');
 
     var ex15 = new AnchorJS({
+      visible: 'always',
+      placement: 'left',
+      icon: '⚓'
+    });
+    ex15.add('.examples .example:nth-child(15) p');
+
+    var ex16 = new AnchorJS({
       visible: 'always',
       class: 'icon-grunticon-link',
       icon: ''
     });
-    ex15.add('.examples .example:nth-child(15) h3');
+    ex16.add('.examples .example:nth-child(16) h3');
 
     var hovEx1 = new AnchorJS();
     hovEx1.add('.hover-examples .example:nth-child(1) h3');

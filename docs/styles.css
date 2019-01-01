@@ -312,12 +312,19 @@ pre > code {
 }
 
 /*///// Styles within Examples /////*/
-.examples .example:nth-child(3) .anchorjs-link,
+.examples .example:nth-child(4) .anchorjs-link,
 .preview-examples .example:nth-child(2) .anchorjs-link {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.examples .example:nth-child(7) .anchorjs-link {
+.examples .example:nth-child(3) .anchorjs-link {
+  color: #AAAAAA;
+}
+.examples .example:nth-child(3) .anchorjs-link:hover {
+  color: #FF5231;
+}
+
+.examples .example:nth-child(8) .anchorjs-link {
   font-weight: 200;
   margin-left: 1em;
   padding-right: 0.375em;
@@ -326,7 +333,7 @@ pre > code {
   vertical-align: middle;
 }
 
-.examples .example:nth-child(8) .anchorjs-link {
+.examples .example:nth-child(9) .anchorjs-link {
   width: 14px;
   height: 32px;
   margin-top: 6px;
@@ -334,13 +341,13 @@ pre > code {
   margin-left: -1.25em !important;
 }
 
-.examples .example:nth-child(9) .anchorjs-link:after {
+.examples .example:nth-child(10) .anchorjs-link:after {
   margin-left: 7px;
   margin-top: -4px;
   display: block;
 }
 
-.examples .example:nth-child(9) .anchorjs-link {
+.examples .example:nth-child(10) .anchorjs-link {
   background-color: #FF5231;
   height: 32px;
   width: 18px;
@@ -351,7 +358,7 @@ pre > code {
   margin-left: -1.4em !important;
 }
 
-.examples .example:nth-child(11) .anchorjs-link {
+.examples .example:nth-child(12) .anchorjs-link {
   display: inline-block;
   background: url('img/hyperlink.svg') no-repeat;
   margin-left: 8px;
@@ -359,14 +366,14 @@ pre > code {
   height: 24px;
 }
 
-.examples .example:nth-child(12) .anchorjs-link {
+.examples .example:nth-child(13) .anchorjs-link {
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
   margin-top: 15px;
   height: 16px;
   width: 20px;
 }
 
-.examples .example:nth-child(13) .anchorjs-link {
+.examples .example:nth-child(14) .anchorjs-link {
   border-color: #FF5231 #FF5231 transparent;
   border-width: 15px 7px 6px;
   border-style: solid;
@@ -375,11 +382,11 @@ pre > code {
   padding-right: 0 !important;
 }
 
-.examples .example:nth-child(14) .anchorjs-link {
+.examples .example:nth-child(15) .anchorjs-link {
   margin-left: -1.8em !important;
 }
 
-.examples .example:nth-child(15) .anchorjs-link {
+.examples .example:nth-child(16) .anchorjs-link {
   display: inline-block;
   width: 0.375em;
   height: 20px;
