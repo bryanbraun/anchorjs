@@ -1,6 +1,6 @@
 {
   "name": "anchor-js",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "main": "anchor.js",
   "author": "Bryan Braun (https://github.com/bryanbraun)",
   "description": "A JavaScript utility for adding deep anchor links to online docs.",
@@ -22,13 +22,13 @@
     "test": "npm run lint && npm run jasmine"
   },
   "devDependencies": {
-    "eslint": "5.0.1",
-    "jasmine-core": "3.1.0",
+    "eslint": "5.11.1",
+    "jasmine-core": "3.3.0",
     "karma": "2.0.4",
     "karma-cli": "1.0.1",
     "karma-jasmine": "1.1.2",
     "karma-phantomjs-launcher": "1.0.4",
     "phantomjs-prebuilt": "2.1.16",
-    "uglify-js": "3.4.2"
+    "uglify-js": "3.4.9"
   }
 }
