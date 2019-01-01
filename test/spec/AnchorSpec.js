@@ -485,6 +485,19 @@ describe('AnchorJS', function() {
     });
   });
 
+  describe('title text option', function() {
+    it('should allow users to add custom title text', function() {
+      var titleText;
+
+      anchors.options.titleText = 'Permalink to this heading';
+      anchors.add('h1');
+      titleText = document
+        .querySelector('.anchorjs-link')
+        .getAttribute('title');
+      expect(titleText).toEqual('Permalink to this heading');
+    });
+  });
+
   describe('visibility option', function() {
     var opacity;
 

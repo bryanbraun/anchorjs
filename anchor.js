@@ -37,6 +37,7 @@
       opts.base = opts.hasOwnProperty('base') ? opts.base : ''; // Accepts any base URI.
       // Using Math.floor here will ensure the value is Number-cast and an integer.
       opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
+      opts.titleText = opts.hasOwnProperty('titleText') ? opts.titleText : ''; // Accepts any text.
     }
 
     _applyRemainingDefaultOptions(this.options);
@@ -140,12 +141,16 @@
         // `<a class="anchorjs-link ${this.options.class}"
         //     aria-label="${this.options.ariaLabel}"
         //     data-anchorjs-icon="${this.options.icon}"
+        //     title="${this.options.titleText}"
         //     href="this.options.base#${elementID}">
         // </a>;`
         anchor = document.createElement('a');
         anchor.className = 'anchorjs-link ' + this.options.class;
         anchor.setAttribute('aria-label', this.options.ariaLabel);
         anchor.setAttribute('data-anchorjs-icon', this.options.icon);
+        if (this.options.titleText) {
+          anchor.title = this.options.titleText;
+        }
         // Adjust the href if there's a <base> tag. See https://github.com/bryanbraun/anchorjs/issues/98
         hrefBase = document.querySelector('base') ? window.location.pathname + window.location.search : '';
         hrefBase = this.options.base || hrefBase;
