@@ -1,8 +1,8 @@
 # AnchorJS [![Build Status](https://img.shields.io/travis/bryanbraun/anchorjs/master.svg?style=flat)](https://travis-ci.org/bryanbraun/anchorjs)
 
-A JavaScript utility for adding deep anchor links ([like these](http://ux.stackexchange.com/q/36304/33248)) to existing page content. AnchorJS is lightweight, accessible, and has no dependencies.
+A JavaScript utility for adding deep anchor links ([like these](https://ux.stackexchange.com/questions/36304/use-of-mouse-over-paragraph-marker-in-headlines-for-permalink)) to existing page content. AnchorJS is lightweight, accessible, and has no dependencies.
 
-**[See Live Examples in the Documentation](http://bryanbraun.github.io/anchorjs#examples).**
+**[See Live Examples in the Documentation](https://www.bryanbraun.com/anchorjs/#examples).**
 
 ![Anchoring links](docs/img/anchoring-links.png)
 
@@ -28,10 +28,10 @@ Then include the anchor.js file (or anchor.min.js) in your webpage.
 <script src="anchor.js"></script>
 ```
 
-You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](http://www.jsdelivr.com/projects/anchorjs).
+You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/projects/anchorjs).
 
 ## Usage
-See **[the Documentation](http://bryanbraun.github.io/anchorjs#basic-usage)** for detailed instructions.
+See **[the Documentation](https://www.bryanbraun.com/anchorjs/#basic-usage)** for detailed instructions.
 
 ## Compatibility
 Currently Supports: IE9+ and modern browsers
@@ -50,4 +50,4 @@ To contribute:
 6. Submit a Pull Request.
 
 ## License
-Licensed with the [MIT License](http://opensource.org/licenses/MIT).
+Licensed with the [MIT License](https://opensource.org/licenses/MIT).
