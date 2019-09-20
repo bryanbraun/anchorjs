@@ -67,7 +67,6 @@
           count,
           tidyText,
           newTidyText,
-          readableID,
           anchor,
           visibleOptionToUse,
           hrefBase,
@@ -134,8 +133,6 @@
           elements[i].setAttribute('id', newTidyText);
           elementID = newTidyText;
         }
-
-        readableID = elementID.replace(/-/g, ' ');
 
         // The following code efficiently builds this DOM structure:
         // `<a class="anchorjs-link ${this.options.class}"
