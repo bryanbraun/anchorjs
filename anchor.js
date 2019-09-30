@@ -1,4 +1,5 @@
-/* eslint-env amd, node */
+/* eslint-env amd */
+/* globals module:false */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
 (function (root, factory) {
