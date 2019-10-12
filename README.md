@@ -43,8 +43,7 @@ To contribute:
 2. Make your changes.
 3. Write tests as needed.
 4. Run tests locally to confirm everything is working:
-   - Install phantomjs: `brew install phantomjs`
-   - Install test modules: Run `npm install`
+   - Install test modules: Run `npm ci`
    - Run all tests: `npm test`
 5. Minify the code: `npm run release`
 6. Submit a Pull Request.
