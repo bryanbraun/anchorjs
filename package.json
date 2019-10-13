@@ -4,15 +4,16 @@
   "main": "anchor.js",
   "author": "Bryan Braun (https://github.com/bryanbraun)",
   "description": "A JavaScript utility for adding deep anchor links to online docs.",
-  "homepage": "https://github.com/bryanbraun/anchorjs",
+  "license": "MIT",
+  "homepage": "https://www.bryanbraun.com/anchorjs/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bryanbraun/anchorjs.git"
+    "url": "git+https://github.com/bryanbraun/anchorjs.git"
   },
   "bugs": {
     "url": "https://github.com/bryanbraun/anchorjs/issues"
   },
-  "license": "MIT",
+  "keywords": [],
   "scripts": {
     "lint": "eslint .",
     "jasmine": "karma start test/config.js --single-run",
@@ -21,6 +22,7 @@
     "uglify": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
     "test": "npm run lint && npm run jasmine"
   },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "6.5.1",
     "jasmine-core": "3.5.0",
