@@ -16,11 +16,12 @@
   "keywords": [],
   "scripts": {
     "lint": "eslint .",
+    "lockfile-lint": "lockfile-lint --allowed-hosts npm --validate-https --type npm --path package-lock.json",
     "jasmine": "karma start test/config.js --single-run",
     "release": "npm run uglify && npm run add-banner && cp anchor.js docs/anchor.js",
     "add-banner": "node banner.js",
     "uglify": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
-    "test": "npm run lint && npm run jasmine"
+    "test": "npm run lockfile-lint && npm run lint && npm run jasmine"
   },
   "dependencies": {},
   "devDependencies": {
@@ -30,6 +31,7 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-cli": "2.0.0",
     "karma-jasmine": "2.0.1",
+    "lockfile-lint": "^2.1.4",
     "uglify-js": "3.6.1"
   }
 }
