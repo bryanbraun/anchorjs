@@ -15,23 +15,26 @@
   },
   "keywords": [],
   "scripts": {
+    "add-banner": "node banner.js",
+    "copy-dist": "shx cp anchor.js docs/anchor.js",
+    "jasmine": "karma start test/config.js --single-run",
     "lint": "eslint .",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --validate-https --type npm --path package-lock.json",
-    "jasmine": "karma start test/config.js --single-run",
-    "release": "npm run uglify && npm run add-banner && cp anchor.js docs/anchor.js",
-    "add-banner": "node banner.js",
+    "release": "npm-run-all uglify add-banner copy-dist",
     "uglify": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
-    "test": "npm run lockfile-lint && npm run lint && npm run jasmine"
+    "test": "npm-run-all --parallel lint lockfile-lint --serial jasmine"
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "6.5.1",
-    "jasmine-core": "3.5.0",
+    "eslint": "^6.5.1",
+    "jasmine-core": "^3.5.0",
     "karma": "^4.3.0",
     "karma-chrome-launcher": "^3.1.0",
-    "karma-cli": "2.0.0",
-    "karma-jasmine": "2.0.1",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^2.0.1",
     "lockfile-lint": "^2.1.4",
-    "uglify-js": "3.6.1"
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.2",
+    "uglify-js": "^3.6.1"
   }
 }
