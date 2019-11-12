@@ -14,6 +14,10 @@
     "url": "https://github.com/bryanbraun/anchorjs/issues"
   },
   "keywords": [],
+  "files": [
+    "anchor.js",
+    "anchor.min.js"
+  ],
   "scripts": {
     "add-banner": "node banner.js",
     "copy-dist": "shx cp anchor.js docs/anchor.js",
