@@ -21,7 +21,7 @@
     "lint": "eslint .",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --validate-https --type npm --path package-lock.json",
     "release": "npm-run-all uglify add-banner copy-dist",
-    "uglify": "uglifyjs anchor.js --compress --mangle --screw-ie8 --comments \"/Copyright/\" -o anchor.min.js",
+    "uglify": "uglifyjs anchor.js --compress --mangle --comments \"/Copyright/\" -o anchor.min.js",
     "test": "npm-run-all --parallel lint lockfile-lint --serial jasmine"
   },
   "dependencies": {},
