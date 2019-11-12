@@ -1,4 +1,5 @@
-/* eslint-env amd, node */
+/* eslint-env amd */
+/* globals module:false */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
 (function (root, factory) {
@@ -67,7 +68,6 @@
           count,
           tidyText,
           newTidyText,
-          readableID,
           anchor,
           visibleOptionToUse,
           hrefBase,
@@ -134,8 +134,6 @@
           elements[i].setAttribute('id', newTidyText);
           elementID = newTidyText;
         }
-
-        readableID = elementID.replace(/-/g, ' ');
 
         // The following code efficiently builds this DOM structure:
         // `<a class="anchorjs-link ${this.options.class}"
