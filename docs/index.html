@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title>AnchorJS - Add deep anchor links to your docs</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700&display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.5.1/themes/prism-twilight.css">
@@ -14,13 +14,13 @@
     grunticon(["grunticon/icons.data.svg.css", "grunticon/icons.data.png.css", "grunticon/icons.fallback.css"]);
   </script>
   <noscript>
-    <link href="grunticon/icons.fallback.css" rel="stylesheet">
+    <link rel="stylesheet" href="grunticon/icons.fallback.css">
   </noscript>
 </head>
 <body>
   <header class="header">
     <h1 class="page-title">AnchorJS</h1>
-    <img class="logo" src="img/anchorjs_logo.png" />
+    <img class="logo" src="img/anchorjs_logo.png" alt="Anchor">
     <div class="desc">
       <p class="maindesc">Add deep anchor links to your docs.</p>
       <p class="subdesc">What are "deep anchor links"? Here are a few examples:</p>
@@ -56,17 +56,17 @@ anchors.add('p');</code></pre>
     <p class="more-examples"><a href="#examples">See more examples</a></p>
     <div class="used-by">
       <h2 class="used-by-label">Used by</h2>
-      <a href="https://blog.github.com/"><img src="https://avatars1.githubusercontent.com/u/9919?v=3&s=120" alt="Github Logo" title="Github" /></a>
+      <a href="https://blog.github.com/"><img src="https://avatars1.githubusercontent.com/u/9919?v=3&s=120" alt="Github Logo" title="Github"></a>
       <a href="http://eslint.org/docs/rules/"><img src="https://avatars.githubusercontent.com/u/6019716?v=3&s=120" alt="ESLint logo" title="ESLint"/></a>
-      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap" /></a>
-      <a href="http://bundler.io/v1.15/guides/deploying.html"><img src="https://avatars.githubusercontent.com/u/1137638?v=3&s=120" alt="Bundler Logo" title="Bundler" /></a>
-      <a href="https://mochajs.org"><img src="https://avatars.githubusercontent.com/u/8770005?v=3&s=120" alt="Mocha Logo" title="Mocha" /></a>
+      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap"></a>
+      <a href="http://bundler.io/v1.15/guides/deploying.html"><img src="https://avatars.githubusercontent.com/u/1137638?v=3&s=120" alt="Bundler Logo" title="Bundler"></a>
+      <a href="https://mochajs.org"><img src="https://avatars.githubusercontent.com/u/8770005?v=3&s=120" alt="Mocha Logo" title="Mocha"></a>
       <a href="https://middlemanapp.com/basics/install/"><img src="https://avatars.githubusercontent.com/u/1280820?v=3&s=120" alt="Middleman logo" title="Middleman"/></a>
     </div>
   </header>
   <section class="main">
     <h2>Overview</h2>
-    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web." />
+    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web.">
     <p>AnchorJS lets you drop deep anchor links (<a href="http://ux.stackexchange.com/q/36304/33248">like these</a>) onto any webpage, and be on your way.</p>
     <p>You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs if you have them, and generate them if you don't.</p>
     <p>It uses an attractive link icon by default, but you can customize the display via <a href="#options">options</a> and CSS styling. The <a href="#examples">examples</a> demonstrate a few customization ideas.</p>
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           </tr>
           <tr>
             <td><code>visible</code></td>
-            <td><code>hover</code> <br> <code>always</code> <br> <code>touch</code></td></td>
+            <td><code>hover</code> <br> <code>always</code> <br> <code>touch</code></td>
             <td><code>hover</code></td>
             <td><code>hover</code> displays the anchor when hovering over the element.<br> <code>always</code> will always display the anchor link. <br> <code>touch</code> will <em>always</em> display anchors for devices that support touch events, and only display them via <em>hover</em> for devices that do not support touch events. This approximates touchscreen detection (but <a href="http://www.stucox.com/blog/you-cant-detect-a-touchscreen/">isn't 100% accurate</a>).</td>
           </tr>
@@ -281,13 +281,13 @@ anchors.remove('h1');
  * Example 2
  * Remove all anchors from the page.
  */
-anchors.removeAll();</pre></code>
+anchors.removeAll();</code></pre>
     <p>Removing anchors with <code>.remove()</code> should be uncommon. If you simply want anchors on a more selective group, consider using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not">the CSS <em>:not()</em> pseudo-class</a> when you add them, like so:</p>
 <pre class="src-js"><code>/**
  * Example 2
  * Add anchors to all h2s, except for those with a class of "no-anchor".
  */
-anchors.add('h2:not(.no-anchor)');</pre></code>
+anchors.add('h2:not(.no-anchor)');</code></pre>
 
 <h3>Chaining commands</h3>
 <p>You can chain commands of <code>add()</code> and <code>remove()</code> (since they return a copy of <code>anchors</code>), but it's usually more performant to lean on CSS when targeting elements:
