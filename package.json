@@ -13,7 +13,11 @@
   "bugs": {
     "url": "https://github.com/bryanbraun/anchorjs/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "anchor",
+    "links",
+    "urlify"
+  ],
   "files": [
     "anchor.js",
     "anchor.min.js"
