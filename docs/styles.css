@@ -182,7 +182,7 @@ pre > code {
 }
 
 .options-table-wrap {
-  overflow: scroll;
+  overflow: auto;
 }
 .options-table {
   min-width: 500px;
