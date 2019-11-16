@@ -20,7 +20,7 @@
 <body>
   <header class="header">
     <h1 class="page-title">AnchorJS</h1>
-    <img class="logo" src="img/anchorjs_logo.png" alt="Anchor">
+    <img class="logo" src="img/anchorjs_logo.png" alt="Anchor" width="152" height="178">
     <div class="desc">
       <p class="maindesc">Add deep anchor links to your docs.</p>
       <p class="subdesc">What are "deep anchor links"? Here are a few examples:</p>
@@ -56,17 +56,17 @@ anchors.add('p');</code></pre>
     <p class="more-examples"><a href="#examples">See more examples</a></p>
     <div class="used-by">
       <h2 class="used-by-label">Used by</h2>
-      <a href="https://blog.github.com/"><img src="https://avatars1.githubusercontent.com/u/9919?v=3&s=120" alt="Github Logo" title="Github"></a>
-      <a href="http://eslint.org/docs/rules/"><img src="https://avatars.githubusercontent.com/u/6019716?v=3&s=120" alt="ESLint logo" title="ESLint"/></a>
-      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap"></a>
-      <a href="http://bundler.io/v1.15/guides/deploying.html"><img src="https://avatars.githubusercontent.com/u/1137638?v=3&s=120" alt="Bundler Logo" title="Bundler"></a>
-      <a href="https://mochajs.org"><img src="https://avatars.githubusercontent.com/u/8770005?v=3&s=120" alt="Mocha Logo" title="Mocha"></a>
-      <a href="https://middlemanapp.com/basics/install/"><img src="https://avatars.githubusercontent.com/u/1280820?v=3&s=120" alt="Middleman logo" title="Middleman"/></a>
+      <a href="https://blog.github.com/"><img src="https://avatars1.githubusercontent.com/u/9919?v=3&s=120" alt="Github Logo" title="Github" width="96" height="96"></a>
+      <a href="http://eslint.org/docs/rules/"><img src="https://avatars.githubusercontent.com/u/6019716?v=3&s=120" alt="ESLint logo" title="ESLint" width="96" height="96"></a>
+      <a href="http://getbootstrap.com/getting-started/"><img src="https://avatars.githubusercontent.com/u/2918581?v=3&s=120" alt="Bootstrap Logo" title="Bootstrap" width="96" height="96"></a>
+      <a href="http://bundler.io/v1.15/guides/deploying.html"><img src="https://avatars.githubusercontent.com/u/1137638?v=3&s=120" alt="Bundler Logo" title="Bundler" width="96" height="96"></a>
+      <a href="https://mochajs.org"><img src="https://avatars.githubusercontent.com/u/8770005?v=3&s=120" alt="Mocha Logo" title="Mocha" width="96" height="96"></a>
+      <a href="https://middlemanapp.com/basics/install/"><img src="https://avatars.githubusercontent.com/u/1280820?v=3&s=120" alt="Middleman logo" title="Middleman" width="96" height="96"></a>
     </div>
   </header>
   <section class="main">
     <h2>Overview</h2>
-    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web.">
+    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web." width="334" height="231">
     <p>AnchorJS lets you drop deep anchor links (<a href="http://ux.stackexchange.com/q/36304/33248">like these</a>) onto any webpage, and be on your way.</p>
     <p>You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs if you have them, and generate them if you don't.</p>
     <p>It uses an attractive link icon by default, but you can customize the display via <a href="#options">options</a> and CSS styling. The <a href="#examples">examples</a> demonstrate a few customization ideas.</p>
@@ -118,7 +118,7 @@ anchors.add();</code></pre>
 &lt;/body&gt;</code></pre>
 <p>...or on DOMContentLoaded:</p>
     <pre class="src-js"><code>// Add anchors on DOMContentLoaded
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener('DOMContentLoaded', function(event) {
   anchors.add();
 });</code></pre>
 
@@ -218,12 +218,12 @@ anchors.add('.story > p');</code></pre>
 * Create an invisible pseudo-element and make it the height of the
 * sticky navbar so the jump takes you to a location above the link
 */
-:target:before {
-    content: "";
-    display: block;
-    margin-top: -80px;
-    height: 80px;
-    width: 1px;
+:target::before {
+  content: "";
+  display: block;
+  margin-top: -80px;
+  height: 80px;
+  width: 1px;
 }</code></pre>
 
     <h3>Pages with changing content</h3>
@@ -293,17 +293,17 @@ anchors.add('h2:not(.no-anchor)');</code></pre>
 <p>You can chain commands of <code>add()</code> and <code>remove()</code> (since they return a copy of <code>anchors</code>), but it's usually more performant to lean on CSS when targeting elements:
 
 <pre class="src-js"><code>/**
-  * Example 1
-  * Adds anchors to `.my-anchors` and `.my-other-anchors` except for those
-  * with a class of `no-anchor`.
-  */
- anchors.add('.my-anchors').add('.my-other-anchors').remove('.no-anchor');
+ * Example 1
+ * Adds anchors to `.my-anchors` and `.my-other-anchors` except for those
+ * with a class of `no-anchor`.
+ */
+anchors.add('.my-anchors').add('.my-other-anchors').remove('.no-anchor');
 
- /**
-  * Example 2
-  * A more performant way to add anchors to the same classes in Example 1 above.
-  */
-  anchors.add('.my-anchors:not(.no-anchor), .my-other-anchors:not(.no-anchor)');</code></pre>
+/**
+ * Example 2
+ * A more performant way to add anchors to the same classes in Example 1 above.
+ */
+anchors.add('.my-anchors:not(.no-anchor), .my-other-anchors:not(.no-anchor)');</code></pre>
 
     <h2>Examples</h2>
     <div class="examples">
@@ -342,10 +342,10 @@ anchors.add('h3');</code></pre>
           <pre class="js"><code>anchors.options.visible = 'always';
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  color: #AAAAAA;
+  color: #aaa;
 }
 .anchorjs-link:hover {
-  color: #FF5231;
+  color: #ff5231;
 }</code></pre>
         </div>
       </div>
@@ -422,9 +422,9 @@ anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   font-weight: 200;
   margin-left: 1em;
-  padding-right: 0.375em;
-  font-size: 0.5em;
-  border: 1px dashed #FFBAAC;
+  padding-right: .375em;
+  font-size: .5em;
+  border: 1px dashed #ffbaac;
   vertical-align: middle;
 }</code></pre>
         </div>
@@ -448,7 +448,7 @@ anchors.add('h3');</code></pre>
   height: 32px;
   margin-top: 6px;
   margin-left: -1.25em !important;
-  background: url('img/mini-logo.png') no-repeat;
+  background: url("img/mini-logo.png") no-repeat;
 }</code></pre>
         </div>
       </div>
@@ -469,12 +469,12 @@ anchors.add('h3');</code></pre>
   height: 32px;
   width: 18px;
   border-radius: 50%;
-  background-color: #FF5231;
-  color: white;
+  background-color: #ff5231;
+  color: #fff;
   margin-top: 4px;
   margin-left: -1.4em !important;
 }
-.anchorjs-link:before {
+.anchorjs-link::before {
   margin-left: 7px;
   margin-top: -4px;
   display: block;
@@ -495,7 +495,7 @@ anchors.options = {
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  font-family: 'your-icon-font';
+  font-family: "your-icon-font";
 }</code></pre>
         </div>
       </div>
@@ -513,7 +513,7 @@ anchors.add('h3');</code></pre>
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   display: inline-block;
-  background: url('img/hyperlink.svg') no-repeat;
+  background: url("img/hyperlink.svg") no-repeat;
   margin-left: 8px;
   width: 14px;
   height: 24px;
@@ -534,7 +534,7 @@ anchors.add('h3');</code></pre>
 };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTBweCIgdmlld0JveD0iMCAwIDIwIDEwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9ImxpbmsiIGZpbGw9IiNGRjUyMzEiPgogICAgICAgICAgICA8cGF0aCBkPSJNMTUsMCBMMTIuMzA0Njg3NSwwIEMxMy4yNDIxODc1LDAuNjI1IDE0LjEyMTA5MzgsMS43MzgyODEyNSAxNC4zOTQ1MzEyLDIuNSBMMTQuOTgwNDY4OCwyLjUgQzE2LjI1LDIuNSAxNy40ODA0Njg4LDMuNzUgMTcuNDgwNDY4OCw1IEMxNy40ODA0Njg4LDYuMjUgMTYuMjEwOTM3NSw3LjUgMTQuOTgwNDY4OCw3LjUgTDExLjIzMDQ2ODgsNy41IEMxMCw3LjUgOC43MzA0Njg3NSw2LjI1IDguNzMwNDY4NzUsNSBDOC43MzA0Njg3NSw0LjU1MDc4MTI1IDguODY3MTg3NSw0LjEyMTA5Mzc1IDkuMDgyMDMxMjUsMy43NSBMNi40MDYyNSwzLjc1IEM2LjMwODU5Mzc1LDQuMTYwMTU2MjUgNi4yNSw0LjU3MDMxMjUgNi4yNSw1IEM2LjI1LDcuNSA4LjczMDQ2ODc1LDEwIDExLjIzMDQ2ODgsMTAgTDE1LDEwIEMxNy41LDEwIDIwLDcuNSAyMCw1IEMyMCwyLjUgMTcuNSwwIDE1LDAgTDE1LDAgWiBNNS42MDU0Njg3NSw3LjUgTDUuMDE5NTMxMjUsNy41IEMzLjc1LDcuNSAyLjUxOTUzMTI1LDYuMjUgMi41MTk1MzEyNSw1IEMyLjUxOTUzMTI1LDMuNzUgMy43ODkwNjI1LDIuNSA1LjAxOTUzMTI1LDIuNSBMOC43Njk1MzEyNSwyLjUgQzEwLDIuNSAxMS4yNjk1MzEyLDMuNzUgMTEuMjY5NTMxMiw1IEMxMS4yNjk1MzEyLDUuNDQ5MjE4NzUgMTEuMTMyODEyNSw1Ljg3ODkwNjI1IDEwLjkxNzk2ODgsNi4yNSBMMTMuNTkzNzUsNi4yNSBDMTMuNjkxNDA2Miw1LjgzOTg0Mzc1IDEzLjc1LDUuNDI5Njg3NSAxMy43NSw1IEMxMy43NSwyLjUgMTEuMjY5NTMxMiwwIDguNzY5NTMxMjUsMCBMNSwwIEMyLjUsMCAwLDIuNSAwLDUgQzAsNy41IDIuNSwxMCA1LDEwIEw3LjY5NTMxMjUsMTAgQzYuNzU3ODEyNSw5LjM3NSA1Ljg3ODkwNjI1LDguMjYxNzE4NzUgNS42MDU0Njg3NSw3LjUgTDUuNjA1NDY4NzUsNy41IFoiIGlkPSJTaGFwZSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") no-repeat;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDIwIDEwIj48cGF0aCBmaWxsPSIjZmY1MjMxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNSAwaC0yLjY5NWMuOTM3LjYyNSAxLjgxNiAxLjczOCAyLjA5IDIuNWguNTg1YzEuMjcgMCAyLjUgMS4yNSAyLjUgMi41cy0xLjI3IDIuNS0yLjUgMi41aC0zLjc1QzEwIDcuNSA4LjczIDYuMjUgOC43MyA1YzAtLjQ1LjEzNy0uODc5LjM1Mi0xLjI1SDYuNDA2Yy0uMDk3LjQxLS4xNTYuODItLjE1NiAxLjI1IDAgMi41IDIuNDggNSA0Ljk4IDVIMTVjMi41IDAgNS0yLjUgNS01cy0yLjUtNS01LTV6TTUuNjA1IDcuNUg1LjAyYy0xLjI3IDAtMi41LTEuMjUtMi41LTIuNXMxLjI3LTIuNSAyLjUtMi41aDMuNzVjMS4yMyAwIDIuNSAxLjI1IDIuNSAyLjUgMCAuNDUtLjEzNy44NzktLjM1MiAxLjI1aDIuNjc2Yy4wOTctLjQxLjE1Ni0uODIuMTU2LTEuMjUgMC0yLjUtMi40OC01LTQuOTgtNUg1QzIuNSAwIDAgMi41IDAgNXMyLjUgNSA1IDVoMi42OTVjLS45MzctLjYyNS0xLjgxNi0xLjczOC0yLjA5LTIuNXoiLz48L3N2Zz4=") no-repeat;
   margin-top: 15px;
   height: 16px;
   width: 20px;
@@ -556,7 +556,7 @@ anchors.add('h3');</code></pre>
 anchors.add('h3');</code></pre>
           <pre class="css"><code>/* See also: nicolasgallagher.com/pure-css-gui-icons */
 .anchorjs-link {
-  border-color: #FF5231 #FF5231 transparent;
+  border-color: #ff5231 #ff5231 transparent;
   border-width: 15px 7px 6px;
   border-style: solid;
   margin-top: 10px;
@@ -603,8 +603,8 @@ anchors.options = {
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   display: inline-block;
-  margin-left: 0.375em;
-  width: 0.375em;
+  margin-left: .375em;
+  width: .375em;
   height: 20px;
 }</code></pre>
         </div>
@@ -633,7 +633,7 @@ anchors.add('h3');</code></pre>
         <div class="example-code">
           <pre class="js"><code>anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link:hover {
-  color: #2500AD;
+  color: #2500ad;
 }
 *:hover > .anchorjs-link {
   transition: color .25s linear;
@@ -674,8 +674,8 @@ anchors.add('h3');</code></pre>
   top: 4px;
   height: 36px;
   flex: 1;
-  background: #FF5231;
-  color: white;
+  background-color: #ff5231;
+  color: #fff;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 200;
   font-size: 1rem;
@@ -683,7 +683,7 @@ anchors.add('h3');</code></pre>
   padding-right: 6%;
   padding-left: 42px !important;
   line-height: 38px;
-  transition: all 0.5s ease;
+  transition: all .5s ease;
   transform: translateX(100%);
 }
 .anchorjs-link::before {
@@ -692,10 +692,10 @@ anchors.add('h3');</code></pre>
   left: 0;
   width: 0;
   height: 0;
-  content: '';
+  content: "";
   border: 18px solid #fdfdfd; /* Background color */
-  border-right-color: #FF5231;
-  transition: all 0.5s ease;
+  border-right-color: #ff5231;
+  transition: all .5s ease;
 }
 h2 {
   display: flex;
@@ -704,10 +704,10 @@ h2 {
   transform: translateX(0);
 }
 *:hover > .anchorjs-link:hover {
-  background: #FF806A;
+  background: #ff806a;
 }
 *:hover > .anchorjs-link:hover::before {
-  border-right-color: #FF806A;
+  border-right-color: #ff806a;
 }</code></pre>
         </div>
       </div>
@@ -722,31 +722,31 @@ h2 {
           <pre class="js"><code>anchors.options = { icon: 'Permalink' };
 anchors.add('h3');</code></pre>
           <pre class="css"><code>/* tooltip box */
-.anchorjs-link:after {
+.anchorjs-link::after {
   display: inline-block;
   transition: opacity .25s linear;
   font-family: Verdana, sans-serif;
-  font-size: 0.75ex;
+  font-size: .75ex;
   font-weight: 100;
-  padding: 0.5ex 1.5ex;
-  background: #444;
+  padding: .5ex 1.5ex;
+  background-color: #444;
   color: #fff;
-  border-radius: 0.6ex;
-  vertical-align: 0.8ex;
+  border-radius: .6ex;
+  vertical-align: .8ex;
 }
 /* tooltip arrow */
-.anchorjs-link:before {
-  content: '';
+.anchorjs-link::before {
+  content: "";
   display: inline-block;
-  border-top: 0.3ex solid transparent;
-  border-right: 0.5ex solid #444;
-  border-bottom: 0.3ex solid transparent;
-  vertical-align: 0.35ex;
+  border-top: .3ex solid transparent;
+  border-right: .5ex solid #444;
+  border-bottom: .3ex solid transparent;
+  vertical-align: .35ex;
 }
-.anchorjs-link:hover:after {
+.anchorjs-link:hover::after {
   background-color: #666;
 }
-.anchorjs-link:hover:before {
+.anchorjs-link:hover::before {
   border-right-color: #666;
 }</code></pre>
         </div>
@@ -754,7 +754,7 @@ anchors.add('h3');</code></pre>
 
     </div>
     <footer class="footer"><p><small>Made by <a href="http://www.bryanbraun.com">Bryan</a>. You should <a href="https://twitter.com/intent/tweet?text=Hi%20%40BryanEBraun%2C%20">say hi</a> sometime. 👋</small></p></footer>
-    <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <a href="https://github.com/bryanbraun/anchorjs"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" width="149" height="149"></a>
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="anchor.js"></script>
@@ -877,6 +877,6 @@ anchors.add('h3');</code></pre>
     var hovEx5 = new AnchorJS({ icon: 'Permalink' });
     hovEx5.add('.hover-examples .example:nth-child(5) h3');
   </script>
-  <script src="https://cdn.jsdelivr.net/prism/1.5.1/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/prism/1.5.1/prism.js" async></script>
 </body>
 </html>
