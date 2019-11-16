@@ -164,6 +164,9 @@ pre > code {
   text-align: center;
   font-weight: 400;
 }
+.used-by a {
+  display: inline-block;
+}
 .used-by img {
   border-radius: 8px;
   margin: 0 10px;
