@@ -31,12 +31,15 @@ Then include the anchor.js file (or anchor.min.js) in your webpage.
 You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/package/npm/anchor-js).
 
 ## Usage
+
 See **[the Documentation](https://www.bryanbraun.com/anchorjs/#basic-usage)** for detailed instructions.
 
 ## Compatibility
+
 Currently Supports: IE9+ and modern browsers
 
-## Contributing [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs#info=devDependencies)
+## Contributing [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs?type=dev)
+
 To contribute:
 
 1. Fork/Clone the repo.
@@ -49,4 +52,5 @@ To contribute:
 6. Submit a Pull Request.
 
 ## License
+
 Licensed with the [MIT License](https://opensource.org/licenses/MIT).
