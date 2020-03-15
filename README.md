@@ -14,21 +14,23 @@ Download AnchorJS using npm,
 npm install anchor-js
 ```
 
-or bower:
+...and then include it into your project:
 
-```bash
-bower install anchor-js --save-dev
+```js
+import AnchorJS from 'anchor-js';
+
+const anchors = new AnchorJS();
+anchors.add();
 ```
 
-(or just [download it from github](https://github.com/bryanbraun/anchorjs/releases)).
-
-Then include the anchor.js file (or anchor.min.js) in your webpage.
+You could also include it in your webpage via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/package/npm/anchor-js).
 
 ```html
-<script src="anchor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script>
+   anchors.add();
+</script>
 ```
-
-You could also include it via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/package/npm/anchor-js).
 
 ## Usage
 

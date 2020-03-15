@@ -137,15 +137,16 @@ anchors.add('p');</code></pre>
 
     <p>Download AnchorJS using npm,</p>
     <pre><code>npm install anchor-js</code></pre>
-    <p>or bower:</p>
-    <pre><code>bower install anchor-js</code></pre>
-    <p>(or just <a href="https://github.com/bryanbraun/anchorjs/releases">download it from github</a>).</p>
-    <p>Then include the anchor.js file (or anchor.min.js) in your webpage.</p>
-    <pre><code class="language-markup">&lt;script src="anchor.js"&gt;&lt;/script&gt;</code></pre>
-    <p>You could also include it via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="https://www.jsdelivr.com/package/npm/anchor-js">jsDelivr</a>.</p>
-    <p>If you're using it from Node/CommonJS, include it like this:</p>
-    <pre class="src-js"><code>var anchorJS = require('anchor-js');
-var anchors = new anchorJS();</code></pre>
+    <p>... and then include it in your project:</p>
+    <pre class="src-js"><code>import AnchorJS from 'anchor-js';
+
+const anchors = new AnchorJS();
+anchors.add();</code></pre>
+    <p>You could also include it in your webpage via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="https://www.jsdelivr.com/package/npm/anchor-js">jsDelivr</a>:</p>
+    <pre class="src-js"><code>&#x3C;script src=&#x22;https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
+&#x3C;script&#x3E;
+  anchors.add();
+&#x3C;/script&#x3E;</code></pre>
 
     <h2>Basic usage</h2>
     <p>AnchorJS provides the <code>anchors.add()</code> method which takes a CSS selector (similar to jQuery) for targeting elements you want to deep-link. Here are some usage examples.</p>
