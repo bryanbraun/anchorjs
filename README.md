@@ -50,7 +50,7 @@ To contribute:
 4. Run tests locally to confirm everything is working:
    - Install test modules: Run `npm ci`
    - Run all tests: `npm test`
-5. Minify the code: `npm run release`
+5. Minify and prepare the code: `npm run build`
 6. Submit a Pull Request.
 
 ## License
