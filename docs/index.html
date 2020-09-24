@@ -11,8 +11,8 @@
   <meta property="og:site_name" content="AnchorJS">
   <meta property="og:title" content="AnchorJS - Add deep anchor links to your docs">
   <meta property="og:description" content="AnchorJS lets you drop deep anchor links onto any webpage. It's lightweight, accessible, and dependency-free.">
-  <meta property="og:image" content="http://bryanbraun.github.io/anchorjs/img/anchor-js-meta.png">
-  <meta property="og:url" content="http://bryanbraun.github.io/anchorjs/">
+  <meta property="og:image" content="https://bryanbraun.github.io/anchorjs/img/anchor-js-meta.png">
+  <meta property="og:url" content="https://bryanbraun.github.io/anchorjs/">
   <meta property="og:type" content="website">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/prism/1.5.1/themes/prism-twilight.css">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="grunticon/grunticon.loader.js"></script>
   <script>
     grunticon(["grunticon/icons.data.svg.css", "grunticon/icons.data.png.css", "grunticon/icons.fallback.css"]);
@@ -75,6 +75,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/38230737?v=3&s=96"
           alt="1Password logo"
           title="1Password"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -84,6 +85,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/6019716?v=3&s=96"
           alt="ESLint logo"
           title="ESLint"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -93,6 +95,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/2918581?v=3&s=96"
           alt="Bootstrap logo"
           title="Bootstrap"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -102,6 +105,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/1280820?v=3&s=96"
           alt="Middleman logo"
           title="Middleman"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -111,6 +115,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/30317862?v=3&s=96"
           alt="Tailwind logo"
           title="Tailwind CSS"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -120,6 +125,7 @@ anchors.add('p');</code></pre>
           src="https://avatars1.githubusercontent.com/u/1137638?v=3&s=96"
           alt="Bundler logo"
           title="Bundler"
+          loading="lazy"
           width="96"
           height="96">
       </a>
@@ -127,7 +133,7 @@ anchors.add('p');</code></pre>
   </header>
   <section class="main">
     <h2>Overview</h2>
-    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web." width="334" height="231">
+    <img class="anchorlink-examples" src="img/anchorlinks2.png" alt="Examples of deep anchor links from across the web." loading="lazy" width="334" height="231">
     <p>AnchorJS lets you drop deep anchor links (<a href="https://ux.stackexchange.com/q/36304/33248">like these</a>) onto any webpage, and be on your way.</p>
     <p>You don't need to set up IDs or worry about urls. AnchorJS will respect your IDs if you have them, and generate them if you don't.</p>
     <p>It uses an attractive link icon by default, but you can customize the display via <a href="#options">options</a> and CSS styling. The <a href="#examples">examples</a> demonstrate a few customization ideas.</p>
@@ -729,7 +735,7 @@ anchors.add('h3');</code></pre>
         <div class="example-code">
           <pre class="js"><code>anchors.options.icon = '# LINK';
 anchors.add('h3');</code></pre>
-          <pre class="css"><code>/* Based on http://codepen.io/corysimmons/pen/NPBXbe */
+          <pre class="css"><code>/* Based on https://codepen.io/corysimmons/pen/NPBXbe */
 /* Vendor prefixes not included */
 .anchorjs-link {
   position: relative;
