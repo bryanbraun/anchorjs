@@ -3,6 +3,9 @@
   "env": {
     "browser": true
   },
+  "extends": [
+    "eslint:recommended"
+  ],
   "globals": {
     "DocumentTouch": true
   },
