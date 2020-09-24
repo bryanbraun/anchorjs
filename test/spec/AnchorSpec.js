@@ -549,6 +549,7 @@ function appendElementToBody(tagName, text) {
     textNode = document.createTextNode(text);
     el.appendChild(textNode);
   }
+
   document.body.appendChild(el);
   return el;
 }
