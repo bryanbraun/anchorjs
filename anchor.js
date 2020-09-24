@@ -49,7 +49,7 @@
      * @return {Boolean} - true if the current device supports touch.
      */
     this.isTouchDevice = function() {
-      return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+      return Boolean('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
     };
 
     /**
@@ -99,7 +99,7 @@
 
       // We produce a list of existing IDs so we don't generate a duplicate.
       elsWithIds = document.querySelectorAll('[id]');
-      idList = [].map.call(elsWithIds, function assign(el) {
+      idList = [].map.call(elsWithIds, function(el) {
         return el.id;
       });
 
@@ -128,6 +128,7 @@
             index = idList.indexOf(newTidyText);
             count += 1;
           } while (index !== -1);
+
           index = undefined;
           idList.push(newTidyText);
 
@@ -149,6 +150,7 @@
         if (this.options.titleText) {
           anchor.title = this.options.titleText;
         }
+
         // Adjust the href if there's a <base> tag. See https://github.com/bryanbraun/anchorjs/issues/98
         hrefBase = document.querySelector('base') ? window.location.pathname + window.location.search : '';
         hrefBase = this.options.base || hrefBase;
@@ -184,6 +186,7 @@
       for (i = 0; i < indexesToDrop.length; i++) {
         elements.splice(indexesToDrop[i] - i, 1);
       }
+
       this.elements = this.elements.concat(elements);
 
       return this;
@@ -208,10 +211,12 @@
           if (index !== -1) {
             this.elements.splice(index, 1);
           }
+
           // Remove the anchor from the DOM.
           elements[i].removeChild(domAnchor);
         }
       }
+
       return this;
     };
 
@@ -290,8 +295,9 @@
       } else if (Array.isArray(input) || input instanceof NodeList) {
         elements = [].slice.call(input);
       } else {
-        throw new Error('The selector provided to AnchorJS was invalid.');
+        throw new TypeError('The selector provided to AnchorJS was invalid.');
       }
+
       return elements;
     }
 
