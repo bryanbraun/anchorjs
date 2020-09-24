@@ -1,5 +1,7 @@
-name: Tests
+name: CI
+
 on: [push, pull_request]
+
 env:
   CI: true
 
@@ -16,11 +18,11 @@ jobs:
         with:
           node-version: "12"
 
-      - run: node --version
-      - run: npm --version
-
       - name: Install npm dependencies
         run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Run tests
         run: npm test
