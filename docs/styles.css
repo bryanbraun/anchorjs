@@ -205,19 +205,10 @@ pre > code {
 .preview-examples {
   max-width: 720px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -ms-flex-line-pack: end;
   align-content: flex-end;
 }
 
@@ -253,7 +244,6 @@ pre > code {
 .example-code-link:focus::after {
   left: -50px;
   opacity: 1;
-  -webkit-transition: all .25s ease-in;
   transition: all .25s ease-in;
 }
 
@@ -268,7 +258,6 @@ pre > code {
   top: 7px;
   left: -45px;
   opacity: 0;
-  -webkit-transition: all .25s ease-in;
   transition: all .25s ease-in;
 }
 
@@ -397,8 +386,7 @@ pre > code {
 /* Hover Examples */
 
 .hover-examples .example:nth-child(2) *:hover > .anchorjs-link,
-.hover-examples .example:nth-child(2) .anchorjs-link:focus  {
-  -webkit-transition: color .25s linear;
+.hover-examples .example:nth-child(2) .anchorjs-link:focus {
   transition: color .25s linear;
 }
 .hover-examples .example:nth-child(2) .anchorjs-link:hover {
@@ -406,18 +394,14 @@ pre > code {
 }
 
 .hover-examples .example:nth-child(3) .anchorjs-link {
-  -webkit-transition: all .25s linear;
   transition: all .25s linear;
 }
 .hover-examples .example:nth-child(3) *:hover > .anchorjs-link,
-.hover-examples .example:nth-child(3) .anchorjs-link:focus  {
+.hover-examples .example:nth-child(3) .anchorjs-link:focus {
   margin-left: -1.125em !important;
 }
 
-
 .hover-examples .example:nth-child(4) h3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .hover-examples .example:nth-child(4) .anchorjs-link {
@@ -428,18 +412,13 @@ pre > code {
   font-size: 1rem;
   position: relative;
   top: 2px;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
   margin-right: -6%;
   padding-right: 6%;
   padding-left: 42px !important;
   height: 36px;
   line-height: 38px;
-  -webkit-transition: all .5s ease;
   transition: all .5s ease;
-  -webkit-transform: translateX(100%);
-  -ms-transform: translateX(100%);
   transform: translateX(100%);
 }
 .hover-examples .example:nth-child(4) .anchorjs-link::before {
@@ -451,13 +430,10 @@ pre > code {
   border: 18px solid #fff;
   border-right-color: #ff5231;
   content: "";
-  -webkit-transition: all .5s ease;
   transition: all .5s ease;
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
-  -webkit-transform: translateX(0);
-  -ms-transform: translateX(0);
   transform: translateX(0);
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover,
@@ -471,7 +447,6 @@ pre > code {
 
 .hover-examples .example:nth-child(5) .anchorjs-link::after {
   display: inline-block;
-  -webkit-transition: opacity .25s linear;
   transition: opacity .25s linear;
   font-family: Verdana, sans-serif;
   font-size: .75ex;
@@ -509,53 +484,47 @@ pre > code {
 /* github-corners styles */
 
 .github-corner:hover .octo-arm {
-  -webkit-animation: octocat-wave 560ms ease-in-out;
-  animation: octocat-wave 560ms ease-in-out
+  -webkit-animation: octocat-wave .56s ease-in-out;
+  animation: octocat-wave .56s ease-in-out;
 }
 
 @-webkit-keyframes octocat-wave {
   0%,
   100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    transform: rotate(0);
   }
   20%,
   60% {
-    -webkit-transform: rotate(-25deg);
-    transform: rotate(-25deg)
+    transform: rotate(-25deg);
   }
   40%,
   80% {
-    -webkit-transform: rotate(10deg);
-    transform: rotate(10deg)
+    transform: rotate(10deg);
   }
 }
 
 @keyframes octocat-wave {
   0%,
   100% {
-    -webkit-transform: rotate(0);
-    transform: rotate(0)
+    transform: rotate(0);
   }
   20%,
   60% {
-    -webkit-transform: rotate(-25deg);
-    transform: rotate(-25deg)
+    transform: rotate(-25deg);
   }
   40%,
   80% {
-    -webkit-transform: rotate(10deg);
-    transform: rotate(10deg)
+    transform: rotate(10deg);
   }
 }
 
 @media (max-width: 500px) {
   .github-corner:hover .octo-arm {
     -webkit-animation: none;
-    animation: none
+    animation: none;
   }
   .github-corner .octo-arm {
-    -webkit-animation: octocat-wave 560ms ease-in-out;
-    animation: octocat-wave 560ms ease-in-out
+    -webkit-animation: octocat-wave .56s ease-in-out;
+    animation: octocat-wave .56s ease-in-out;
   }
 }
