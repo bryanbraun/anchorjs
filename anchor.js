@@ -173,10 +173,10 @@
         if (this.options.placement === 'left') {
           anchor.style.position = 'absolute';
           anchor.style.marginLeft = '-1em';
-          anchor.style.paddingRight = '0.5em';
+          anchor.style.paddingRight = '.5em';
           elements[i].insertBefore(anchor, elements[i].firstChild);
         } else { // if the option provided is `right` (or anything else).
-          anchor.style.paddingLeft = '0.375em';
+          anchor.style.paddingLeft = '.375em';
           elements[i].appendChild(anchor);
         }
       }
@@ -262,8 +262,8 @@
      * @return   {Boolean}     true/false
      */
     this.hasAnchorJSLink = function(el) {
-      var hasLeftAnchor = el.firstChild && ((' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1),
-          hasRightAnchor = el.lastChild && ((' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1);
+      var hasLeftAnchor = el.firstChild && (' ' + el.firstChild.className + ' ').indexOf(' anchorjs-link ') > -1,
+          hasRightAnchor = el.lastChild && (' ' + el.lastChild.className + ' ').indexOf(' anchorjs-link ') > -1;
 
       return hasLeftAnchor || hasRightAnchor || false;
     };
