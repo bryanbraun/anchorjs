@@ -6,7 +6,7 @@ const fs = require('fs');
 const pkg = require('./package.json');
 
 const filename = 'anchor.min.js';
-const padStart = str => ('0' + str).slice(-2);
+const padStart = str => String(str).padStart(2, '0');
 const dateObj = new Date();
 const date = `${dateObj.getFullYear()}-${padStart(dateObj.getMonth() + 1)}-${padStart(dateObj.getDate())}`;
 
