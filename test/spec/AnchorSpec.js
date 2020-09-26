@@ -6,6 +6,8 @@ describe('AnchorJS', function() {
   var el1;
 
   beforeEach(function() {
+    delete window.anchors;
+    window.anchors = new AnchorJS();
     var titleText = ' ⚡⚡ Don\'t forget: URL fragments&nbsp;should be i18n-friendly, hyphenated, short, and clean.';
     el1 = appendElementToBody('h1', titleText);
   });
@@ -18,7 +20,6 @@ describe('AnchorJS', function() {
 
     anchors.removeAll();
     document.body.removeChild(el1);
-    anchors = new AnchorJS();
   });
 
   it('can detect if an element has an AnchorJS link', function() {
