@@ -232,8 +232,13 @@
      * @return {String}      - hyphen-delimited text for use in IDs and URLs.
      */
     this.urlify = function(text) {
+      // Decode HTML characters such as '&nbsp;' first.
+      var textareaElement = document.createElement('textarea');
+      textareaElement.innerHTML = text;
+      text = textareaElement.value;
+
       // Regex for finding the non-safe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, & vertical tabs)
-      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v]/g,
+      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v\u00A0]/g,
           urlText;
 
       // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
