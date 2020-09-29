@@ -6,7 +6,7 @@ describe('AnchorJS', function() {
   var el1;
 
   beforeEach(function() {
-    var titleText = ' ⚡⚡ Don\'t forget: URL fragments should be i18n-friendly, hyphenated, short, and clean.';
+    var titleText = ' ⚡⚡ Don\'t forget: URL fragments&nbsp;should be i18n-friendly, hyphenated, short, and clean.';
     el1 = appendElementToBody('h1', titleText);
   });
 
