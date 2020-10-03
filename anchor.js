@@ -237,7 +237,8 @@
       textareaElement.innerHTML = text;
       text = textareaElement.value;
 
-      // Regex for finding the non-safe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, & vertical tabs)
+      // Regex for finding the non-safe URL characters (many need escaping):
+      //   & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, vertical tabs, and non-breaking space)
       var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v\u00A0]/g,
           urlText;
 
