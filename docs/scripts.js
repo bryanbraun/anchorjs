@@ -1,12 +1,31 @@
-$(document).ready(function() {
-  var preEls = $('pre');
+function slideExampleCode(e) {
+  e.preventDefault();
 
-  $('.example-code-link').click(function(e) {
-    e.preventDefault();
-    $(this).parent().next().slideToggle();
-  });
+  let slide = e.target.parentElement.nextElementSibling;
+  slide.classList.toggle('open');
+
+  if(slide.classList.contains('open')) {
+    slide.style.maxHeight = slide.scrollHeight + 'px'; // open the example code
+  } else {
+    slide.style.maxHeight = 0; // close the example code
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  let toggleButtons = document.getElementsByClassName('example-code-link'); // get the buttons
+  
+  for(i = 0; i < toggleButtons.length; i++) {
+    toggleButtons[i].addEventListener("click", slideExampleCode); // add the event to each button
+  }
 
   // Dynamically add PrismJS class for syntax highlight
-  preEls.filter('[class*="js"]').find('code').addClass('language-javascript');
-  preEls.filter('.css').find('code').addClass('language-css');
+  let jsCodes = document.querySelectorAll('pre[class*="js"] code');
+  for(i = 0; i < jsCodes.length; i++) {
+    jsCodes[i].classList.add('language-javascript');
+  }
+
+  let cssCodes = document.querySelectorAll('pre.css code');
+  for(i = 0; i < cssCodes.length; i++) {
+    cssCodes[i].classList.add('language-css');
+  }
 });

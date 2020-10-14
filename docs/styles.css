@@ -262,7 +262,9 @@ pre > code {
 }
 
 .example-code {
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .25s ease-out;
 }
 
 .css {
