@@ -13,19 +13,19 @@ function slideExampleCode(e) {
 
 document.addEventListener('DOMContentLoaded', function() {
   let toggleButtons = document.getElementsByClassName('example-code-link'); // get the buttons
-  
-  for(i = 0; i < toggleButtons.length; i++) {
+
+  for(let i = 0; i < toggleButtons.length; i++) {
     toggleButtons[i].addEventListener("click", slideExampleCode); // add the event to each button
   }
 
   // Dynamically add PrismJS class for syntax highlight
   let jsCodes = document.querySelectorAll('pre[class*="js"] code');
-  for(i = 0; i < jsCodes.length; i++) {
+  for(let i = 0; i < jsCodes.length; i++) {
     jsCodes[i].classList.add('language-javascript');
   }
 
   let cssCodes = document.querySelectorAll('pre.css code');
-  for(i = 0; i < cssCodes.length; i++) {
+  for(let i = 0; i < cssCodes.length; i++) {
     cssCodes[i].classList.add('language-css');
   }
 });
