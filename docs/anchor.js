@@ -30,15 +30,15 @@
      * @param {Object} opts - Options object
      */
     function _applyRemainingDefaultOptions(opts) {
-      opts.icon = opts.hasOwnProperty('icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
-      opts.visible = opts.hasOwnProperty('visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
-      opts.placement = opts.hasOwnProperty('placement') ? opts.placement : 'right'; // Also accepts 'left'
-      opts.ariaLabel = opts.hasOwnProperty('ariaLabel') ? opts.ariaLabel : 'Anchor'; // Accepts any text.
-      opts.class = opts.hasOwnProperty('class') ? opts.class : ''; // Accepts any class name.
-      opts.base = opts.hasOwnProperty('base') ? opts.base : ''; // Accepts any base URI.
+      opts.icon = Object.prototype.hasOwnProperty.call(opts, 'icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
+      opts.visible = Object.prototype.hasOwnProperty.call(opts, 'visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
+      opts.placement = Object.prototype.hasOwnProperty.call(opts, 'placement') ? opts.placement : 'right'; // Also accepts 'left'
+      opts.ariaLabel = Object.prototype.hasOwnProperty.call(opts, 'ariaLabel') ? opts.ariaLabel : 'Anchor'; // Accepts any text.
+      opts.class = Object.prototype.hasOwnProperty.call(opts, 'class') ? opts.class : ''; // Accepts any class name.
+      opts.base = Object.prototype.hasOwnProperty.call(opts, 'base') ? opts.base : ''; // Accepts any base URI.
       // Using Math.floor here will ensure the value is Number-cast and an integer.
-      opts.truncate = opts.hasOwnProperty('truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
-      opts.titleText = opts.hasOwnProperty('titleText') ? opts.titleText : ''; // Accepts any text.
+      opts.truncate = Object.prototype.hasOwnProperty.call(opts, 'truncate') ? Math.floor(opts.truncate) : 64; // Accepts any value that can be typecast to a number.
+      opts.titleText = Object.prototype.hasOwnProperty.call(opts, 'titleText') ? opts.titleText : ''; // Accepts any text.
     }
 
     _applyRemainingDefaultOptions(this.options);
@@ -49,7 +49,7 @@
      * @return {Boolean} - true if the current device supports touch.
      */
     this.isTouchDevice = function() {
-      return !!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+      return Boolean('ontouchstart' in window || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch);
     };
 
     /**
@@ -99,7 +99,7 @@
 
       // We produce a list of existing IDs so we don't generate a duplicate.
       elsWithIds = document.querySelectorAll('[id]');
-      idList = [].map.call(elsWithIds, function assign(el) {
+      idList = [].map.call(elsWithIds, function(el) {
         return el.id;
       });
 
@@ -128,6 +128,7 @@
             index = idList.indexOf(newTidyText);
             count += 1;
           } while (index !== -1);
+
           index = undefined;
           idList.push(newTidyText);
 
@@ -149,6 +150,7 @@
         if (this.options.titleText) {
           anchor.title = this.options.titleText;
         }
+
         // Adjust the href if there's a <base> tag. See https://github.com/bryanbraun/anchorjs/issues/98
         hrefBase = document.querySelector('base') ? window.location.pathname + window.location.search : '';
         hrefBase = this.options.base || hrefBase;
@@ -184,6 +186,7 @@
       for (i = 0; i < indexesToDrop.length; i++) {
         elements.splice(indexesToDrop[i] - i, 1);
       }
+
       this.elements = this.elements.concat(elements);
 
       return this;
@@ -208,10 +211,12 @@
           if (index !== -1) {
             this.elements.splice(index, 1);
           }
+
           // Remove the anchor from the DOM.
           elements[i].removeChild(domAnchor);
         }
       }
+
       return this;
     };
 
@@ -237,8 +242,9 @@
       textareaElement.innerHTML = text;
       text = textareaElement.value;
 
-      // Regex for finding the non-safe URL characters (many need escaping): & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, & vertical tabs)
-      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\\n\t\b\v\u00A0]/g,
+      // Regex for finding the non-safe URL characters (many need escaping):
+      //   & +$,:;=?@"#{}|^~[`%!'<>]./()*\ (newlines, tabs, backspace, vertical tabs, and non-breaking space)
+      var nonsafeChars = /[& +$,:;=?@"#{}|^~[`%!'<>\]./()*\\\n\t\b\v\u00A0]/g,
           urlText;
 
       // The reason we include this _applyRemainingDefaultOptions is so urlify can be called independently,
@@ -250,7 +256,7 @@
       // Note: we trim hyphens after truncating because truncating can cause dangling hyphens.
       // Example string:                      // " ⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
       urlText = text.trim()                   // "⚡⚡ Don't forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
-        .replace(/\'/gi, '')                  // "⚡⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
+        .replace(/'/gi, '')                   // "⚡⚡ Dont forget: URL fragments should be i18n-friendly, hyphenated, short, and clean."
         .replace(nonsafeChars, '-')           // "⚡⚡-Dont-forget--URL-fragments-should-be-i18n-friendly--hyphenated--short--and-clean-"
         .replace(/-{2,}/g, '-')               // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-short-and-clean-"
         .substring(0, this.options.truncate)  // "⚡⚡-Dont-forget-URL-fragments-should-be-i18n-friendly-hyphenated-"
@@ -289,8 +295,9 @@
       } else if (Array.isArray(input) || input instanceof NodeList) {
         elements = [].slice.call(input);
       } else {
-        throw new Error('The selector provided to AnchorJS was invalid.');
+        throw new TypeError('The selector provided to AnchorJS was invalid.');
       }
+
       return elements;
     }
 
