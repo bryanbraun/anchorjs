@@ -289,16 +289,27 @@ anchors.add('.story > p');</code></pre>
     <p>Pages with <a href="https://www.w3schools.com/howto/howto_js_navbar_sticky.asp">a sticky navbar</a> can sometimes cover the headings you are trying to link to.</p>
     <p>To prevent this, you can add a few custom styles using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:target">CSS :target pseudo-selector</a> to add margins to targeted headings. Here's an example:</p>
     <pre class="css"><code>/**
-* Create an invisible pseudo-element and make it the height of the
-* sticky navbar so the jump takes you to a location above the link
-*/
-:target::before {
-  content: "";
-  display: block;
-  margin-top: -80px;
-  height: 80px;
-  width: 1px;
-}</code></pre>
+      * Create an invisible pseudo-element and make it the height of the
+      * sticky navbar so the jump takes you to a location above the link
+      */
+      :target::before {
+        content: "";
+        display: block;
+        margin-top: -80px;
+        height: 80px;
+        width: 1px;
+      }
+      
+      /**
+      *Alternatively, you could use the newer <kbd style="background-color:#808080 !important">scroll-margin-top</kbd> property.
+      *<i><b>Note:</b> This may not be supported in all browsers. <a target="_blank" href="https://caniuse.com/?search=scroll-margin-top">Please check caniuse for details.</a></i>
+      */
+      
+      :target {
+      scroll-margin-top: 80px;
+      }
+      
+      </code></pre>
 
     <h3>Pages with changing content</h3>
     <p>It's common to have pages with changing content, like a page for your most recent blog posts, or a page for all posts with a given tag.</p>
