@@ -433,6 +433,7 @@ pre > code {
   border-right-color: #ff5231;
   content: "";
   transition: all .5s ease;
+  box-shadow: 0 3px 0 0 #fff; /* fixes a 1px issue... see: https://github.com/bryanbraun/anchorjs/issues/131 */
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
