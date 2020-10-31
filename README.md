@@ -55,4 +55,4 @@ To contribute:
 
 ## License
 
-Licensed with the [MIT License](/license).
+Licensed with the [MIT License](/LICENSE).
