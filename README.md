@@ -55,4 +55,4 @@ To contribute:
 
 ## License
 
-Licensed with the [MIT License](https://opensource.org/licenses/MIT).
+Licensed with the [MIT License](/license).
