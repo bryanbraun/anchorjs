@@ -3,7 +3,8 @@ name: CI
 on: [push, pull_request]
 
 env:
-  CI: true
+  FORCE_COLOR: 2
+  NODE: 14
 
 jobs:
   test:
@@ -14,9 +15,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: "12"
+          node-version: "${{ env.NODE }}"
 
       - name: Install npm dependencies
         run: npm ci
