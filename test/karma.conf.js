@@ -11,7 +11,7 @@ module.exports = function(config) {
     basePath: '',
 
     // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    // available frameworks: https://www.npmjs.com/search?q=keywords:karma-adapter
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
@@ -20,18 +20,16 @@ module.exports = function(config) {
       'spec/*.js'
     ],
 
-    // list of files to exclude
-    exclude: [
-    ],
+    // list of files / patterns to exclude
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    },
+    // available preprocessors: https://www.npmjs.com/search?q=keywords:karma-preprocessor
+    preprocessors: {},
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    // available reporters: https://www.npmjs.com/search?q=keywords:karma-reporter
     reporters: ['dots'],
 
     // web server port
@@ -48,11 +46,15 @@ module.exports = function(config) {
     autoWatch: false,
 
     // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    // available browser launchers: https://www.npmjs.com/search?q=keywords:karma-launcher
     browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
+
+    // Concurrency level
+    // how many browser instances should be started simultaneously
+    concurrency: Number.POSITIVE_INFINITY
   });
 };
