@@ -268,7 +268,7 @@
 
     /**
      * Determines if this element already has an AnchorJS link on it.
-     * Uses this technique: http://stackoverflow.com/a/5898748/1154642
+     * Uses this technique: https://stackoverflow.com/a/5898748/1154642
      * @param    {HTMLElement}  el - a DOM node
      * @return   {Boolean}     true/false
      */
