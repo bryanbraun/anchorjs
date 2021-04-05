@@ -96,7 +96,7 @@ describe('AnchorJS', function() {
   it('should set the expected default options', function() {
     anchors.add();
 
-    expect(anchors.options.icon).toEqual('\ue9cb');
+    expect(anchors.options.icon).toEqual('\uE9CB');
     expect(anchors.options.visible).toEqual('hover');
     expect(anchors.options.placement).toEqual('right');
     expect(anchors.options.ariaLabel).toEqual('Anchor');
@@ -112,8 +112,8 @@ describe('AnchorJS', function() {
     anchors.add();
     anchorObj = new AnchorJS({ class: 'test-class' });
 
-    expect(anchors.options.icon).toEqual('\ue9cb');
-    expect(anchorObj.options.icon).toEqual('\ue9cb');
+    expect(anchors.options.icon).toEqual('\uE9CB');
+    expect(anchorObj.options.icon).toEqual('\uE9CB');
     expect(anchors.options.visible).toEqual('hover');
     expect(anchorObj.options.visible).toEqual('hover');
     expect(anchors.options.placement).toEqual('right');
@@ -433,7 +433,7 @@ describe('AnchorJS', function() {
     it('allows custom icons to be set, (using octal codes)', function() {
       anchors.add('h1');
       icon = document.querySelector('h1 .anchorjs-link').getAttribute('data-anchorjs-icon');
-      expect(icon).toEqual('\ue9cb');
+      expect(icon).toEqual('\uE9CB');
     });
 
     it('allows unicode icons to be set', function() {

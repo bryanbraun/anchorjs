@@ -30,7 +30,7 @@
      * @param {Object} opts - Options object
      */
     function _applyRemainingDefaultOptions(opts) {
-      opts.icon = Object.prototype.hasOwnProperty.call(opts, 'icon') ? opts.icon : '\ue9cb'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
+      opts.icon = Object.prototype.hasOwnProperty.call(opts, 'icon') ? opts.icon : '\uE9CB'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
       opts.visible = Object.prototype.hasOwnProperty.call(opts, 'visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
       opts.placement = Object.prototype.hasOwnProperty.call(opts, 'placement') ? opts.placement : 'right'; // Also accepts 'left'
       opts.ariaLabel = Object.prototype.hasOwnProperty.call(opts, 'ariaLabel') ? opts.ariaLabel : 'Anchor'; // Accepts any text.
@@ -160,7 +160,7 @@
           anchor.style.opacity = '1';
         }
 
-        if (this.options.icon === '\ue9cb') {
+        if (this.options.icon === '\uE9CB') {
           anchor.style.font = '1em/1 anchorjs-icons';
 
           // We set lineHeight = 1 here because the `anchorjs-icons` font family could otherwise affect the
