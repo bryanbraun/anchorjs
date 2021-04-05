@@ -25,7 +25,7 @@
   "scripts": {
     "add-banner": "node banner.js",
     "copy-dist": "shx cp anchor.js docs/anchor.js",
-    "jasmine": "karma start test/config.js --single-run",
+    "jasmine": "karma start test/karma.conf.js --single-run",
     "lint": "eslint .",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --validate-https --type npm --path package-lock.json",
     "build": "npm-run-all uglify add-banner copy-dist",
