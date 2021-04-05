@@ -30,7 +30,7 @@
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --validate-https --type npm --path package-lock.json",
     "build": "npm-run-all uglify add-banner copy-dist",
     "uglify": "uglifyjs anchor.js --compress --mangle --comments \"/Copyright/\" -o anchor.min.js",
-    "test": "npm-run-all --parallel lint lockfile-lint --serial jasmine"
+    "test": "npm-run-all --continue-on-error --aggregate-output --parallel lint lockfile-lint jasmine"
   },
   "dependencies": {},
   "devDependencies": {
