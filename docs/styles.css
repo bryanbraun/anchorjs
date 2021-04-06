@@ -206,10 +206,15 @@ pre > code {
 .preview-examples {
   max-width: 720px;
   margin: 0 auto;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-line-pack: end;
   align-content: flex-end;
 }
 
@@ -405,6 +410,7 @@ pre > code {
 }
 
 .hover-examples .example:nth-child(4) h3 {
+  display: -ms-flexbox;
   display: flex;
 }
 .hover-examples .example:nth-child(4) .anchorjs-link {
@@ -415,6 +421,7 @@ pre > code {
   font-size: 1rem;
   position: relative;
   top: 2px;
+  -ms-flex: 1;
   flex: 1;
   margin-right: -6%;
   padding-right: 6%;
@@ -422,6 +429,7 @@ pre > code {
   height: 36px;
   line-height: 38px;
   transition: all .5s ease;
+  -ms-transform: translateX(100%);
   transform: translateX(100%);
 }
 .hover-examples .example:nth-child(4) .anchorjs-link::before {
@@ -438,6 +446,7 @@ pre > code {
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link,
 .hover-examples .example:nth-child(4) .anchorjs-link:focus {
+  -ms-transform: translateX(0);
   transform: translateX(0);
 }
 .hover-examples .example:nth-child(4) *:hover > .anchorjs-link:hover,
