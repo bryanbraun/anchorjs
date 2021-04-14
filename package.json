@@ -34,13 +34,13 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^7.17.0",
-    "karma": "^5.2.3",
+    "eslint": "^7.24.0",
+    "karma": "^6.3.2",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^4.0.1",
-    "lockfile-lint": "^4.3.7",
+    "lockfile-lint": "^4.6.2",
     "npm-run-all": "^4.1.5",
     "shx": "^0.3.3",
-    "uglify-js": "^3.12.4"
+    "uglify-js": "^3.13.4"
   }
 }
