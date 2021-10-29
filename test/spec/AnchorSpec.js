@@ -1,8 +1,9 @@
-/* eslint-env jasmine */
+/* eslint-env jasmine, node */
 /* global anchors, AnchorJS */
 
+'use strict';
+
 describe('AnchorJS', function() {
-  'use strict';
   var el1;
 
   beforeEach(function() {
@@ -15,11 +16,11 @@ describe('AnchorJS', function() {
   afterEach(function() {
     var baselineStyles = document.querySelector('style.anchorjs');
     if (baselineStyles) {
-      document.head.removeChild(baselineStyles);
+      baselineStyles.remove();
     }
 
     anchors.removeAll();
-    document.body.removeChild(el1);
+    el1.remove();
   });
 
   it('can detect if an element has an AnchorJS link', function() {
@@ -31,8 +32,8 @@ describe('AnchorJS', function() {
     expect(anchors.hasAnchorJSLink(el2)).toBe(false);
     expect(anchors.hasAnchorJSLink(el3)).toBe(false);
 
-    document.body.removeChild(el2);
-    document.body.removeChild(el3);
+    el2.remove();
+    el3.remove();
   });
 
   it('should not add an anchor link to an h1 by default', function() {
@@ -65,11 +66,11 @@ describe('AnchorJS', function() {
     expect(anchorLink5).not.toBe(null);
     expect(anchorLink6).not.toBe(null);
 
-    document.body.removeChild(el2);
-    document.body.removeChild(el3);
-    document.body.removeChild(el4);
-    document.body.removeChild(el5);
-    document.body.removeChild(el6);
+    el2.remove();
+    el3.remove();
+    el4.remove();
+    el5.remove();
+    el6.remove();
   });
 
   it('add/remove accepts a string (selector), nodelist, or array of els', function() {
@@ -90,7 +91,7 @@ describe('AnchorJS', function() {
     anchors.remove([document.querySelector('h2')]);
     expect(anchors.hasAnchorJSLink(el2)).toBe(false);
 
-    document.body.removeChild(el2);
+    el2.remove();
   });
 
   it('should set the expected default options', function() {
@@ -151,7 +152,7 @@ describe('AnchorJS', function() {
     styleNodes = document.head.querySelectorAll('.anchorjs');
     expect(styleNodes.length).toEqual(1);
 
-    document.body.removeChild(el2);
+    el2.remove();
   });
 
   it('can remove anchors, using the .remove() method.', function() {
@@ -178,7 +179,7 @@ describe('AnchorJS', function() {
     expect(anchors.hasAnchorJSLink(el2)).toBe(false);
     expect(anchors.elements.length).toBe(0);
 
-    document.body.removeChild(el2);
+    el2.remove();
   });
 
   it('can chain methods.', function() {
@@ -198,7 +199,7 @@ describe('AnchorJS', function() {
         id;
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
-    id = document.getElementsByTagName('h1')[0].getAttribute('id');
+    id = document.querySelector('h1').getAttribute('id');
     expect(href).toEqual('#⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
     expect(id).toEqual('⚡⚡-dont-forget-url-fragments-should-be-i18n-friendly-hyphenated');
   });
@@ -206,10 +207,10 @@ describe('AnchorJS', function() {
   it('should leave existing IDs in place, and use them as the href for anchors.', function() {
     var href,
         id;
-    document.getElementsByTagName('h1')[0].setAttribute('id', 'test-id');
+    document.querySelector('h1').setAttribute('id', 'test-id');
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
-    id = document.getElementsByTagName('h1')[0].getAttribute('id');
+    id = document.querySelector('h1').getAttribute('id');
     expect(href).toEqual('#test-id');
     expect(id).toEqual('test-id');
   });
@@ -218,11 +219,11 @@ describe('AnchorJS', function() {
     var href,
         dataId,
         id;
-    document.getElementsByTagName('h1')[0].setAttribute('data-anchor-id', 'test-id');
+    document.querySelector('h1').setAttribute('data-anchor-id', 'test-id');
     anchors.add('h1');
     href = document.querySelector('.anchorjs-link').getAttribute('href');
-    dataId = document.getElementsByTagName('h1')[0].getAttribute('data-anchor-id');
-    id = document.getElementsByTagName('h1')[0].getAttribute('id');
+    dataId = document.querySelector('h1').getAttribute('data-anchor-id');
+    id = document.querySelector('h1').getAttribute('id');
     expect(href).toEqual('#test-id');
     expect(dataId).toEqual('test-id');
     expect(id).toBe(null);
@@ -242,7 +243,7 @@ describe('AnchorJS', function() {
         links;
 
     anchors.add('h2');
-    tags = document.getElementsByTagName('h2');
+    tags = document.querySelectorAll('h2');
     links = document.querySelectorAll('h2 > .anchorjs-link');
     id1 = tags[0].getAttribute('id');
     href1 = links[0].getAttribute('href');
@@ -258,9 +259,9 @@ describe('AnchorJS', function() {
     expect(id3).toEqual('example-title-2');
     expect(href3).toEqual('#example-title-2');
 
-    document.body.removeChild(el2);
-    document.body.removeChild(el3);
-    document.body.removeChild(el4);
+    el2.remove();
+    el3.remove();
+    el4.remove();
   });
 
   it('should create a URL-appropriate href with a custom base', function() {
@@ -295,7 +296,7 @@ describe('AnchorJS', function() {
     var anchorHref;
 
     baseEl.setAttribute('href', document.location.hostname);
-    document.head.appendChild(baseEl);
+    document.head.append(baseEl);
 
     anchors.add('h1');
     anchorHref = document.querySelector('.anchorjs-link').getAttribute('href');
@@ -303,16 +304,16 @@ describe('AnchorJS', function() {
     // This produces a full link in the test environment (/context.html#my-id)
     // but I'll only check for the first character to ensure I'm not testing
     // unimportant parts of the testing framework.
-    expect(anchorHref.charAt(0)).toEqual('/');
+    expect(anchorHref.startsWith('/')).toBe(true);
 
-    document.head.removeChild(baseEl);
+    baseEl.remove();
   });
 
   it('produces relative anchors if no <base> tag is found', function() {
     var anchorHref;
     anchors.add('h1');
     anchorHref = document.querySelector('.anchorjs-link').getAttribute('href');
-    expect(anchorHref.charAt(0)).toEqual('#');
+    expect(anchorHref.startsWith('#')).toBe(true);
   });
 
   describe('exposed elements list', function() {
@@ -327,9 +328,9 @@ describe('AnchorJS', function() {
     });
 
     afterEach(function() {
-      document.body.removeChild(el2);
-      document.body.removeChild(el3);
-      document.body.removeChild(el4);
+      el2.remove();
+      el3.remove();
+      el4.remove();
     });
 
     it('contains added anchors', function() {
@@ -460,7 +461,7 @@ describe('AnchorJS', function() {
     it('`left`, places the anchor to the left of the text.', function() {
       anchors.options.placement = 'left';
       anchors.add('h1');
-      anchorNode = document.getElementsByTagName('h1')[0].firstChild;
+      anchorNode = document.querySelector('h1').firstChild;
       expect(anchorNode.style.position).toEqual('absolute');
       expect(anchorNode.style.marginLeft).toEqual('-1em');
     });
@@ -468,7 +469,7 @@ describe('AnchorJS', function() {
     it('`right`, places the anchor to the right of the text.', function() {
       anchors.options.placement = 'right';
       anchors.add('h1');
-      anchorNode = document.getElementsByTagName('h1')[0].lastChild;
+      anchorNode = document.querySelector('h1').lastChild;
       expect(anchorNode.style.position).toEqual('');
       expect(anchorNode.style.marginLeft).toEqual('');
     });
@@ -542,15 +543,14 @@ describe('AnchorJS', function() {
  * @return {HTMLElement}    - The element you've appended.
  */
 function appendElementToBody(tagName, text) {
-  'use strict';
   var el = document.createElement(tagName),
       textNode;
 
   if (text) {
     textNode = document.createTextNode(text);
-    el.appendChild(textNode);
+    el.append(textNode);
   }
 
-  document.body.appendChild(el);
+  document.body.append(el);
   return el;
 }
