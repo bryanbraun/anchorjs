@@ -49,7 +49,7 @@
      * @return {Boolean} - true if the current device supports touch.
      */
     this.isTouchDevice = function() {
-      return Boolean('ontouchstart' in window || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch);
+      return Boolean('ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch);
     };
 
     /**
