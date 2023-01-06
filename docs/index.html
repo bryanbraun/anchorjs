@@ -183,7 +183,7 @@ anchors.add();</code></pre>
     anchors.add();
   &lt;/script&gt;
 &lt;/body&gt;</code></pre>
-<p>...or on DOMContentLoaded:</p>
+    <p>...or on DOMContentLoaded:</p>
     <pre class="src-js"><code>// Add anchors on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function(event) {
   anchors.add();
@@ -356,16 +356,16 @@ anchors.remove('h1');
  */
 anchors.removeAll();</code></pre>
     <p>Removing anchors with <code>.remove()</code> should be uncommon. If you simply want anchors on a more selective group, consider using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not">the CSS <em>:not()</em> pseudo-class</a> when you add them, like so:</p>
-<pre class="src-js"><code>/**
+    <pre class="src-js"><code>/**
  * Example 2
  * Add anchors to all h2s, except for those with a class of "no-anchor".
  */
 anchors.add('h2:not(.no-anchor)');</code></pre>
 
-<h3>Chaining commands</h3>
-<p>You can chain commands of <code>add()</code> and <code>remove()</code> (since they return a copy of <code>anchors</code>), but it's usually more performant to lean on CSS when targeting elements:
+    <h3>Chaining commands</h3>
+    <p>You can chain commands of <code>add()</code> and <code>remove()</code> (since they return a copy of <code>anchors</code>), but it's usually more performant to lean on CSS when targeting elements:
 
-<pre class="src-js"><code>/**
+    <pre class="src-js"><code>/**
  * Example 1
  * Adds anchors to `.my-anchors` and `.my-other-anchors` except for those
  * with a class of `no-anchor`.
@@ -494,8 +494,9 @@ anchors.add('p');</code></pre>
 anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   font-weight: 200;
-  margin-left: 1em;
-  padding-right: .375em;
+  margin-left: 1em !important;
+  padding-right: .375em !important;
+  padding-left: .375em !important;
   font-size: .5em;
   border: 1px dashed #ffbaac;
   vertical-align: middle;
@@ -540,17 +541,18 @@ anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   display: inline-block;
   height: 32px;
-  width: 18px;
+  width: 32px;
   border-radius: 50%;
   background-color: #ff5231;
   color: #fff;
   margin-top: 4px;
   margin-left: -1.4em !important;
+  padding: 0 !important;
 }
 .anchorjs-link::after {
-  margin-left: 7px;
-  margin-top: -4px;
-  display: block;
+  position: absolute;
+  top: -5px;
+  left: 5px;
 }</code></pre>
         </div>
       </div>
@@ -587,7 +589,7 @@ anchors.add('h3');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   display: inline-block;
   background: url("img/hyperlink.svg") no-repeat;
-  margin-left: 8px;
+  margin-left: 8px !important;
   width: 14px;
   height: 24px;
 }</code></pre>
@@ -611,6 +613,7 @@ anchors.add('h3');</code></pre>
   margin-top: 15px;
   height: 16px;
   width: 20px;
+  margin-left: -1em !important;
 }</code></pre>
         </div>
       </div>
@@ -635,6 +638,8 @@ anchors.add('h3');</code></pre>
   margin-top: 10px;
   font-size: 22px;
   padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-left: -1em !important;
 }</code></pre>
         </div>
       </div>
@@ -652,7 +657,7 @@ anchors.add('h3');</code></pre>
 };
 anchors.add('p');</code></pre>
           <pre class="css"><code>.anchorjs-link {
-  margin-left: -1.8em !important;
+  margin-left: -2.05em !important;
 }</code></pre>
         </div>
       </div>
@@ -700,7 +705,7 @@ anchors.add('h3');</code></pre>
   transition: all .25s linear;
 }
 *:hover > .anchorjs-link {
-  margin-left: -1.125em !important;
+  margin-left: -1.375em !important;
 }</code></pre>
         </div>
       </div>

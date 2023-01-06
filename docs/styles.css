@@ -325,8 +325,9 @@ pre > code {
 
 .examples .example:nth-child(8) .anchorjs-link {
   font-weight: 200;
-  margin-left: 1em;
-  padding-right: .375em;
+  margin-left: 1em !important;
+  padding-right: .375em !important;
+  padding-left: .375em !important;
   font-size: .5em;
   border: 1px dashed #ffbaac;
   vertical-align: middle;
@@ -361,7 +362,7 @@ pre > code {
 .examples .example:nth-child(12) .anchorjs-link {
   display: inline-block;
   background: url("img/hyperlink.svg") no-repeat;
-  margin-left: 8px;
+  margin-left: 8px !important;
   width: 14px;
   height: 24px;
 }
@@ -371,6 +372,7 @@ pre > code {
   margin-top: 15px;
   height: 16px;
   width: 20px;
+  margin-left: -1em !important;
 }
 
 .examples .example:nth-child(14) .anchorjs-link {
@@ -380,17 +382,19 @@ pre > code {
   margin-top: 10px;
   font-size: 22px;
   padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-left: -1em !important;
 }
 
 .examples .example:nth-child(15) .anchorjs-link {
-  margin-left: -1.8em !important;
+  margin-left: -2.05em !important;
 }
 
 .examples .example:nth-child(16) .anchorjs-link {
   display: inline-block;
   width: .375em;
   height: 20px;
-  margin-left: .375em;
+  margin-left: .375em !important;
 }
 
 /* Hover Examples */
@@ -408,7 +412,7 @@ pre > code {
 }
 .hover-examples .example:nth-child(3) *:hover > .anchorjs-link,
 .hover-examples .example:nth-child(3) .anchorjs-link:focus {
-  margin-left: -1.125em !important;
+  margin-left: -1.375em !important;
 }
 
 .hover-examples .example:nth-child(4) h3 {

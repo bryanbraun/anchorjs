@@ -463,7 +463,7 @@ describe('AnchorJS', function() {
       anchors.add('h1');
       anchorNode = document.querySelector('h1').firstChild;
       expect(anchorNode.style.position).toEqual('absolute');
-      expect(anchorNode.style.marginLeft).toEqual('-1em');
+      expect(anchorNode.style.marginLeft).toEqual('-1.25em');
     });
 
     it('`right`, places the anchor to the right of the text.', function() {
@@ -471,7 +471,7 @@ describe('AnchorJS', function() {
       anchors.add('h1');
       anchorNode = document.querySelector('h1').lastChild;
       expect(anchorNode.style.position).toEqual('');
-      expect(anchorNode.style.marginLeft).toEqual('');
+      expect(anchorNode.style.marginLeft).toEqual('0.1875em');
     });
   });
 
