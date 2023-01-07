@@ -21,13 +21,6 @@
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-twilight.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="grunticon/grunticon.loader.js"></script>
-  <script>
-    grunticon(["grunticon/icons.data.svg.css", "grunticon/icons.data.png.css", "grunticon/icons.fallback.css"]);
-  </script>
-  <noscript>
-    <link rel="stylesheet" href="grunticon/icons.fallback.css">
-  </noscript>
 </head>
 <body>
   <a href="https://github.com/bryanbraun/anchorjs" class="github-corner" aria-label="View source on GitHub">
@@ -554,7 +547,7 @@ anchors.add('h3');</code></pre>
   margin-top: 4px;
   margin-left: -1.4em !important;
 }
-.anchorjs-link::before {
+.anchorjs-link::after {
   margin-left: 7px;
   margin-top: -4px;
   display: block;
@@ -660,32 +653,6 @@ anchors.add('h3');</code></pre>
 anchors.add('p');</code></pre>
           <pre class="css"><code>.anchorjs-link {
   margin-left: -1.8em !important;
-}</code></pre>
-        </div>
-      </div>
-
-      <div class="example">
-        <div class="example-content">
-          <h3>Grunticon</h3>
-          <p>Lorem ipsum dolor consectetur amet nulla elit. Vivamus luctus urna sed urna ultricies. Vivamus luctus urna sed.</p>
-          <a href="#" class="example-code-link">{}</a>
-        </div>
-        <div class="example-code">
-          <pre class="js"><code>// Assuming you have set up
-// grunticon and you have a
-// grunticon class named
-// 'icon-grunticon-link'...
-anchors.options = {
-  visible: 'always',
-  class: 'icon-grunticon-link'
-  icon: ''
-};
-anchors.add('h3');</code></pre>
-          <pre class="css"><code>.anchorjs-link {
-  display: inline-block;
-  margin-left: .375em;
-  width: .375em;
-  height: 20px;
 }</code></pre>
         </div>
       </div>
@@ -932,13 +899,6 @@ anchors.add('h3');</code></pre>
       icon: '⚓'
     });
     ex15.add('.examples .example:nth-child(15) p');
-
-    var ex16 = new AnchorJS({
-      visible: 'always',
-      class: 'icon-grunticon-link',
-      icon: ''
-    });
-    ex16.add('.examples .example:nth-child(16) h3');
 
     var hovEx1 = new AnchorJS();
     hovEx1.add('.hover-examples .example:nth-child(1) h3');
