@@ -371,7 +371,7 @@ pre > code {
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDIwIDEwIj48cGF0aCBmaWxsPSIjZmY1MjMxIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNSAwaC0yLjY5NWMuOTM3LjYyNSAxLjgxNiAxLjczOCAyLjA5IDIuNWguNTg1YzEuMjcgMCAyLjUgMS4yNSAyLjUgMi41cy0xLjI3IDIuNS0yLjUgMi41aC0zLjc1QzEwIDcuNSA4LjczIDYuMjUgOC43MyA1YzAtLjQ1LjEzNy0uODc5LjM1Mi0xLjI1SDYuNDA2Yy0uMDk3LjQxLS4xNTYuODItLjE1NiAxLjI1IDAgMi41IDIuNDggNSA0Ljk4IDVIMTVjMi41IDAgNS0yLjUgNS01cy0yLjUtNS01LTV6TTUuNjA1IDcuNUg1LjAyYy0xLjI3IDAtMi41LTEuMjUtMi41LTIuNXMxLjI3LTIuNSAyLjUtMi41aDMuNzVjMS4yMyAwIDIuNSAxLjI1IDIuNSAyLjUgMCAuNDUtLjEzNy44NzktLjM1MiAxLjI1aDIuNjc2Yy4wOTctLjQxLjE1Ni0uODIuMTU2LTEuMjUgMC0yLjUtMi40OC01LTQuOTgtNUg1QzIuNSAwIDAgMi41IDAgNXMyLjUgNSA1IDVoMi42OTVjLS45MzctLjYyNS0xLjgxNi0xLjczOC0yLjA5LTIuNXoiLz48L3N2Zz4=") no-repeat;
   margin-top: 15px;
   height: 16px;
-  width: 20px;
+  width: 6px;
   margin-left: -1em !important;
 }
 
@@ -388,13 +388,6 @@ pre > code {
 
 .examples .example:nth-child(15) .anchorjs-link {
   margin-left: -2.05em !important;
-}
-
-.examples .example:nth-child(16) .anchorjs-link {
-  display: inline-block;
-  width: .375em;
-  height: 20px;
-  margin-left: .375em !important;
 }
 
 /* Hover Examples */
