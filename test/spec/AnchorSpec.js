@@ -517,16 +517,7 @@ describe('AnchorJS', function() {
       expect(opacity).toEqual('1');
     });
 
-    it('`touch` invokes the `always` behavior for touch devices', function() {
-      spyOn(anchors, 'isTouchDevice').and.returnValue(true);
-      anchors.options.visible = 'touch';
-      anchors.add('h1');
-      opacity = document.querySelector('.anchorjs-link').style.opacity;
-      expect(opacity).toEqual('1');
-    });
-
-    it('`touch` invokes the `hover` behavior for non-touch devices', function() {
-      spyOn(anchors, 'isTouchDevice').and.returnValue(false);
+    it('`touch` invokes the `hover` behavior (a fallback for the legacy `touch` option)', function() {
       anchors.options.visible = 'touch';
       anchors.add('h1');
       opacity = document.querySelector('.anchorjs-link').style.opacity;

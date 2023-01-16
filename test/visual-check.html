@@ -41,8 +41,9 @@
   <section class="main">
     <h1 class="page-title">AnchorJS</h1>
     <div class="anchorjs-logo"></div>
-    <p class="intro"><strong>Hover over each heading to see the anchor link produced by AnchorJS.</strong></p>
-    <div class="content">
+    <div class="hover-anchors">
+      <p class="intro"><strong>Hover over each heading to see the anchor link produced by AnchorJS.</strong></p>
+
       <h1 id="test-id-1">H1 with ID</h1>
       <p>
         If the element being selected has an ID, AnchorJS will create anchors that link to that ID. For example, because the h1 above has an id of <code>test-id-1</code>, AnchorJS creates an anchor link with an href of <code>href="#test-id-1"</code>. Anchor links will always use relative paths.
@@ -97,14 +98,31 @@
         <h1 data-anchor-id="section">Section Highlighting Example</h1>
         <p>The section including this paragraph should get highlighted when clicking the link.</p>
       </section>
+    </div>
 
+    <br />
+    <hr />
+    <br />
+
+    <div class="visible-anchors">
+      <p class="intro"><strong>The anchors below should be visible without hovering.</strong></p>
+
+      <h1>H1 Anchors that always show</h1>
+      <h2>H2 Anchors that always show</h2>
+      <h3>H3 Anchors that always show</h3>
+      <h4>H4 Anchors that always show</h4>
 
     </div>
   </section>
   <script src="../anchor.js"></script>
   <script>
-    var selector = '.content h1, .content h2, .content h3, .content h4';
-    anchors.add(selector);
+    const hoverAnchors = new AnchorJS();
+    const hoverSelector = '.hover-anchors h1, .hover-anchors h2, .hover-anchors h3, .hover-anchors h4';
+    hoverAnchors.add(hoverSelector);
+
+    const visibleAnchors = new AnchorJS({ visible: "always", placement: "left" });
+    const visibleSelector = '.visible-anchors h1, .visible-anchors h2, .visible-anchors h3, .visible-anchors h4';
+    visibleAnchors.add(visibleSelector);
   </script>
 </body>
 </html>

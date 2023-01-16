@@ -130,6 +130,7 @@
       "error",
       "never"
     ],
+    "space-before-function-paren": ["error", "never"],
     "space-unary-ops": [
       "error",
       {
