@@ -2,7 +2,7 @@
 /* globals module:false */
 
 // https://github.com/umdjs/umd/blob/master/templates/returnExports.js
-(function (root, factory) {
+(function(root, factory) {
   'use strict';
 
   if (typeof define === 'function' && define.amd) {
@@ -18,7 +18,7 @@
     root.AnchorJS = factory();
     root.anchors = new root.AnchorJS();
   }
-}(this, function () {
+}(globalThis, function() {
   'use strict';
 
   function AnchorJS(options) {
@@ -31,7 +31,7 @@
      */
     function _applyRemainingDefaultOptions(opts) {
       opts.icon = Object.prototype.hasOwnProperty.call(opts, 'icon') ? opts.icon : '\uE9CB'; // Accepts characters (and also URLs?), like  '#', '¶', '❡', or '§'.
-      opts.visible = Object.prototype.hasOwnProperty.call(opts, 'visible') ? opts.visible : 'hover'; // Also accepts 'always' & 'touch'
+      opts.visible = Object.prototype.hasOwnProperty.call(opts, 'visible') ? opts.visible : 'hover'; // Also accepts 'always'
       opts.placement = Object.prototype.hasOwnProperty.call(opts, 'placement') ? opts.placement : 'right'; // Also accepts 'left'
       opts.ariaLabel = Object.prototype.hasOwnProperty.call(opts, 'ariaLabel') ? opts.ariaLabel : 'Anchor'; // Accepts any text.
       opts.class = Object.prototype.hasOwnProperty.call(opts, 'class') ? opts.class : ''; // Accepts any class name.
@@ -42,15 +42,6 @@
     }
 
     _applyRemainingDefaultOptions(this.options);
-
-    /**
-     * Checks to see if this device supports touch. Uses criteria pulled from Modernizr:
-     * https://github.com/Modernizr/Modernizr/blob/da22eb27631fc4957f67607fe6042e85c0a84656/feature-detects/touchevents.js#L40
-     * @return {Boolean} - true if the current device supports touch.
-     */
-    this.isTouchDevice = function() {
-      return Boolean('ontouchstart' in window || window.TouchEvent || window.DocumentTouch && document instanceof DocumentTouch);
-    };
 
     /**
      * Add anchor links to page elements.
@@ -69,7 +60,6 @@
           tidyText,
           newTidyText,
           anchor,
-          visibleOptionToUse,
           hrefBase,
           indexesToDrop = [];
 
@@ -78,11 +68,6 @@
       //
       // anchors.options = { visible: 'always'; }
       _applyRemainingDefaultOptions(this.options);
-
-      visibleOptionToUse = this.options.visible;
-      if (visibleOptionToUse === 'touch') {
-        visibleOptionToUse = this.isTouchDevice() ? 'always' : 'hover';
-      }
 
       // Provide a sensible default selector, if none is given.
       if (!selector) {
@@ -156,7 +141,7 @@
         hrefBase = this.options.base || hrefBase;
         anchor.href = hrefBase + '#' + elementID;
 
-        if (visibleOptionToUse === 'always') {
+        if (this.options.visible === 'always') {
           anchor.style.opacity = '1';
         }
 
@@ -291,7 +276,6 @@
       if (typeof input === 'string' || input instanceof String) {
         // See https://davidwalsh.name/nodelist-array for the technique transforming nodeList -> Array.
         elements = [].slice.call(document.querySelectorAll(input));
-      // I checked the 'input instanceof NodeList' test in IE9 and modern browsers and it worked for me.
       } else if (Array.isArray(input) || input instanceof NodeList) {
         elements = [].slice.call(input);
       } else {
