@@ -7,7 +7,7 @@
     "eslint:recommended"
   ],
   "globals": {
-    "DocumentTouch": true
+    "globalThis": true
   },
   "rules": {
     "array-bracket-spacing": [

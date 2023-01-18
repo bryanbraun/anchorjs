@@ -18,7 +18,7 @@
     root.AnchorJS = factory();
     root.anchors = new root.AnchorJS();
   }
-}(this, function() {
+}(globalThis, function() {
   'use strict';
 
   function AnchorJS(options) {
