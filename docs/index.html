@@ -147,11 +147,15 @@ anchors.add('p');</code></pre>
 
 const anchors = new AnchorJS();
 anchors.add();</code></pre>
-    <p>You could also include it in your webpage via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="https://www.jsdelivr.com/package/npm/anchor-js">jsDelivr</a>:</p>
+    <p>You could also include it in your webpage via a CDN like <a href="https://cdnjs.com/libraries/anchor-js">CDNJS</a> or <a href="https://www.jsdelivr.com/package/npm/anchor-js">jsDelivr</a>,</p>
     <pre class="src-js"><code>&#x3C;script src=&#x22;https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js&#x22;&#x3E;&#x3C;/script&#x3E;
 &#x3C;script&#x3E;
   anchors.add();
 &#x3C;/script&#x3E;</code></pre>
+    <p>...or import it globally with ES Modules:</p>
+    <pre class="src-js"><code>import 'https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js';
+
+anchors.add();</code></pre>
 
     <h2>Basic usage</h2>
     <p>AnchorJS provides the <code>anchors.add()</code> method which takes a CSS selector (similar to jQuery) for targeting elements you want to deep-link. Here are some usage examples.</p>

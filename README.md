@@ -14,7 +14,7 @@ Download AnchorJS using npm,
 npm install anchor-js
 ```
 
-...and then include it into your project:
+…and then include it into your project:
 
 ```js
 import AnchorJS from 'anchor-js';
@@ -23,13 +23,21 @@ const anchors = new AnchorJS();
 anchors.add();
 ```
 
-You could also include it in your webpage via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/package/npm/anchor-js).
+You could also include it in your webpage via a CDN like [CDNJS](https://cdnjs.com/libraries/anchor-js) or [jsDelivr](https://www.jsdelivr.com/package/npm/anchor-js),
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 <script>
    anchors.add();
 </script>
+```
+
+…or import it globally with ES Modules:
+
+```js
+import 'https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js';
+
+anchors.add();
 ```
 
 ## Usage
@@ -40,7 +48,7 @@ See **[the Documentation](https://www.bryanbraun.com/anchorjs/#basic-usage)** fo
 
 Currently Supports: IE9+ and modern browsers
 
-## Contributing [![devDependency Status](https://img.shields.io/david/dev/bryanbraun/anchorjs.svg?style=flat)](https://david-dm.org/bryanbraun/anchorjs?type=dev)
+## Contributing
 
 To contribute:
 
