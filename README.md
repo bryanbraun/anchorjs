@@ -53,13 +53,19 @@ Currently Supports: IE9+ and modern browsers
 To contribute:
 
 1. Fork/Clone the repo.
-2. Make your changes.
+2. Make your changes (the main source file is `anchor.js`).
 3. Write tests as needed.
 4. Run tests locally to confirm everything is working:
    - Install test modules: Run `npm ci`
    - Run all tests: `npm test`
 5. Minify and prepare the code: `npm run build`
 6. Submit a Pull Request.
+
+### Docs
+
+The docs site (in `/docs`) is a good place to test changes visually, because it has a lot of AnchorJS examples. The site can be viewed locally by opening `/docs/index.html` in a web browser. The docs are written in plain HTML and can be edited directly.
+
+The version of AnchorJS used in the docs (`docs-anchor.js`) is a copy of the true source file (`anchor.js`), and is unminified (for easy testing, editing, and debugging). You don't need to include changes to `docs-anchor.js` in your PR. `docs-anchor.js` is overwritten to the latest version of AnchorJS source as part of `npm run build` (which is run when publishing a new version of anchor-js).
 
 ## License
 
