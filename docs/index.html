@@ -179,8 +179,8 @@ anchors.add('.anchored');
 anchors.add();</code></pre>
 
     <h3>Don't run it too late!</h3>
-    <p>You need to add anchors to the page early in the page load process if you want browsers to jump to the ID properly.</p>
-    <p>We recommend you call <code>anchors.add()</code> before the DOM finishes loading...</p>
+    <p>You need to add IDs to the page early in the page load process if you want browsers to jump to the anchor location properly (<a href="https://github.com/bryanbraun/anchorjs/issues/69#issuecomment-247010907" target="_blank">more details here</a>).</p>
+    <p>Thus, we recommend that most sites call <code>anchors.add()</code> before the DOM finishes loading...</p>
 
     <pre><code class="language-markup">&lt;!-- Add anchors before the closing body tag. --&gt;
   &lt;script&gt;
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   anchors.add();
 });</code></pre>
 
-    <p>Don't add anchors on later events, like <code>$(document).ready()</code> or <code>window.onload</code> as some browsers will attempt to jump to your ID before AnchorJS can add it to the page. For more details, see <a href="https://github.com/bryanbraun/anchorjs/issues/69#issuecomment-255503575">github issue #69</a>).</p>
+    <p>Don't add anchors on later events, like <code>$(document).ready()</code> or <code>window.onload</code> as some browsers will attempt to jump to your ID before AnchorJS can add it to the page. That said, if you are <strong>not</strong> using AnchorJS to add IDs (meaning, your page already has anchor IDs on it), then you can safely call AnchorJS later. For more details, see <a href="https://github.com/bryanbraun/anchorjs/issues/69">github issue #69</a>.</p>
 
     <h2>Options</h2>
     <p>You can set a number of options to customize how your anchors look:</p>
